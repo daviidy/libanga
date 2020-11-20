@@ -126,11 +126,11 @@ body {
     .hero .wave img {
         width: 100%;
         min-width: 1000px;
-        margin-bottom: -1px;
+        margin-bottom: -4px;
     }
 
     .hero .wave .spacer {
-        background: #fff;
+        background: #1a1b20;
         height: 65px;
     }
 
@@ -145,6 +145,10 @@ body {
     .dropdown-menu {
         left: revert!important;
         right: 0;
+    }
+
+    .box-shadow {
+    box-shadow: -1px 0px 4px 0 rgb(0 0 0 / 70%), 0px 2px 10px 0 rgb(0 0 0 / 70%);
     }
 
 }
