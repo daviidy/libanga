@@ -78,6 +78,10 @@ border-top: 1px solid #232323!important;
   box-shadow: 0px 0px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
+.modal{
+  background: #000000c7;
+}
+
 @media (max-width: 768px){
   .h-box {
       height: 100%;
@@ -171,6 +175,7 @@ border-top: 1px solid #232323!important;
 
     .modal-content{
       width: 75%!important;
+      margin: 0 auto;
     }
 
     .avatar-login-img {
