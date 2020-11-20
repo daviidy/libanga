@@ -1,0 +1,150 @@
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.avatar-size{
+  width: 45px;
+}
+
+.bg-main{
+  background-color: #1a1b20;
+}
+
+.hero {
+    background: #2ebd50;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.bg-hero {
+  background-color: #2ebd50;
+}
+
+.btn-h-2 {
+    font-weight: bold;
+    background: #005a8d !important;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.btn-h {
+    font-weight: bold;
+    background: #005a8d !important;
+    font-size: 24px;
+    line-height: 28px;
+    min-height: 65px;
+}
+
+.btn-shadow {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.bg-audio {
+    background-color: #f287b6;
+}
+
+.pre-border {
+    border: 2px solid #aaa;
+}
+
+.h-phar {
+    height: 25em;
+}
+
+.i-fas {
+    font-size: 45px;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.box-hover:hover{
+  position: relative;
+  top:5px;
+}
+
+@media (max-width: 768px){
+  .h-box {
+      height: 100%;
+      width: 100%;
+  }
+
+  .w-21 {
+      width: 100%;
+  }
+  .position-relative .display-4 {
+    font-size: calc(100% + 1vw + 1vh)!important;
+  }
+  .hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+    .hero .telephone-image {
+        width: 500px;
+        height: 600px;
+        background: url('/images/slidejack.png') no-repeat center;
+        background-position-x: center;
+        background-size: contain;
+        position: relative;
+        bottom: 35px;
+    }
+
+    .hero .image {
+        margin-top: 0;
+    }
+
+    .hero .wave {
+        z-index: 1;
+    }
+
+    .hero .image {
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+        margin-top: 20px;
+    }
+
+    .hero .cta {
+        justify-content: center;
+        z-index: 20;
+    }
+
+    .hero .wave {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 0;/*c'etait à 20*/
+    }
+
+    .hero .wave img {
+        width: 100%;
+        min-width: 1000px;
+        margin-bottom: -1px;
+    }
+
+    .hero .wave .spacer {
+        background: #fff;
+        height: 65px;
+    }
+
+    .text-responsive {
+      font-size: calc(5% + 1vw + 1vh)!important;
+    }
+
+    .height-responsive {
+      height: calc(100% + 10px);
+    }
+
+    .dropdown-menu {
+        left: revert!important;
+        right: 0;
+    }
+
+}
