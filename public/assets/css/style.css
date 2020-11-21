@@ -43,23 +43,15 @@ body {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
-.bg-audio {
-    background-color: #f287b6;
-}
+.popup-shadow {
+  box-shadow: 0 -10px 8px 0 rgb(0 0 0 / 70%), 0px 5px 25px 0 rgb(0 0 0 / 65%);
 
-.pre-border {
-    border: 2px solid #aaa;
 }
 
 .h-phar {
     height: 25em;
 }
 
-.i-fas {
-    font-size: 45px;
-    padding: 15px;
-    border-radius: 50%;
-}
 
 .box-hover:hover{
   position: relative;
@@ -71,15 +63,15 @@ border-top: 1px solid #232323!important;
 }
 
 .svg-delete {
-  bottom: 65px;
-  left: 10px;
+  top: 10px;
+  right: 10px;
   padding: 5px;
   background-color: #fff;
   box-shadow: 0px 0px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
 .modal{
-  background: #000000c7;
+  background: #1a1b20;
 }
 
 @media (max-width: 768px){
