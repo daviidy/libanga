@@ -56,12 +56,18 @@
 
 <footer class="container-fluid bg-main border-top-footer">
   <div class="p-md-4 p-3 text-white">
-      © <span id="year">2020 </span> LIBANGA. TOUS DROITS RÉSERVÉS.
+      © <span id="year">2010 </span> LIBANGA. TOUS DROITS RÉSERVÉS.
   </div>
 </footer>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script>
+/*COPYRIGTH SCRIPT*/
+var date = new Date();
+var annee = date.getFullYear();
+document.getElementById('year').innerHTML = annee;
+</script>
 </body>
 </html>

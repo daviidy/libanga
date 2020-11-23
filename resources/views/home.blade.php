@@ -26,74 +26,86 @@
         </div>
         <div class="row py-4">
           <div class="col-md-2">
-            <div class="p-3 box-shadow rounded ">
-              <div class="">
-                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+            <a href="#" class="text-decoration-none">
+              <div class="p-3 box-shadow rounded ">
+                <div class="">
+                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+                </div>
+                <div class="pt-2">
+                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
+                  <p class="text-white">Nouvel album</p>
+                </div>
               </div>
-              <div class="pt-2">
-                <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                <p class="text-white">Nouvel album</p>
-              </div>
-            </div>
+            </a>
           </div>
           <div class="col-md-2">
-            <div class="p-3 box-shadow rounded ">
-              <div class="">
-                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+            <a href="#" class="text-decoration-none">
+              <div class="p-3 box-shadow rounded ">
+                <div class="">
+                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+                </div>
+                <div class="pt-2">
+                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
+                  <p class="text-white">Nouvel album</p>
+                </div>
               </div>
-              <div class="pt-2">
-                <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                <p class="text-white">Nouvel album</p>
-              </div>
-            </div>
+            </a>
           </div>
 
           <div class="col-md-2 ">
-            <div class="p-3 box-shadow rounded">
-              <div class="">
-                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+            <a href="#" class="text-decoration-none">
+              <div class="p-3 box-shadow rounded ">
+                <div class="">
+                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+                </div>
+                <div class="pt-2">
+                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
+                  <p class="text-white">Nouvel album</p>
+                </div>
               </div>
-              <div class="pt-2">
-                <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                <p class="text-white">Nouvel album</p>
-              </div>
-            </div>
+            </a>
           </div>
 
           <div class="col-md-2">
-            <div class="p-3 box-shadow rounded ">
-              <div class="">
-                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+            <a href="#" class="text-decoration-none">
+              <div class="p-3 box-shadow rounded ">
+                <div class="">
+                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+                </div>
+                <div class="pt-2">
+                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
+                  <p class="text-white">Nouvel album</p>
+                </div>
               </div>
-              <div class="pt-2">
-                <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                <p class="text-white">Nouvel album</p>
-              </div>
-            </div>
+            </a>
           </div>
 
           <div class="col-md-2">
-            <div class="p-3 box-shadow rounded ">
-              <div class="">
-                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+            <a href="#" class="text-decoration-none">
+              <div class="p-3 box-shadow rounded ">
+                <div class="">
+                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+                </div>
+                <div class="pt-2">
+                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
+                  <p class="text-white">Nouvel album</p>
+                </div>
               </div>
-              <div class="pt-2">
-                <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                <p class="text-white">Nouvel album</p>
-              </div>
-            </div>
+            </a>
           </div>
 
           <div class="col-md-2">
-            <div class="p-3 box-shadow rounded ">
-              <div class="">
-                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+            <a href="#" class="text-decoration-none">
+              <div class="p-3 box-shadow rounded ">
+                <div class="">
+                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
+                </div>
+                <div class="pt-2">
+                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
+                  <p class="text-white">Nouvel album</p>
+                </div>
               </div>
-              <div class="pt-2">
-                <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                <p class="text-white">Nouvel album</p>
-              </div>
-            </div>
+            </a>
           </div>
 
         </div>
