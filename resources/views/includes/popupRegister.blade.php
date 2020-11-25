@@ -65,13 +65,13 @@
               <p class="text-center">Avez-vous un compte? <a href="#" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalLogin" >Connectez-vous</a> </p>
             </div>
 
-            <div class="p-md-4 p-3 text-center" type="submit" style="border-radius: 0 0 7px 7px; background:#6f23ff">
-              <p class="text-white mb-0 text-uppercase"><button type="submit" class="btn btn-primary">{{ __("S'inscrire") }}</button>
-                {{-- <span><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <button type="submit" class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase" style="border-radius: 0 0 7px 7px; background:#6f23ff">
+                {{ __("S'inscrire") }} <span><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-              </svg></span> --}}
-              </p>
-            </div>
+              </svg></span>
+              </button>
+                {{-- --}}
+
           </form>
       </div>
     </div>
