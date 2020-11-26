@@ -17,7 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/assets/css/dashboard.css">
+  <link rel="stylesheet" href="/assets/css/showArtiste.css">
 
 </head>
 
@@ -25,11 +25,11 @@
   <header>
     <nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top">
       <ul class="navbar-nav flex-row align-items-center">
-        <li class="nav-item">
+        <!--li class="nav-item">
           <a href="#">
             <i class="fas fa-bars hamburger"></i>
           </a>
-        </li>
+        </li-->
         <li class="nav-item ml-3">
           <a href="/">
             <img class="logo-short img-fluid" src="./assets/images/logo-os-noir.png" alt="Logo">
