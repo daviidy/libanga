@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-
+/*Route text*/
+Route::get('/artiste', function () {
+    return view('artiste');
+});
+/*end route text*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
