@@ -57,10 +57,10 @@
                       <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">Prestation</h5>
+                      <h5 class="card-title font-weight-bold">Prestation</h5>
                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                       <i class="fas fa-heart"></i>
                       <small class="text-muted">15000 Fcfa</small>
                     </div>
@@ -72,10 +72,10 @@
                       <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">Prestation</h5>
+                      <h5 class="card-title font-weight-bold">Prestation</h5>
                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                       <i class="fas fa-heart"></i>
                       <small class="text-muted">15000 Fcfa</small>
                     </div>
@@ -87,10 +87,10 @@
                       <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">Prestation</h5>
+                      <h5 class="card-title font-weight-bold">Prestation</h5>
                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                       <i class="fas fa-heart"></i>
                       <small class="text-muted">15000 Fcfa</small>
                     </div>
@@ -133,7 +133,7 @@
           </svg></span>
         <div class=" rounded-lg popup-shadow">
           <div class="" style="border-radius: 7px; background:#e7cbc2">
-            <div class="position-relative text-center p-3" style="bottom:30px">
+            <div class="position-relative text-center p-md-3 p-2" style="bottom:30px">
               <div class="mx-auto">
                 <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" alt="" class="img-fluid rounded-circle avatar-login-img">
               </div>
