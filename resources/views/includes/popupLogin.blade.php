@@ -43,7 +43,7 @@
             <div class="input-group input-group-lg mb-3">
                 {{-- <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label> --}}
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas1 fa-envelope"></i></span>
+                    <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-envelope"></i></span>
                 </div>
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
 
