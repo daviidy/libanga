@@ -24,3 +24,5 @@ Route::get('/artiste', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
+Route::get('auth/callback/facebook', 'Auth\LoginController@handleFacebookCallback');

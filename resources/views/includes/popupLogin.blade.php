@@ -68,6 +68,11 @@
                     @enderror
 
             </div>
+
+            <a class="btn btn-small btn-primary btn-block" href="{{ url('auth/facebook') }}">
+                <strong>Login With Facebook</strong>
+            </a>
+
             <p class="text-center">
                 @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">

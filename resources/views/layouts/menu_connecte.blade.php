@@ -48,6 +48,11 @@
             <a class="dropdown-item" href="#">Link 1</a>
             <a class="dropdown-item" href="#">Link 2</a>
             <a class="dropdown-item" href="#">Link 3</a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+             {{ __('Déconnexion') }}
+             </a>
           </div>
         </li>
       </ul>
