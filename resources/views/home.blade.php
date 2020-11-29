@@ -111,15 +111,23 @@
         </div>
       </section>
       <section class="container-fluid">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="p-4">
-              <img src="/assets/images/abort.jpg" alt="" class="img-fluid">
+        <div class="row p-md-5">
+          <!--div class="col-md-6">
+            <div class="p-4 text-center">
+              <img src="/assets/images/abort3.png" alt="" class="img-fluid" style="height:300px">
             </div>
           </div>
           <div class="col-md-6">
             <div class="p-4">
               <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+            </div>
+          </div>
+        </div-->
+        <div class="col-md-12">
+          <div class="d-md-flex d-block">
+            <img src="/assets/images/abort3.png" alt="" class="img-fluid" style="height:300px">
+            <div class="p-md-5 p-2">
+              <p class="text-white p-md-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
             </div>
           </div>
         </div>
