@@ -117,7 +117,7 @@
         <div class="row p-md-5">
           <div class="col-md-6">
             <div class="p-4 text-center">
-            <img src="/assets/images/abort.jpg" alt="abord" class="img-fluid">
+            <img src="/assets/images/abort2.jpg" alt="abord" class="img-fluid">
             </div>
           </div>
           <div class="col-md-6">
@@ -173,7 +173,7 @@
           </div>
           <div class="col-md-6">
             <div class="p-4 text-center">
-            <img src="/assets/images/abort.jpg" alt="abord" class="img-fluid">
+            <img src="/assets/images/abort3.webp" alt="abord" class="img-fluid">
             </div>
           </div>
         </div>
