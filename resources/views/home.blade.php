@@ -4,7 +4,10 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12 col-md-7 d-flex flex-column cta px-md-3 px-0 py-5">
-              <p class=" mb-md-5 font-weight-bold display-4"> <span class="font-weight-lighter">Bienvenu sur  </span>Libanga</p>
+              <div class=" mb-md-5 ">
+                <p class="font-weight-bold display-4"> <span class="font-weight-lighter">Bienvenu sur  </span>Libanga</p>
+                <h4>Le Name-dropping à portée de clic </h4>
+              </div>
               <div class="text-left mt-md-5 my-4">
                 <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">S'inscrire</a>
               </div>
@@ -112,22 +115,65 @@
       </section>
       <section class="container-fluid">
         <div class="row p-md-5">
-          <!--div class="col-md-6">
+          <div class="col-md-6">
             <div class="p-4 text-center">
-              <img src="/assets/images/abort3.png" alt="" class="img-fluid" style="height:300px">
+            <img src="/assets/images/abort.jpg" alt="abord" class="img-fluid">
             </div>
           </div>
           <div class="col-md-6">
-            <div class="p-4">
-              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-            </div>
+            <div class="text-white">
+            <p class="py-md-5">Vous avez toujours entendu des noms de personnes êtres immortalisés dans des chansons de grands artistes, vous rêvez que le vôtre aussi soit cité ? Vous êtes au bon endroit.
+              Libanga est l’intermédiaire de confiance entre votre artiste préféré et vous.
+              Libanga s’assure que l’artiste vous dédicace bien dans son album et garantie à l’artiste le paiement de la prestation.
+            </p>
+
           </div>
-        </div-->
-        <div class="col-md-12">
+          </div>
+        </div>
+        <!--div class="col-md-12">
           <div class="d-md-flex d-block">
             <img src="/assets/images/abort3.png" alt="" class="img-fluid" style="height:300px">
             <div class="p-md-5 p-2">
-              <p class="text-white p-md-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+              <p class="text-white p-md-5">Vous avez toujours entendu des noms de personnes êtres immortalisés dans des chansons de grands artistes, vous rêvez que le vôtre aussi soit cité ? Vous êtes au bon endroit.
+                Libanga est l’intermédiaire de confiance entre votre artiste préféré et vous.
+                Libanga s’assure que l’artiste vous dédicace bien dans son album et garantie à l’artiste le paiement de la prestation.
+</p>
+            </div>
+          </div>
+        </div-->
+        <h3 class="m-auto text-center text-white text-uppercase">Comment ça marche ?</h3>
+
+        <div class="row p-md-5">
+          <div class="col-md-6 text-white">
+            <div class="">
+              <ul class="list-group">
+                <li class="list-group-item bg-main border-0 d-flex align-items-center">
+                  <span class="badge badge-dark rounded-circle p-3 mr-3 font-weight-ace_bold">1</span>
+                  Créez un compte
+                </li>
+                <li class="list-group-item bg-main border-0 d-flex align-items-center">
+                  <span class="badge badge-dark rounded-circle p-3 mr-3 font-weight-ace_bold">2</span>
+                  Sélectionnez l’artiste
+                </li>
+                <li class="list-group-item bg-main border-0 d-flex align-items-center">
+                  <span class="badge badge-dark rounded-circle p-3 mr-3 font-weight-ace_bold">3</span>
+                  Renseignez le nom que vous souhaitez faire dédicacer
+                </li>
+                <li class="list-group-item bg-main border-0 d-flex align-items-center">
+                  <span class="badge badge-dark rounded-circle p-3 mr-3 font-weight-ace_bold">4</span>
+                  Payez
+                </li>
+              </ul>
+              <p class="px-4 py-3">Vous n’avez plus qu’à patienter, nous prenons la suite.
+                Votre demande est transmise à l’artiste et nous nous assurons que le nom est bien dédicacé dans la chanson.
+                Si le nom est dédicacé dans la chanson, Libanga verse votre paiement à l’artiste.
+                Si ce n’est pas le cas, vous êtes automatiquement remboursé.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-4 text-center">
+            <img src="/assets/images/abort.jpg" alt="abord" class="img-fluid">
             </div>
           </div>
         </div>
