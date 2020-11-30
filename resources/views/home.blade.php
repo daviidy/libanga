@@ -164,7 +164,7 @@
                   Payez
                 </li>
               </ul>
-              <p>Vous n’avez plus qu’à patienter, nous prenons la suite.
+              <p class="px-4 py-3">Vous n’avez plus qu’à patienter, nous prenons la suite.
                 Votre demande est transmise à l’artiste et nous nous assurons que le nom est bien dédicacé dans la chanson.
                 Si le nom est dédicacé dans la chanson, Libanga verse votre paiement à l’artiste.
                 Si ce n’est pas le cas, vous êtes automatiquement remboursé.
