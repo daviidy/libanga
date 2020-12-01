@@ -25,4 +25,12 @@ class HomeController extends Controller
     {
         return view('users/default/home');
     }
+    public function indexArtiste()
+    {
+        return view('users/artiste/home');
+    }
+    public function indexAdmin()
+    {
+        return view('users/admin/home');
+    }
 }
