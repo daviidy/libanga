@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('home');
 });
 /*Route text*/
+Route::get('/admin1', function () {
+    return view('admin1');
+});
+Route::get('/admin0', function () {
+    return view('admin');
+});
 // Route::get('/artiste', function () {
 //     return view('users.default.home');
 // });
