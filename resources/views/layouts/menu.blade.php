@@ -35,24 +35,27 @@
                 S'inscrire
               </a>
             </div>
-            <div class="dropdown">
-              <div class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="rounded-circle img-fluid avatar-size">
-              </div>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Tableau de bord</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                 {{ __('Déconnexion') }}
-                 </a>
+            @if (auth()->check())
+                <div class="dropdown">
+                    <div class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="rounded-circle img-fluid avatar-size">
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Tableau de bord</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    {{ __('Déconnexion') }}
+                    </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-              </div>
-            </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    </div>
+                </div>
+            @endif
+
           </div>
         </nav>
       </header>
@@ -78,6 +81,34 @@ var annee = date.getFullYear();
 document.getElementById('year').innerHTML = annee;
 </script>
 
+    @if(old('test') == "is_error")
+
+        <script>
+        $(function() {
+
+            $('#modalRegister').modal({
+                show: false
+            });
+            $('#modalLogin').modal({
+                show: true
+            });
+        });
+        </script>
+
+    @elseif($errors->has('email') || $errors->has('password'))
+
+        <script>
+        $(function() {
+
+            $('#modalLogin').modal({
+                show: false
+            });
+            $('#modalRegister').modal({
+                show: true
+            });
+        });
+        </script>
+    @endif
 @yield('scripts')
 </body>
 </html>

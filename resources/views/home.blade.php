@@ -1,3 +1,4 @@
+
 @extends('layouts.menu')
 @section('content')
       <section class="hero position-relative">
@@ -6,7 +7,12 @@
             <div class="col-12 col-md-7 d-flex flex-column cta px-md-3 px-0 py-5">
               <p class=" mb-md-5 font-weight-bold display-4"> <span class="font-weight-lighter">Bienvenu sur  </span>Libanga</p>
               <div class="text-left mt-md-5 my-4">
-                <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">S'inscrire</a>
+                @if (auth()->check())
+
+                    <a href="{{ route('index.admin')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                @else
+                    <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">S'inscrire</a>
+                @endif
               </div>
             </div>
             <div class="col-12 col-md-5 image">
@@ -133,4 +139,8 @@
         </div>
       </section>
     </div>
-@endsection
+    @endsection
+
+
+
+

@@ -18,6 +18,6 @@ class IsArtiste
         if(auth()->user()->isArtiste()) {
             return $next($request);
         }
-        return redirect('home');
+        return redirect()->route('index.artiste');
     }
 }
