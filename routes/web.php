@@ -20,6 +20,12 @@ Route::get('/', function () {
 Route::get('/artiste', function () {
     return view('artiste');
 });
+Route::get('/admin1', function () {
+    return view('admin1');
+});
+Route::get('/admin', function () {
+    return view('admin');
+});
 /*end route text*/
 Auth::routes();
 

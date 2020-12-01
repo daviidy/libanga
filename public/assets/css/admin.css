@@ -1,0 +1,139 @@
+.navbar {
+  z-index: 1999;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+.main-content1 {
+  background-color: #f2f7fb;
+}
+.bg-menu {
+  background-color: #263544!important;
+  color: #fff!important;
+}
+.bg-menu:hover {
+  background-color: #263544!important;
+}
+
+/* menu */
+.logo-short,
+.user-avatar {
+  width: 13%;
+}
+
+.bg-main{
+  background-color: #1a1b20;
+}
+
+.logo {
+  width: 50%;
+}
+
+.user-avatar {
+  width: 50px;
+}
+
+.navbar .navbar-nav:nth-child(1) {
+  width: 70%;
+}
+
+.dropdown-menu {
+  position: absolute !important;
+  left: auto;
+  right: 0;
+}
+
+/* main */
+.main-content {
+  margin-top: 5rem;
+}
+
+.pr-b i {
+  font-size: 25px!important;
+}
+
+.box-shadow {
+    box-shadow: -1px 0px 4px 0 rgb(0 0 0 / 70%), 0px 2px 10px 0 rgb(0 0 0 / 70%);
+}
+a:hover {
+  color: #1a1b20!important;
+}
+
+a{
+  color: #1a1b20!important;
+}
+.box-hover:hover {
+  top: 5px;
+  position: relative;
+}
+.pcard-box {
+  padding: 1.25rem 0.25rem!important;
+}
+
+.pcard-boxm {
+  padding: 0.25rem 1.25rem!important;
+  background-color: #212c3a;
+}
+.pcard-boxm .list-group-item {
+  background-color: #212c3a;
+  color: #fff!important;
+}
+
+.box-img {
+  width: 90px;
+    height: 90px;
+    overflow: visible;
+}
+
+i {
+  font-size: 15px!important;
+}
+
+/* curriculum */
+.side-menu {
+  z-index: 100;
+  margin-top: 4rem;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.side-menu .d-md-block,
+.side-menu .d-block{
+  -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -ms-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
+}
+
+
+#overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99;
+  display: none;
+}
+
+/* media queries */
+@media screen and (max-width: 599px) {
+  .logo {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+  .logo-short {
+    display: none;
+  }
+}
