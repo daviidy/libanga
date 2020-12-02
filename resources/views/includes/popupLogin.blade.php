@@ -1,4 +1,4 @@
-{{-- {{dd(\Session::get())}} --}}
+{{-- {{dd(\Session::all(),old('test'))}} --}}
 <!-- Modal-->
 <div  class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
   <span class="float-right position-absolute rounded-circle svg-delete close" data-dismiss="modal" aria-label="Close"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,8 @@
               <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
             </div>
               <div class="">
-                <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Bienvenue!</p>
+                <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Bienvenue! Connectez-vous</p>
+
               </div>
           </div>
 
@@ -100,21 +101,4 @@
 
 @include('includes.popupRegister')
 
-@section('scripts')
-@parent
 
-@if($errors->has('email') || $errors->has('password'))
-
-    <script>
-    $(function() {
-
-        $('#modalRegister').modal({
-            show: false
-        });
-        $('#modalLogin').modal({
-            show: true
-        });
-    });
-    </script>
-@endif
-@endsection

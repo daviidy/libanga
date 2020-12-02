@@ -17,12 +17,27 @@ Route::get('/', function () {
     return view('home');
 });
 /*Route text*/
-Route::get('/artiste', function () {
-    return view('artiste');
+Route::get('/admin1', function () {
+    return view('admin1');
 });
+Route::get('/admin0', function () {
+    return view('admin');
+});
+// Route::get('/artiste', function () {
+//     return view('users.default.home');
+// });
+
+Route::get('/artiste', 'HomeController@indexArtiste')
+    ->middleware('is_artiste')
+    ->name('index.artiste');
+
+Route::get('/admin', 'HomeController@indexAdmin')
+    ->middleware('is_admin')
+    ->name('index.admin');
+
 /*end route text*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
-Route::get('auth/callback/facebook', 'Auth\LoginController@handleFacebookCallback');
+Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');

@@ -13,7 +13,7 @@
               <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
             </div>
             <div class="">
-              <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Connectez-vous</p>
+              <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Inscrivez-vous</p>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@
   </div>
 </div>
 
-@section('scripts')
+{{-- @section('scripts')
 @parent
 
 @if($errors->has('email') || $errors->has('password'))
@@ -95,4 +95,4 @@
     });
     </script>
 @endif
-@endsection
+@endsection --}}
