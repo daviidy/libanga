@@ -70,7 +70,7 @@
 
             </div>
 
-            <a class="btn btn-small btn-primary btn-block" href="{{ url('auth/facebook') }}">
+            <a class="btn btn-small btn-primary btn-block" href="{{ url('/redirect') }}">
                 <strong>Login With Facebook</strong>
             </a>
 
