@@ -39,5 +39,11 @@ Route::get('/admin', 'HomeController@indexAdmin')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
-Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
+// Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
+// Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
+
+// Route::get('/auth/redirect/{provider}', 'Auth\LoginController@redirect');
+// Route::get('/callback/{provider}', 'Auth\LoginController@callback');
+
+Route::get('/redirect', 'Auth\LoginController@redirect');
+Route::get('/callback', 'Auth\LoginController@callback');

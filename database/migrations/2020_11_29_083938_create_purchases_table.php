@@ -15,12 +15,12 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('serive_id');
+            $table->unsignedBigInteger('service_id');
             $table->unsignedBigInteger('user_id');
             $table->string('status');
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('serive_id')->references('id')->on('serives');
+            $table->foreign('service_id')->references('id')->on('services');
             $table->timestamps();
         });
     }
