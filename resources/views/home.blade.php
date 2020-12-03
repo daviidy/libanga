@@ -12,7 +12,13 @@
               <div class="text-left mt-md-5 my-4">
                 @if (auth()->check())
 
-                    <a href="{{ route('index.admin')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                    @if (auth()->user()->isAdmin())
+                        <a href="{{ route('index.admin')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                    @elseif(auth()->user()->isArtiste())
+                        <a href="{{ route('index.artiste')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                    @else
+                        <a href="{{ route('home')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                    @endif
                 @else
                     <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">S'inscrire</a>
                 @endif
@@ -34,89 +40,29 @@
           <h2 class="h1 text-white font-weight-bold text-center text-uppercase">Nos artistes</h2>
         </div>
         <div class="row py-4">
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-2 ">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
+            @isset($artistes)
+                @foreach ($artistes as $artiste)
+                    <div class="col-md-2 mt-3">
+                        <a href="{{route('show.artiste',$artiste->id)}}" class="text-decoration-none">
+                            <div class="p-3 box-shadow rounded ">
+                                <div class="">
+                                <img src="{{$artiste->image}}" alt="" class="img-fluid">
+                                </div>
+                                <div class="pt-2">
+                                <h6 class="text-white font-weight-bold">{{$artiste->username}}</h6>
+                                <p class="text-white">{{$artiste->username}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            @endisset
+        </div>
+        <div class="d-flex justify-content-end">
+            <form action="" method="POST">
+                @csrf
+                <button class=" btn-sm btn-primary"> Voir plus</button>
+            </form>
         </div>
       </section>
       <section class="container-fluid">
@@ -145,7 +91,7 @@
               <p class="text-white p-md-5">Vous avez toujours entendu des noms de personnes êtres immortalisés dans des chansons de grands artistes, vous rêvez que le vôtre aussi soit cité ? Vous êtes au bon endroit.
                 Libanga est l’intermédiaire de confiance entre votre artiste préféré et vous.
                 Libanga s’assure que l’artiste vous dédicace bien dans son album et garantie à l’artiste le paiement de la prestation.
-</p>
+              </p>
             </div>
           </div>
         </div-->

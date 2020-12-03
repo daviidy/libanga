@@ -30,11 +30,7 @@
                 <a class="nav-link font-weight-bold" href="#">Pricing</a>
               </li>
             </ul>
-            <div class="mt-md-0 mt-4">
-              <a href="#" class="text-decoration-none h-auto rounded-pill py-3 px-5 text-white btn-h-2 btn-shadow" data-toggle="modal" data-target="#modalLogin">
-                S'inscrire
-              </a>
-            </div>
+
             @if (auth()->check())
                 <div class="dropdown">
                     <div class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,6 +49,12 @@
                         @csrf
                     </form>
                     </div>
+                </div>
+            @else
+                <div class="mt-md-0 mt-4">
+                    <a href="#" class="text-decoration-none h-auto rounded-pill py-3 px-5 text-white btn-h-2 btn-shadow" data-toggle="modal" data-target="#modalLogin">
+                    S'inscrire
+                    </a>
                 </div>
             @endif
 
