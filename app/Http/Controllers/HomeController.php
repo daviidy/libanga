@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,16 +22,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-        return view('users/default/home');
+        $artistes = User::where('type','artiste')->get();
+        return view('users/default/home',compact('artistes'));
     }
     public function indexArtiste()
     {
-        return view('users/artiste/home');
+        return view('users/artistes/home');
     }
     public function indexAdmin()
     {
         return view('users/admin/home');
     }
+
 }

@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+Route::get('/', 'ArtisteController@home');
 /*Route text*/
 Route::get('/admin1', function () {
     return view('admin1');
@@ -30,6 +31,9 @@ Route::get('/admin0', function () {
 Route::get('/artiste', 'HomeController@indexArtiste')
     ->middleware('is_artiste')
     ->name('index.artiste');
+
+Route::get('/show-artiste/{id}', 'ArtisteController@showArtiste')
+    ->name('show.artiste');
 
 Route::get('/admin', 'HomeController@indexAdmin')
     ->middleware('is_admin')
