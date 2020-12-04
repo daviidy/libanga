@@ -152,7 +152,7 @@
                 dataType: 'JSON',
 
                 beforeSend: function(){
-                    NProgress.configure({ parent: '#loader' });
+                    // NProgress.configure({ parent: '#loader' });
                     NProgress.start();
                     // $('#test').html('');
                 },
