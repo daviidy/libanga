@@ -11,7 +11,6 @@ class ArtisteController extends Controller
     public function home()
     {
         $artistes = User::where('type','artiste')->with('albums')->limit(6)->get();
-
         return view('home',compact('artistes'));
     }
 
@@ -19,5 +18,11 @@ class ArtisteController extends Controller
     {
         $artistes = User::where('type','artiste')->with('albums')->get();
         return view('artiste',compact('artistes'));
+    }
+
+    public function getArtiste($nb_pages)
+    {
+        $artistes = User::where('type','artiste')->with('albums')->offset($nb_pages*6)->limit(6)->get();
+        return json_encode($artistes);
     }
 }

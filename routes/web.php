@@ -43,6 +43,7 @@ Route::get('/admin', 'HomeController@indexAdmin')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/getArtiste/{nb_page}', 'ArtisteController@getArtiste')->name('getArtiste');
 // Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
 // Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
 

@@ -39,7 +39,7 @@
         <div class="p-5">
           <h2 class="h1 text-white font-weight-bold text-center text-uppercase">Nos artistes</h2>
         </div>
-        <div class="row py-4">
+        <div class="row py-4"  id="test">
             @isset($artistes)
                 @foreach ($artistes as $artiste)
                     <div class="col-md-2 mt-3">
@@ -57,11 +57,13 @@
                     </div>
                 @endforeach
             @endisset
+            {{-- <div class="col-md-2 mt-3" id="test">
+            </div> --}}
         </div>
         <div class="d-flex justify-content-end">
-            <form action="" method="POST">
+            <form action="" method="GET" id="artiste-form">
                 @csrf
-                <button class=" btn-sm btn-primary"> Voir plus</button>
+                <button class=" btn-sm btn-primary" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
             </form>
         </div>
       </section>
@@ -138,4 +140,65 @@
         </div>
       </section>
     </div>
+
     @endsection
+    <script>
+        var nb_page=1;
+        const getArtisteFromAjax = (formId) =>{
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('getArtiste','') }}/"+nb_page,
+                data: {page:nb_page},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                    NProgress.configure({ parent: '#loader' });
+                    NProgress.start();
+                    // $('#test').html('');
+                },
+                success: function(datas){
+                    NProgress.done();
+                    NProgress.remove();
+                    console.log(datas);
+                    var contenuTableau="";
+                    if(datas.length > 0){
+                        nb_page++;
+                    }
+                    datas.forEach(function(index)
+                        {
+                            contenuTableau+=
+                            `            <div class="col-md-2 mt-3">
+                                            <a href="{{route('show.artiste','')}}/${index['id']}" class="text-decoration-none">
+                                                <div class="p-3 box-shadow rounded ">
+                                                    <div class="">
+                                                    <img src="${index['image']}" alt="" class="img-fluid">
+                                                    </div>
+                                                    <div class="pt-2">
+                                                    <h6 class="text-white font-weight-bold">${index['username']}</h6>
+                                                    <p class="text-white">${index['username']}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>`;
+                        });
+                        $('#test').append(contenuTableau);
+                },
+                error: function(xhr){
+                    NProgress.done();
+                    NProgress.remove();
+                    alert('Erreur de chargement');
+
+
+                    // $('.loading').LoadingOverlay("hide");
+                    // if(xhr.responseJSON.message!=undefined){
+                    //     swal({
+                    //         title: 'Echec...',
+                    //         text: xhr.responseJSON.message,
+                    //         type: "error",
+                    //         showConfirmButton: true,
+                    //     })
+                    // }
+                }
+            });
+        }
+    </script>
