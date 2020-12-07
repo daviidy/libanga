@@ -13,6 +13,7 @@ class Address extends Model
                 'state',
                 'description',
                 'user_id',
+                'pays'
     ];
 
     public function users()

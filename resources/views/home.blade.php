@@ -12,7 +12,13 @@
               <div class="text-left mt-md-5 my-4">
                 @if (auth()->check())
 
-                    <a href="{{ route('index.admin')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                    @if (auth()->user()->isAdmin())
+                        <a href="{{ route('index.admin')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                    @elseif(auth()->user()->isArtiste())
+                        <a href="{{ route('index.artiste')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                    @else
+                        <a href="{{ route('home')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
+                    @endif
                 @else
                     <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">S'inscrire</a>
                 @endif
@@ -33,90 +39,37 @@
         <div class="p-5">
           <h2 class="h1 text-white font-weight-bold text-center text-uppercase">Nos artistes</h2>
         </div>
-        <div class="row py-4">
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
+        <div class="row py-4"  id="test">
+            @isset($artistes)
+                @foreach ($artistes as $artiste)
+                    <div class="col-md-2 mt-3">
 
-          <div class="col-md-2 ">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-2">
-            <a href="#" class="text-decoration-none">
-              <div class="p-3 box-shadow rounded ">
-                <div class="">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid">
-                </div>
-                <div class="pt-2">
-                  <h6 class="text-white font-weight-bold">Arafat DJ</h6>
-                  <p class="text-white">Nouvel album</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
+                        <a  @if (auth()->check())
+                                href="{{route('show.artiste',$artiste->id)}}"
+                            @else
+                                href="#" data-toggle="modal" data-target="#modalLogin"
+                            @endif class="text-decoration-none" >
+                            <div class="p-3 box-shadow rounded ">
+                                <div class="">
+                                <img src="{{$artiste->image}}" alt="" class="img-fluid">
+                                </div>
+                                <div class="pt-2">
+                                <h6 class="text-white font-weight-bold">{{$artiste->username}}</h6>
+                                <p class="text-white">{{$artiste->username}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            @endisset
+            {{-- <div class="col-md-2 mt-3" id="test">
+            </div> --}}
+        </div>
+        <div class="d-flex justify-content-end">
+            <form action="" method="GET" id="artiste-form">
+                @csrf
+                <button class=" btn-sm btn-primary" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
+            </form>
         </div>
       </section>
       <section class="container-fluid">
@@ -145,7 +98,7 @@
               <p class="text-white p-md-5">Vous avez toujours entendu des noms de personnes êtres immortalisés dans des chansons de grands artistes, vous rêvez que le vôtre aussi soit cité ? Vous êtes au bon endroit.
                 Libanga est l’intermédiaire de confiance entre votre artiste préféré et vous.
                 Libanga s’assure que l’artiste vous dédicace bien dans son album et garantie à l’artiste le paiement de la prestation.
-</p>
+              </p>
             </div>
           </div>
         </div-->
@@ -192,4 +145,65 @@
         </div>
       </section>
     </div>
+
     @endsection
+    <script>
+        var nb_page=1;
+        const getArtisteFromAjax = (formId) =>{
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('getArtiste','') }}/"+nb_page,
+                data: {page:nb_page},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                    // NProgress.configure({ parent: '#loader' });
+                    NProgress.start();
+                    // $('#test').html('');
+                },
+                success: function(datas){
+                    NProgress.done();
+                    NProgress.remove();
+                    console.log(datas);
+                    var contenuTableau="";
+                    if(datas.length > 0){
+                        nb_page++;
+                    }
+                    datas.forEach(function(index)
+                        {
+                            contenuTableau+=
+                            `            <div class="col-md-2 mt-3">
+                                            <a href="{{route('show.artiste','')}}/${index['id']}" class="text-decoration-none">
+                                                <div class="p-3 box-shadow rounded ">
+                                                    <div class="">
+                                                    <img src="${index['image']}" alt="" class="img-fluid">
+                                                    </div>
+                                                    <div class="pt-2">
+                                                    <h6 class="text-white font-weight-bold">${index['username']}</h6>
+                                                    <p class="text-white">${index['username']}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>`;
+                        });
+                        $('#test').append(contenuTableau);
+                },
+                error: function(xhr){
+                    NProgress.done();
+                    NProgress.remove();
+                    alert('Erreur de chargement');
+
+
+                    // $('.loading').LoadingOverlay("hide");
+                    // if(xhr.responseJSON.message!=undefined){
+                    //     swal({
+                    //         title: 'Echec...',
+                    //         text: xhr.responseJSON.message,
+                    //         type: "error",
+                    //         showConfirmButton: true,
+                    //     })
+                    // }
+                }
+            });
+        }
+    </script>
