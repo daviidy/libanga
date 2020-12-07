@@ -23,6 +23,9 @@ Route::get('/admin1', function () {
 Route::get('/admin0', function () {
     return view('admin');
 });
+Route::get('/adminusers', function () {
+    return view('users1');
+});
 // Route::get('/artiste', function () {
 //     return view('users.default.home');
 // });
