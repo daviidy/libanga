@@ -24,15 +24,16 @@ Route::get('/admin1', function () {
 Route::get('/admin0', function () {
     return view('admin');
 });
-// Route::get('/artiste', function () {
-//     return view('users.default.home');
-// });
+Route::get('/create-artiste', function () {
+    return view('users.artistes.albums.create');
+});
 
 Route::get('/artiste', 'HomeController@indexArtiste')
     ->middleware('is_artiste')
     ->name('index.artiste');
 
 Route::get('/show-artiste/{id}', 'ArtisteController@showArtiste')
+    ->middleware('is_artiste')
     ->name('show.artiste');
 
 Route::get('/admin', 'HomeController@indexAdmin')

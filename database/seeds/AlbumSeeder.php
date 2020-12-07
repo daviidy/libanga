@@ -16,7 +16,7 @@ class AlbumSeeder extends Seeder
     {
         $faker = Faker\Factory::create('fr_FR');
         $users = User::all()->toArray();
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $album = new Album();
             $album->purchase_date = $faker->date($format = 'Y-m-d', $max = 'now');
             $album->songs = $faker->sentence($nbWords = 2, $variableNbWords = true);

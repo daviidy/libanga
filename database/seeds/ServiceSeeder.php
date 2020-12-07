@@ -16,10 +16,11 @@ class ServiceSeeder extends Seeder
     {
         $faker = Faker\Factory::create('fr_FR');
         $users = User::all()->toArray();
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $services = new Service();
             $services->name = $faker->sentence($nbWords = 3, $variableNbWords = true);
             $services->type = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $services->service_description = $faker->paragraphs($nb = 3, $asText = true) ;
             $services->price = rand(500,50000);
             $services->user_id = $users[array_rand($users,1)]['id'];
 

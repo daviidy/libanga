@@ -43,7 +43,12 @@
             @isset($artistes)
                 @foreach ($artistes as $artiste)
                     <div class="col-md-2 mt-3">
-                        <a href="{{route('show.artiste',$artiste->id)}}" class="text-decoration-none">
+
+                        <a  @if (auth()->check())
+                                href="{{route('show.artiste',$artiste->id)}}"
+                            @else
+                                href="#" data-toggle="modal" data-target="#modalLogin"
+                            @endif class="text-decoration-none" >
                             <div class="p-3 box-shadow rounded ">
                                 <div class="">
                                 <img src="{{$artiste->image}}" alt="" class="img-fluid">

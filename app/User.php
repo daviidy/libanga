@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Address;
 use App\Models\Album;
+use App\Models\Chanson;
 use App\Models\Purchase;
 use App\Models\Service;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -22,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password','type','provider','provider_id','image'
+        'username', 'email', 'password','type','provider','provider_id','image','user_description'
     ];
 
     /**
@@ -68,4 +69,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Purchase::class);
     }
+
 }

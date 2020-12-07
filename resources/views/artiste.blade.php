@@ -1,3 +1,8 @@
+@php
+    use Carbon\Carbon;
+    Carbon::setLocale('fr');
+@endphp
+
 @extends('layouts.menuShowArtiste')
 @section('content')
 
@@ -6,40 +11,40 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card w-100 p-3 card-shadow">
-            <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" class="card-img-top rounded-circle img-fluid text-center m-auto avatar-card" alt="...">
-            <h5 class="h4 card-title text-center pt-2 font-weight-bold">Arafat Dj</h5>
+            <img src="{{$artistes->image}}" class="card-img-top rounded-circle img-fluid text-center m-auto avatar-card" alt="...">
+            <h5 class="h4 card-title text-center pt-2 font-weight-bold">{{$artistes->username}}</h5>
             <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <a href="#" class="btn btn-primary mt-3">Me contatez</a>
+            {{-- <a href="#" class="btn btn-primary mt-3">Me contatez</a> --}}
             <hr>
             <div class="card-body">
               <ul class="list-group">
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="fas fa-map-marker-alt"></i> Pays</span>
-                  Cote d'ivoire
+                  {{$artistes->city}}
                 </li>
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="fas fa-microphone-alt"></i> Artiste depuis</span>
-                  juin 2010
+                  {{Carbon::parse($artistes->created_at)->translatedFormat('d F Y') }}
                 </li>
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="fas fa-record-vinyl"></i> Albums</span>
-                  3
+                  {{$nb_albums_count}}
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="card w-100 p-3 mt-3 card-shadow">
+          {{-- <div class="card w-100 p-3 mt-3 card-shadow">
             <div class="card-body">
               <h5 class="card-title font-weight-bold h5 text-uppercase">Titre à succès</h5>
               <p class="card-text"> <span class="h6 font-weight-bold">Kpangor :</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
             </div>
-          </div>
+          </div> --}}
 
           <div class="card w-100 p-3 mt-3 card-shadow">
             <div class="card-body">
               <h5 class="card-title font-weight-bold h5 text-uppercase">Description</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="card-text">{{$artistes->user_description}}</p>
             </div>
           </div>
 
@@ -51,51 +56,32 @@
             </div>
             <div class="">
               <div class="card-deck">
-                <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
-                  <a href="#" class="text-decoration-none">
-                    <div class="wprock-img-zoom">
-                      <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title font-weight-bold">Prestation</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                      <i class="fas fa-heart"></i>
-                      <small class="text-muted">15000 Fcfa</small>
-                    </div>
-                  </a>
+                <div class="row py-4"  id="test">
+                    @isset($services)
+                        @foreach ($services as $service)
+                            <div class="col-md-4 mt-3">
+                                <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
+                                    <a href="#" class="text-decoration-none">
+                                      {{-- <div class="wprock-img-zoom">
+                                        <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
+                                      </div> --}}
+                                      <div class="card-body">
+                                        <h5 class="card-title font-weight-bold">{{$service->name}}</h5>
+                                        <p class="card-text">{{$service->service_description}}</p>
+                                      </div>
+                                      <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                        {{-- <i class="fas fa-heart"></i> --}}
+                                        <p class="text-muted" style="font-weight:bold">{{$service->price}} F CFA</p>
+                                      </div>
+                                    </a>
+                                  </div>
+                            </div>
+                        @endforeach
+                    @endisset
+                    {{-- <div class="col-md-2 mt-3" id="test">
+                    </div> --}}
                 </div>
-                <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
-                  <a href="#" class="text-decoration-none">
-                    <div class="wprock-img-zoom">
-                      <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title font-weight-bold">Prestation</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                      <i class="fas fa-heart"></i>
-                      <small class="text-muted">15000 Fcfa</small>
-                    </div>
-                  </a>
-                </div>
-                <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
-                  <a href="#" class="text-decoration-none">
-                    <div class="wprock-img-zoom">
-                      <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title font-weight-bold">Prestation</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                      <i class="fas fa-heart"></i>
-                      <small class="text-muted">15000 Fcfa</small>
-                    </div>
-                  </a>
-                </div>
+
               </div>
             </div>
           </div>
