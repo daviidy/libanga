@@ -27,6 +27,10 @@ Route::get('/admin0', function () {
 Route::get('/adminusers', function () {
     return view('users1');
 });
+Route::get('/commande', function () {
+    return view('commandes');
+});
+/*END Route text*/
 // Route::get('/artiste', function () {
 //     return view('users.default.home');
 // });
