@@ -1,63 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title></title>
-  <!--link rel="icon" href="#"-->
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> -->
-  <script src="https://kit.fontawesome.com/d86848cfe0.js"></script>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/assets/css/dashboard.css">
-
-</head>
-
-<body class="bg-main">
-  <header>
-    <nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top">
-      <ul class="navbar-nav flex-row align-items-center">
-        <li class="nav-item">
-          <a href="#">
-            <i class="fas fa-bars hamburger"></i>
-          </a>
-        </li>
-        <li class="nav-item ml-3">
-          <a href="/">
-            <img class="logo-short img-fluid" src="./assets/images/logo-os-noir.png" alt="Logo">
-            <img class="logo" src="./assets/images/logo-oschool-noir.png" alt="">
-            Libanga
-          </a>
-        </li>
-      </ul>
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            <img class="rounded-circle img-fluid user-avatar" src="https://secure.gravatar.com/avatar/9c275cba24f7c939201cda28f832f8e0?s=80" alt="User">
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Link 1</a>
-            <a class="dropdown-item" href="#">Link 2</a>
-            <a class="dropdown-item" href="#">Link 3</a>
-            <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-             {{ __('Déconnexion') }}
-             </a>
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </header>
+@extends('layouts.menu_connecte')
+@section('content')
 
   <main class="container-fluid">
     <div class="row">
@@ -68,7 +10,7 @@
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between align-items-center border-0">
                 <img class="rounded-circle img-fluid user-avatar" src="https://secure.gravatar.com/avatar/9c275cba24f7c939201cda28f832f8e0?s=80" alt="User">
-                <span>Arsene</span>
+                <span>{{auth()->user()->username}}</span>
                 <span>N/A</span>
               </li>
             </ul>
@@ -103,7 +45,7 @@
           </div>
         </div>
 
-        <div class="mb-md-4 mb-2">
+        <!--div class="mb-md-4 mb-2">
           <div >
             <ul class="list-group">
               <li class="py-md-4 list-group-item d-flex justify-content-between align-items-center border-0">
@@ -129,7 +71,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div-->
       </div>
       <!--end progression-->
       <!--main content-->
@@ -153,8 +95,22 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-md-12 mt-4 pt-2">
+            <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item rounded">
+              <div class="">
+                <h5 class="font-weight-bold">Active Order</h5>
+                <p class="font-weight-lighter mt-2">Updated 29 nov</p>
+              </div>
+              <p class="rounded-lg mr-4 p-2 border">
+                <span class="mr-2"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg></span>
+                Star
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-12">
-            <div class="d-flex pt-5 mt-4 text-white">
+            <div class="d-flex mt-4 text-white">
               <p class="font-weight-bold w-25">Lorem ipsum</p>
               <hr class="border-white w-100 my-auto">
             </div>
@@ -266,60 +222,5 @@
       <div id="overlay"></div>
     </div>
   </main>
-  <footer class="container-fluid bg-main border-top-footer">
-    <div class="p-md-4 p-3 text-white">
-        © <span id="year">2010 </span> LIBANGA. TOUS DROITS RÉSERVÉS.
-    </div>
-  </footer>
 
-  <script>
-    /*COPYRIGTH SCRIPT*/
-    var date = new Date();
-    var annee = date.getFullYear();
-    document.getElementById('year').innerHTML = annee;
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad();
-  </script>
-  <!--COPYRIGTH SCRIPT-->
-  <script>
-    var date = new Date();
-    var annee = date.getFullYear();
-    document.getElementById('year').innerHTML = annee;
-  </script>
-
-  <script>
-    $('.hamburger').click(function() {
-      if ($(window).width() < 600) {
-        $('.side-menu').toggleClass('col-3');
-        $('.side-menu').toggleClass('d-none');
-        $('.side-menu').toggleClass('col-8');
-        $('.side-menu').toggleClass('d-block');
-        $('.main-content').toggleClass('d-none');
-        $('#overlay').fadeToggle(300);
-      } else {
-        $('.side-menu').toggleClass('d-md-block');
-        $('.main-content').toggleClass('col-md-9');
-        $('.main-content').toggleClass('col-md-12');
-        $('main').toggleClass('container-fluid');
-        $('main').toggleClass('container');
-      }
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      $("#viewAnswer").click(function() {
-        $(this).addClass("d-none");
-        $("#verifyAnswer").removeClass("d-none")
-      });
-
-      $("#restartQuiz").click(function() {
-        $("#verifyAnswer").addClass("d-none");
-        $("#viewAnswer").removeClass("d-none")
-      });
-    });
-  </script>
-</body>
-
-</html>
+@endsection

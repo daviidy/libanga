@@ -7,7 +7,7 @@ body {
 }
 
 .bg-main{
-  background-color: #1a1b20;
+  background-color: #1a1b20!important;
 }
 
 .hero {
@@ -102,7 +102,7 @@ border-top: 1px solid #232323!important;
     .hero .telephone-image {
         width: 500px;
         height: 600px;
-        background: url('/assets/images/slide.png') no-repeat center;
+        background: url('/assets/images/slide2.png') no-repeat center;
         background-position-x: center;
         background-size: contain;
         position: relative;

@@ -2,6 +2,11 @@
 
 namespace App;
 
+use App\Models\Address;
+use App\Models\Album;
+use App\Models\Chanson;
+use App\Models\Purchase;
+use App\Models\Service;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password','type','facebook_id'
+        'username', 'email', 'password','type','provider','provider_id','image','user_description'
     ];
 
     /**
@@ -46,4 +51,23 @@ class User extends Authenticatable
     public function isArtiste()    {
         return $this->type === self::ARTISTE_TYPE;
     }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
+    }
+    public function address()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
 }

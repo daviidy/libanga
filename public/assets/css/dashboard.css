@@ -205,6 +205,15 @@ i {
   height: 100vh;
 }
 
+.side-menu .d-md-block,
+.side-menu .d-block{
+  -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -ms-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
+}
+
 .curriculum {
   overflow-y: auto;
 }
