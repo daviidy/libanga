@@ -24,6 +24,21 @@ Route::get('/admin1', function () {
 Route::get('/admin0', function () {
     return view('admin');
 });
+Route::get('/adminusers', function () {
+    return view('users1');
+});
+Route::get('/commande', function () {
+    return view('commandes');
+});
+
+Route::get('/nosartistes', function () {
+    return view('showAllArtiste');
+});
+/*END Route text*/
+// Route::get('/artiste', function () {
+//     return view('users.default.home');
+// });
+
 Route::get('/create-artiste', function () {
     return view('users.artistes.albums.create');
 });

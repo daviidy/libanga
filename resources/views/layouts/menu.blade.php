@@ -15,7 +15,7 @@
     <div class="main-content bg-main">
       <header class="bg-hero">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="#">LIBANGA</a>
+          <a class="navbar-brand" href="/"><img src="/assets/images/libanga.jpg" alt="" class="img-fluid" style="width:150px"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

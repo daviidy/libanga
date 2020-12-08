@@ -65,10 +65,10 @@
             {{-- <div class="col-md-2 mt-3" id="test">
             </div> --}}
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-center">
             <form action="" method="GET" id="artiste-form">
                 @csrf
-                <button class=" btn-sm btn-primary" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
+                <button class="box-shadow btn bg-hero text-white rounded-lg btn-lg" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
             </form>
         </div>
       </section>
@@ -139,7 +139,7 @@
           </div>
           <div class="col-md-6">
             <div class="p-4 text-center">
-            <img src="/assets/images/abort3.webp" alt="abord" class="img-fluid">
+            <img src="/assets/images/abort.jpg" alt="abord" class="img-fluid">
             </div>
           </div>
         </div>
