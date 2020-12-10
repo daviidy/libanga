@@ -66,10 +66,15 @@
             </div> --}}
         </div>
         <div class="d-flex justify-content-center">
-            <form action="" method="GET" id="artiste-form">
+            {{-- <form action="{{route('nosartistes')}}" method="GET" id="artiste-form">
                 @csrf
                 <button class="box-shadow btn bg-hero text-white rounded-lg btn-lg" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
-            </form>
+            </form> --}}
+            <a @if (auth()->check())
+                href="{{route('nosartistes')}}"
+            @else
+                href="#" data-toggle="modal" data-target="#modalLogin"
+            @endif class="box-shadow btn bg-hero text-white rounded-lg btn-lg"> Voir plus</a>
         </div>
       </section>
       <section class="container-fluid">

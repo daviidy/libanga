@@ -43,10 +43,10 @@ class LoginController extends Controller
                   return '/admin';
                 break;
             case 'artiste':
-                    return '/artiste';
+                    return '/artistes';
                 break;
             default:
-                return '/home';
+                return '/default';
                 break;
         }
     }

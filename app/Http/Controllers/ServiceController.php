@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
-
+use Validator;
 class ServiceController extends Controller
 {
     /**
@@ -36,8 +36,26 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $input=$request->all();
+        $validator=Validator::make($input,[
+            'name'=>'required|string',
+            'type'=>'required|string',
+            'price'=>'required|min:0',
+            'service_description'=>'required|string',
+            'user_id'=>'required|integer|exists:users,id'
+        ],
+        [
+            'name.*' => "Le champ libellé du service est obligatoire",
+            'type.*' => "Le champ type de service est obligatoire",
+            'price.*' => "Le champ prix est obligatoire.",
+            'service_description.*'         => "Le champ description du service est obligatoire"
+        ]);
+
+        // if($validator->fails()) return $this->sendError($this->arrayToChaine($validator->errors()->messages()), null);
+        if($validator->fails()) return $this->sendError($validator->errors()->messages(), null);
         $services = Service::create($request->all());
-        return redirect('services')->with('status', 'Service ajoutée');
+        return $this->sendResponse($services->toArray(), "Services crée avec succès.");
+        // return redirect('services')->with('status', 'Service ajoutée');
     }
 
     /**

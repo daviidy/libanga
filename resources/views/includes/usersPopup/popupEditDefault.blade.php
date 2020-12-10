@@ -12,35 +12,35 @@
               <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
             </div>
               <div class="">
-                <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Modifiez votre profit</p>
+                <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Modifiez votre profil</p>
 
               </div>
           </div>
 
         </div>
-        <form method="POST" action="">
+        <form method="POST" action="" enctype="multipart/form-data" id="edit-user">
           <div class="p-md-4 p-3 bg-white">
-            <div class="form-group">
-              <label for="file">Photo de profit</label>
-              <input type="file" class="form-control" id="file" aria-describedby="fileHelp">
-            </div>
+            {{-- <div class="form-group">
+              <label for="file">Photo de profil</label>
+              <input type="file" name="image" class="form-control" id="file" aria-describedby="fileHelp">
+            </div> --}}
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
-              <input type="number" class="form-control" id="exampleInputPassword1">
+              <input type="text" name="telephone" class="form-control" id="telephone">
             </div>
             <label class="py-3" for="adress">Adresse</label>
 
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputEmail4" placeholder="Etat">
+                <input type="text" name="pays" class="form-control" id="inputEmail4" placeholder="Pays">
               </div>
               <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputPassword4" placeholder="Ville">
+                <input type="text" name="city" class="form-control" id="inputPassword4" placeholder="Ville">
               </div>
             </div>
             <div class="form-group">
               <label for="Description">Description</label>
-              <textarea class="form-control" id="description" rows="3"></textarea>
+              <textarea class="form-control" name="user_description" id="description" rows="3"></textarea>
             </div>
           </div>
 

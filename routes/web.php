@@ -39,25 +39,43 @@ Route::get('/nosartistes', function () {
 //     return view('users.default.home');
 // });
 
-Route::get('/create-artiste', function () {
-    return view('users.artistes.albums.create');
-});
 
-Route::get('/artiste', 'HomeController@indexArtiste')
+Route::get('/users/edit/{id}', 'UserController@edit')
+    ->name('edit.users');
+Route::put('/users/{id}', 'UserController@update')
+    ->name('update.users');
+
+//Artiste
+Route::get('/artistes', 'ArtisteController@index')
     ->middleware('is_artiste')
     ->name('index.artiste');
 
-Route::get('/show-artiste/{id}', 'ArtisteController@showArtiste')
+Route::get('/nosartistes', 'ArtisteController@showAllArtiste')
+    ->middleware('auth')
+    ->name('nosartistes');
+
+Route::get('/artistes/{id}', 'ArtisteController@show')
     ->middleware('is_artiste')
     ->name('show.artiste');
+
+
 
 Route::get('/admin', 'HomeController@indexAdmin')
     ->middleware('is_admin')
     ->name('index.admin');
 
+//Service
+Route::post('/services', 'ServiceController@store')
+    ->name('services.store');
+
+
+//Albums
+Route::resource('albums','AlbumController');
+
 /*end route text*/
 Auth::routes();
 
+// Route::get('/default', 'DefaultController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/getArtiste/{nb_page}', 'ArtisteController@getArtiste')->name('getArtiste');
 // Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
