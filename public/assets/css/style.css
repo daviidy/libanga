@@ -21,7 +21,7 @@ body {
 }
 
 .bg-hero {
-  background-color: #2ebd50;
+  background-color: #2ebd50!important;
 }
 
 .btn-h-2 {

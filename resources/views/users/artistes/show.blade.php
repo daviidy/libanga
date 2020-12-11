@@ -20,7 +20,7 @@
               <ul class="list-group">
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="fas fa-map-marker-alt"></i> Pays</span>
-                  {{$artistes->city}}
+                  {{$artistes->pays}}
                 </li>
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="fas fa-microphone-alt"></i> Artiste depuis</span>
@@ -30,6 +30,7 @@
                   <span class=""><i class="fas fa-record-vinyl"></i> Albums</span>
                   {{$nb_albums_count}}
                 </li>
+                 <a href="#" class="btn btn-primary mt-3">Modifier Artiste</a>
               </ul>
             </div>
           </div>
@@ -52,7 +53,7 @@
         <div class="col-md-8">
           <div class="mt-3 mt-md-0">
             <div class="bg-white p-md-4 p-3 mb-3 card-shadow">
-              <h3 class="h3 font-weight-bold">Mes services</h3>
+              <h3 class="h3 font-weight-bold">Mes servives</h3>
             </div>
             <div class="">
               <div class="card-deck">
@@ -136,3 +137,64 @@
     </div>
   </div>
 @endsection
+
+<script>
+    var nb_page=1;
+    const getArtisteFromAjax = (formId) =>{
+        $.ajax({
+            type: 'GET',
+            url: "{{ route('getArtiste','') }}/"+nb_page,
+            data: {page:nb_page},
+            dataType: 'JSON',
+
+            beforeSend: function(){
+                // NProgress.configure({ parent: '#loader' });
+                NProgress.start();
+                // $('#test').html('');
+            },
+            success: function(datas){
+                NProgress.done();
+                NProgress.remove();
+                console.log(datas);
+                var contenuTableau="";
+                if(datas.length > 0){
+                    nb_page++;
+                }
+                datas.forEach(function(index)
+                    {
+                        contenuTableau+=
+                        `            <div class="col-md-2 mt-3">
+                                        <a href="{{route('show.artiste','')}}/${index['id']}" class="text-decoration-none">
+                                            <div class="p-3 box-shadow rounded ">
+                                                <div class="">
+                                                <img src="${index['image']}" alt="" class="img-fluid">
+                                                </div>
+                                                <div class="pt-2">
+                                                <h6 class="text-white font-weight-bold">${index['username']}</h6>
+                                                <p class="text-white">${index['username']}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>`;
+                    });
+                    $('#test').append(contenuTableau);
+            },
+            error: function(xhr){
+                NProgress.done();
+                NProgress.remove();
+                alert('Erreur de chargement');
+
+
+                // $('.loading').LoadingOverlay("hide");
+                // if(xhr.responseJSON.message!=undefined){
+                //     swal({
+                //         title: 'Echec...',
+                //         text: xhr.responseJSON.message,
+                //         type: "error",
+                //         showConfirmButton: true,
+                //     })
+                // }
+            }
+        });
+    }
+</script>

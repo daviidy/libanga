@@ -65,11 +65,16 @@
             {{-- <div class="col-md-2 mt-3" id="test">
             </div> --}}
         </div>
-        <div class="d-flex justify-content-end">
-            <form action="" method="GET" id="artiste-form">
+        <div class="d-flex justify-content-center">
+            {{-- <form action="{{route('nosartistes')}}" method="GET" id="artiste-form">
                 @csrf
-                <button class=" btn-sm btn-primary" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
-            </form>
+                <button class="box-shadow btn bg-hero text-white rounded-lg btn-lg" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
+            </form> --}}
+            <a @if (auth()->check())
+                href="{{route('nosartistes')}}"
+            @else
+                href="#" data-toggle="modal" data-target="#modalLogin"
+            @endif class="box-shadow btn bg-hero text-white rounded-lg btn-lg"> Voir plus</a>
         </div>
       </section>
       <section class="container-fluid">
@@ -139,7 +144,7 @@
           </div>
           <div class="col-md-6">
             <div class="p-4 text-center">
-            <img src="/assets/images/abort3.webp" alt="abord" class="img-fluid">
+            <img src="/assets/images/abort.jpg" alt="abord" class="img-fluid">
             </div>
           </div>
         </div>
