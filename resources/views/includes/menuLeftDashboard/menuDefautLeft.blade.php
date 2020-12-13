@@ -3,7 +3,7 @@
     <div>
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center border-0">
-          <img class="rounded-circle img-fluid user-avatar" src="https://secure.gravatar.com/avatar/9c275cba24f7c939201cda28f832f8e0?s=80" alt="User">
+            <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
           <span>{{auth()->user()->username}}</span>
         </li>
       </ul>

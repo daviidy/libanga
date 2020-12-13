@@ -19,7 +19,7 @@ class AlbumSeeder extends Seeder
         for ($i = 0; $i < 100; $i++) {
             $album = new Album();
             $album->purchase_date = $faker->date($format = 'Y-m-d', $max = 'now');
-            $album->songs = $faker->sentence($nbWords = 2, $variableNbWords = true);
+            $album->title = $faker->sentence($nbWords = 2, $variableNbWords = true);
             $album->user_id = $users[array_rand($users,1)]['id'];
 
             $album->save();

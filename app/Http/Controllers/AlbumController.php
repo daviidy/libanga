@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Chanson;
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
@@ -14,8 +15,9 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums = Album::all();
-        return view('admins.albums.index', ['albums' => $albums]);
+        $albums = Album::where('user_id',auth()->user()->id)
+                        ->get();
+        return view('users.albums.home', ['albums' => $albums]);
     }
 
     /**
@@ -48,7 +50,14 @@ class AlbumController extends Controller
      */
     public function show($id)
     {
-        //
+        $chansons = Chanson::where('album_id',$id)
+                             ->get();
+        $albums = Album::join('users','users.id','albums.user_id')
+                            ->where('albums.id',$id)
+                            ->select('albums.*','users.username','users.image')
+                            ->first();
+
+        return view('users.albums.show',['chansons'=>$chansons,'albums'=>$albums]);
     }
 
     /**
@@ -57,9 +66,10 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Album $albums)
+    public function edit(Request $request)
     {
-        return view('admins.albums.edit', ['albums' => $albums]);
+        $albums = Album::find($request['album_id']);
+        return json_encode($albums);
     }
 
     /**
@@ -69,10 +79,11 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Album $albums)
+    public function update(Request $request,$id)
     {
+        $albums = Album::find($id);
         $albums->update($request->all());
-        return redirect('albums')->with('status', 'Album modifiée');
+        return redirect()->back()->with('status', 'Album modifié avec success');
     }
 
     /**
@@ -81,9 +92,9 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Album $albums)
+    public function destroy($id)
     {
-        $albums->delete();
+        Album::where('id',$id)->delete();
         return redirect()->back()->with('status', 'Album supprimé de la base de données');
     }
 }

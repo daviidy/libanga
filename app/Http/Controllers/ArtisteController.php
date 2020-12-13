@@ -24,20 +24,20 @@ class ArtisteController extends Controller
             'address.city',
             'address.pays',
             'address.description as address_description',
-            'albums.songs',
+            'albums.title',
             'albums.purchase_date',
             )
         ->where('type','artiste')
         ->where('users.id',18)
         ->first();
 
-        $nb_albums_count =Album::join('users','users.id','albums.user_id')
-               ->where('users.id',auth()->user()->id)
-               ->count();
+        // $nb_albums_count =Album::join('users','users.id','albums.user_id')
+        //        ->where('users.id',auth()->user()->id)
+        //        ->count();
 
-        $services = Service::join('users','users.id','services.user_id')
-               ->where('users.id',auth()->user()->id)
-               ->get();
+        // $services = Service::join('users','users.id','services.user_id')
+        //        ->where('users.id',auth()->user()->id)
+        //        ->get();
         // dd($artistes,auth()->user()->id);
         return view('users/artistes/home',compact('artistes','nb_albums_count','services'));
     }
@@ -56,7 +56,7 @@ class ArtisteController extends Controller
             'address.city',
             'address.pays',
             'address.description as address_description',
-            'albums.songs',
+            'albums.title',
             'albums.purchase_date',
             )
         ->where('type','artiste')
@@ -64,11 +64,7 @@ class ArtisteController extends Controller
 
         return view('users/artistes/showAllArtiste',compact('artistes'));
     }
-    public function home()
-    {
-        $artistes = User::where('type','artiste')->limit(6)->get();
-        return view('home',compact('artistes'));
-    }
+
 
     public function show($id)
     {
@@ -85,7 +81,7 @@ class ArtisteController extends Controller
                              'address.city',
                              'address.pays',
                              'address.description as address_description',
-                             'albums.songs',
+                             'albums.title',
                              'albums.purchase_date',
                              )
                          ->where('type','artiste')
