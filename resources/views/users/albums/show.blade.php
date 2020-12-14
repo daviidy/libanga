@@ -29,7 +29,7 @@
         <div class="col-md-8">
           <div class="mt-3 mt-md-0">
             <div class="bg-white p-md-4 p-3 mb-3 card-shadow">
-              <h3 class="h3 font-weight-bold">Mes chansons</h3>
+              <h3 class="h3 font-weight-bold">Mes titres</h3>
             </div>
             <div class="row" id="service">
               <div class="px-3">

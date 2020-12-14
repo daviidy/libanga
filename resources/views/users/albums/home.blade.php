@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-md-12 mt-4 pt-2">
             <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item">
-              <h3>Gestion des Albums</h3>
+              <h3>Mes albums</h3>
               <form>
                 <div class="form-group mb-0">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAddAlbum">Ajouter Album</button>
