@@ -4,12 +4,12 @@
       <section class="hero position-relative">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-12 col-md-7 d-flex flex-column cta px-md-3 px-0 py-5">
+            <div class="col-12 col-md-12 d-flex flex-column cta px-md-3 px-0 py-5">
               <div class=" mb-md-5 text-center">
                 <p class="font-weight-bold display-4"> <span class="font-weight-lighter">Bienvenue sur  </span>Libanga</p>
                 <h4>"Le Name-dropping à portée de clic"</h4>
               </div>
-              <div class="text-left mt-md-5 my-4">
+              <div class="text-left mt-md-5 my-4 text-center">
                 @if (auth()->check())
                     <a href="{{ route('dashboard')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
                 @else
@@ -17,9 +17,9 @@
                 @endif
               </div>
             </div>
-            <div class="col-12 col-md-5 image">
+            <!--div class="col-12 col-md-5 image">
               <div class="telephone-image"></div>
-            </div>
+            </div-->
           </div>
         </div>
         <div class="wave d-md-block d-none">
