@@ -91,6 +91,8 @@
   </main>
   @include('includes.usersPopup.popupEditAlbum')
   @include('includes.usersPopup.popupAddAlbum')
+  @include('includes.usersPopup.popupEditDefault')
+
 
 @endsection
 <script>

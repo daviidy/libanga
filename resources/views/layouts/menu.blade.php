@@ -38,8 +38,7 @@
                     <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="rounded-circle img-fluid avatar-size">
                     </div>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Tableau de bord</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">

@@ -45,9 +45,8 @@
             <img class="rounded-circle img-fluid user-avatar" src="./assets/images/logo-oschool-noir.png" alt="User">
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Link 1</a>
-            <a class="dropdown-item" href="#">Link 2</a>
-            <a class="dropdown-item" href="#">Link 3</a>
+            <a class="dropdown-item" href="/">Accueil</a>
+            <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
             <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
