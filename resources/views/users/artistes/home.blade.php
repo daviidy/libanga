@@ -2,6 +2,7 @@
 @section('content')
 
   <main class="container-fluid">
+
     <div class="row">
       <!--progression-->
       @include('includes.menuLeftDashboard.menuLeftArtiste')
@@ -9,6 +10,7 @@
       <!--main content-->
       <div class="col-md-9 main-content">
         <div class="row">
+
           <div class="col-md-12 mt-4 pt-2">
             <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item">
               <h3>Tableau de Bord Artiste</h3>
@@ -18,14 +20,22 @@
                 </div>
               </form>
             </div>
+            @if(session('status'))
+                <div class="card-body">
+                    <div class="alert alert-success" role="alert">
+                        {{session('status')}}
+                    </div>
+                </div>
+            @endif
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="service">
+
             @isset($services)
             @foreach ($services as $service)
                 <div class="col-md-4 mt-3">
                     <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
-                        <a href="#" class="text-decoration-none">
+                        {{-- <a href="#" class="text-decoration-none"> --}}
                           {{-- <div class="wprock-img-zoom">
                             <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
                           </div> --}}
@@ -34,10 +44,20 @@
                             <p class="card-text">{{$service->service_description}}</p>
                           </div>
                           <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                            {{-- <i class="fas fa-heart"></i> --}}
-                            <p class="text-muted" style="font-weight:bold">{{$service->price}} F CFA</p>
+
+                                {{-- <a href="#"><i class="fas fa-trash"></i></a>&nbsp;&nbsp; --}}
+
+
+                            <form action="{{ route('services.destroy', $service->id)}}" method="post">
+                                @csrf @method('DELETE')
+                                <button class="btn btn-primary" onclick="showEditService({{$service->id}})" type="button">Modifier</button>
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+
+
+                            <p class="text-muted" style="font-weight:bold">{{number_format($service->price, 0, '.', ' ')}} F CFA</p>
                           </div>
-                        </a>
+                        {{-- </a> --}}
                       </div>
                 </div>
             @endforeach
@@ -69,6 +89,7 @@
   </main>
   @include('includes.usersPopup.popupEditDefault')
   @include('includes.usersPopup.popupAddService')
+  @include('includes.usersPopup.popupEditService')
 
 @endsection
 <script>
@@ -86,15 +107,8 @@
                 success: function (data) {
                     NProgress.done();
                     NProgress.remove();
-                    console.log(data);
-                    //Afficher le message
-                    // if(data.message!=undefined ){
-                    //     Swal.fire({
-                    //         icon: 'success',
-                    //         title: 'Succès!',
-                    //         text: data.message
-                    //         })
-                    // }
+                    var divContent="";
+
                     if(data.message!=undefined){
                         // Create an instance of Notyf
                         var notyf = new Notyf({position: {x: 'right',y: 'top'}});
@@ -106,10 +120,26 @@
                     //Suppression des erreurs
                     $('div').removeClass('has-error');
                     $('small.text-danger').remove();
-                        $("select[name='nationalite']").change(function(){
-                        var SelectedValue = $("option:selected", this).val();
-                        displayElement(SelectedValue)
-                        })
+
+                        divContent=`<div class="col-md-4 mt-3">
+                        <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
+
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">${data.data['name']}</h5>
+                                <p class="card-text">${data.data['service_description']}</p>
+                            </div>
+                            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                <p>
+                                    <a href="#"><i class="fas fa-trash"></i></a>&nbsp;&nbsp;
+                                    <a href="#"><i class="fas fa-edit"></i></a>
+                                </p>
+
+                                <p class="text-muted" style="font-weight:bold">${data.data['price']} F CFA</p>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    $('#service').append(divContent);
                     },
                 error:function(xhr){
 
@@ -152,6 +182,33 @@
                 success: function(datas){
                     console.log(datas);
                     for (var key in datas) {
+                            //Remplissage de tous les champs input du modal
+                            $("input[name='"+key+"']").val(datas[key])
+                            $("textarea[name='"+key+"']").val(datas[key])
+                            $("select[name='"+key+"']").val(datas[key])
+                        }
+                },
+                error: function(xhr){
+                    console.log(xhr)
+                    alert('Erreur de chargement');
+                }
+            });
+    }
+    const showEditService = (service_id) =>{
+
+        $('#modalEditService').modal('show');
+        $("#edit-service").attr('action',"{{route('services.update','')}}/"+service_id)
+        $.ajax({
+                type: 'GET',
+                url: "{{ route('services.edit','"+service_id+"')}}",
+                data: {service_id:service_id},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                },
+                success: function(datas){
+                    for (var key in datas) {
+                        console.log(datas)
                             //Remplissage de tous les champs input du modal
                             $("input[name='"+key+"']").val(datas[key])
                             $("textarea[name='"+key+"']").val(datas[key])

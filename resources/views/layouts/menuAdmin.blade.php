@@ -31,7 +31,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              <img class="rounded-circle img-fluid user-avatar" src="https://secure.gravatar.com/avatar/9c275cba24f7c939201cda28f832f8e0?s=80" alt="User">
+              <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Link 1</a>

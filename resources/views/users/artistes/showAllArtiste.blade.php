@@ -26,7 +26,7 @@
                         @endif class="text-decoration-none" >
                         <div class="p-3 box-shadow rounded ">
                             <div class="">
-                            <img src="{{$artiste->image}}" alt="" class="img-fluid">
+                            <img src="{{asset($artiste->image)}}" alt="" class="img-fluid">
                             </div>
                             <div class="pt-2">
                             <h6 class="text-white font-weight-bold">{{$artiste->username}}</h6>

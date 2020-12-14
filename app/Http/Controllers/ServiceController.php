@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 class ServiceController extends Controller
 {
     /**
@@ -36,26 +36,9 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
-        $validator=Validator::make($input,[
-            'name'=>'required|string',
-            'type'=>'required|string',
-            'price'=>'required|min:0',
-            'service_description'=>'required|string',
-            'user_id'=>'required|integer|exists:users,id'
-        ],
-        [
-            'name.*' => "Le champ libellé du service est obligatoire",
-            'type.*' => "Le champ type de service est obligatoire",
-            'price.*' => "Le champ prix est obligatoire.",
-            'service_description.*'         => "Le champ description du service est obligatoire"
-        ]);
-
-        // if($validator->fails()) return $this->sendError($this->arrayToChaine($validator->errors()->messages()), null);
-        if($validator->fails()) return $this->sendError($validator->errors()->messages(), null);
         $services = Service::create($request->all());
-        return $this->sendResponse($services->toArray(), "Services crée avec succès.");
-        // return redirect('services')->with('status', 'Service ajoutée');
+        return redirect()->back()->with('status', 'Service ajouté avec succès');
+
     }
 
     /**
@@ -75,9 +58,11 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $services)
+    public function edit(Request $request)
     {
-        return view('admins.services.edit', ['serives' => $services]);
+        $services = Service::find($request['service_id']);
+        return json_encode($services);
+        // return view('admins.services.edit', ['services' => $services]);
     }
 
     /**
@@ -87,10 +72,11 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $services)
+    public function update(Request $request,$id)
     {
+        $services = Service::find($id);
         $services->update($request->all());
-        return redirect('services')->with('status', 'Service modifiée');
+        return redirect('home')->with('status', 'Service modifiée');
     }
 
     /**
@@ -99,9 +85,9 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $services)
+    public function destroy($id)
     {
-        $services->delete();
+        Service::where('id',$id)->delete();
         return redirect()->back()->with('status', 'Service supprimé de la base de données');
     }
 }
