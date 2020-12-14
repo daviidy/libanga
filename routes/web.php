@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-Route::get('/', 'ArtisteController@home');
+Route::get('/', 'HomeController@home')->name('home');
 /*Route text*/
 Route::get('/admin1', function () {
     return view('admin1');
@@ -46,43 +44,24 @@ Route::put('/users/{id}', 'UserController@update')
     ->name('update.users');
 
 //Artiste
-Route::get('/artistes', 'ArtisteController@index')
-    ->middleware('is_artiste')
-    ->name('index.artiste');
 
-Route::get('/nosartistes', 'ArtisteController@showAllArtiste')
-    ->middleware('auth')
-    ->name('nosartistes');
+Route::get('/nosartistes', 'ArtisteController@showAllArtiste')->name('nosartistes');
+// Route::get('/artistes/{id}', 'ArtisteController@show')->name('show.artiste');
 
-Route::get('/artistes/{id}', 'ArtisteController@show')
-    ->middleware('is_artiste')
-    ->name('show.artiste');
+Route::resource('artistes', 'ArtisteController');
+Route::resource('services', 'ServiceController');
+Route::resource('albums', 'AlbumController');
+Route::resource('chansons', 'ChansonController');
 
 
-
-Route::get('/admin', 'HomeController@indexAdmin')
-    ->middleware('is_admin')
-    ->name('index.admin');
-
-//Service
-Route::post('/services', 'ServiceController@store')
-    ->name('services.store');
-
-
-//Albums
-Route::resource('albums','AlbumController');
 
 /*end route text*/
 Auth::routes();
 
-// Route::get('/default', 'DefaultController@index')->name('home');
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home', 'HomeController@index')->middleware('auth')->name('dashboard');
 Route::get('/getArtiste/{nb_page}', 'ArtisteController@getArtiste')->name('getArtiste');
-// Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
-// Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
 
-// Route::get('/auth/redirect/{provider}', 'Auth\LoginController@redirect');
-// Route::get('/callback/{provider}', 'Auth\LoginController@callback');
 
-Route::get('/redirect', 'Auth\LoginController@redirect');
-Route::get('/callback', 'Auth\LoginController@callback');
+// Route::get('/redirect', 'Auth\LoginController@redirect');
+// Route::get('/callback', 'Auth\LoginController@callback');

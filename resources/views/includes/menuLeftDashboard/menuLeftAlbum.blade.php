@@ -16,7 +16,7 @@
           <ul class="list-group">
             <li><a href="#" class="list-group-item d-flex justify-content-between align-items-center border-0">Tableau de bord</a></li>
             <li><a onclick="showEditModal({{auth()->user()->id}})" class="list-group-item d-flex justify-content-between align-items-center border-0" >Modifier mon profil</a></li>
-            <li><a href="{{route('albums.index')}}" class="list-group-item d-flex justify-content-between align-items-center border-0">Mes albums</a></li>
+            <li><a href="{{route('chansons.index')}}" class="list-group-item d-flex justify-content-between align-items-center border-0">Mes Chansons</a></li>
           </ul>
         </div>
       </div>

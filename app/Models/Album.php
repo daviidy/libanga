@@ -9,7 +9,7 @@ class Album extends Model
     protected $table='albums';
     protected $fillable =[
                 'purchase_date',
-                'songs',
+                'title',
                 'user_id'
     ];
 

@@ -11,14 +11,7 @@
               </div>
               <div class="text-left mt-md-5 my-4">
                 @if (auth()->check())
-
-                    @if (auth()->user()->isAdmin())
-                        <a href="{{ route('index.admin')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
-                    @elseif(auth()->user()->isArtiste())
-                        <a href="{{ route('index.artiste')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
-                    @else
-                        <a href="{{ route('home')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
-                    @endif
+                    <a href="{{ route('dashboard')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
                 @else
                     <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">S'inscrire</a>
                 @endif
@@ -45,13 +38,13 @@
                     <div class="col-md-2 mt-3">
 
                         <a  @if (auth()->check())
-                                href="{{route('show.artiste',$artiste->id)}}"
+                                href="{{route('artistes.show',$artiste->id)}}"
                             @else
                                 href="#" data-toggle="modal" data-target="#modalLogin"
                             @endif class="text-decoration-none" >
                             <div class="p-3 box-shadow rounded ">
                                 <div class="">
-                                <img src="{{$artiste->image}}" alt="" class="img-fluid">
+                                <img src="{{asset($artiste->image)}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="pt-2">
                                 <h6 class="text-white font-weight-bold">{{$artiste->username}}</h6>
@@ -66,15 +59,11 @@
             </div> --}}
         </div>
         <div class="d-flex justify-content-center">
-            {{-- <form action="{{route('nosartistes')}}" method="GET" id="artiste-form">
+            <form action="{{route('nosartistes')}}" method="GET" id="artiste-form">
                 @csrf
                 <button class="box-shadow btn bg-hero text-white rounded-lg btn-lg" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
-            </form> --}}
-            <a @if (auth()->check())
-                href="{{route('nosartistes')}}"
-            @else
-                href="#" data-toggle="modal" data-target="#modalLogin"
-            @endif class="box-shadow btn bg-hero text-white rounded-lg btn-lg"> Voir plus</a>
+            </form>
+
         </div>
       </section>
       <section class="container-fluid">
@@ -178,7 +167,7 @@
                         {
                             contenuTableau+=
                             `            <div class="col-md-2 mt-3">
-                                            <a href="{{route('show.artiste','')}}/${index['id']}" class="text-decoration-none">
+                                            <a href="{{route('artistes.show','')}}/${index['id']}" class="text-decoration-none">
                                                 <div class="p-3 box-shadow rounded ">
                                                     <div class="">
                                                     <img src="${index['image']}" alt="" class="img-fluid">

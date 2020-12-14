@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             $user->user_description = $faker->paragraphs($nb = 3, $asText = true) ;
             $user->type = $type_array[array_rand($type_array,1)];
             // $user->type = "artiste";
-            $user->image = $faker->imageUrl($width = 640, $height = 480, 'people') ;
+            $user->image = "assets/images/users/avatar_default.png" ;
             $user->save();
         }
     }

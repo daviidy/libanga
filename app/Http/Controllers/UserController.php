@@ -62,7 +62,7 @@ class UserController extends Controller
         ->select('users.*','address.pays','address.city')
         ->first();
 
-return json_encode($users);
+        return json_encode($users);
     }
 
     /**

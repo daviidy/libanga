@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
+use App\Models\Chanson;
 use Illuminate\Http\Request;
 
 class ChansonController extends Controller
@@ -13,7 +15,10 @@ class ChansonController extends Controller
      */
     public function index()
     {
-        //
+        $chansons = Chanson::get();
+        // dd($chansons);
+        $albums = Album::where('user_id',auth()->user()->id)->get();
+        return view('users.chansons.home', ['chansons' => $chansons,'albums'=>$albums]);
     }
 
     /**
@@ -34,7 +39,8 @@ class ChansonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $chansons = Chanson::create($request->all());
+        return redirect('chansons')->with('status', 'Chanson ajoutée');
     }
 
     /**
@@ -54,9 +60,10 @@ class ChansonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $chansons = Chanson::find($request['chanson_id']);
+        return json_encode($chansons);
     }
 
     /**
@@ -79,6 +86,7 @@ class ChansonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Chanson::where('id',$id)->delete();
+        return redirect()->back()->with('status', 'Chanson supprimé de la base de données');
     }
 }
