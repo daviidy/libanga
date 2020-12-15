@@ -40,7 +40,7 @@ Route::get('/nosartistes', function () {
 
 Route::get('/users/edit/{id}', 'UserController@edit')
     ->name('edit.users');
-Route::put('/users/{id}', 'UserController@update')
+Route::patch('/users/{id}', 'UserController@update')
     ->name('update.users');
 
 //Artiste

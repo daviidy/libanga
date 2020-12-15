@@ -29,18 +29,26 @@
         <div class="col-md-8">
           <div class="mt-3 mt-md-0">
             <div class="bg-white p-md-4 p-3 mb-3 card-shadow">
-              <h3 class="h3 font-weight-bold">Mes chansons</h3>
+              <h3 class="h3 font-weight-bold">Mes titres</h3>
             </div>
             <div class="row" id="service">
+              <div class="px-3">
+                <img src="/assets/images/song.png" alt="" class="img-fluid w-100" style="height:250px">
+              </div>
                 @isset($chansons)
                 @foreach ($chansons as $chanson)
-                    <div class="col-md-4 mt-3">
-                        <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
-                              <div class="card-body">
-                                <h5 class="card-title font-weight-bold">{{$chanson->title}}</h5>
+                    <div class="col-md-12 mt-3 text-white">
+                        <div class="card-shadow d-flex justify-content-between align-items-center border-bottom p-3">
+                              <div class="d-flex align-items-center">
+                                <i class="fas fa-play"></i>
+                                <h5 class="font-weight-bold pl-3">{{$chanson->title}}</h5>
                               </div>
-
-                          </div>
+                              <div class="d-flex align-items-center left">
+                                <i class="fas fa-cog"></i>
+                                <i class="fas fa-cloud-download-alt"></i>
+                                <i class="fas fa-download"></i>
+                              </div>
+                        </div>
                     </div>
                 @endforeach
             @endisset
@@ -96,6 +104,6 @@
       </div>
     </div>
   </div>
+  @include('includes.usersPopup.popupEditDefault')
+
 @endsection
-
-

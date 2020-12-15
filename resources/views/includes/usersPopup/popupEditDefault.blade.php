@@ -18,12 +18,14 @@
           </div>
 
         </div>
-        <form method="POST" action="" enctype="multipart/form-data" id="edit-user">
-          <div class="p-md-4 p-3 bg-white">
-            {{-- <div class="form-group">
+        <form method="POST" enctype="multipart/form-data" id="edit-user">
+            @csrf
+            {{ method_field('patch') }}
+            <div class="p-md-4 p-3 bg-white">
+            <div class="form-group">
               <label for="file">Photo de profil</label>
               <input type="file" name="image" class="form-control" id="file" aria-describedby="fileHelp">
-            </div> --}}
+            </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
               <input type="text" name="telephone" class="form-control" id="telephone">
