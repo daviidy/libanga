@@ -28,7 +28,7 @@ class ArtisteController extends Controller
             'albums.purchase_date',
             )
         ->where('type','artiste')
-        ->where('users.id',18)
+        ->where('users.id',auth()->user()->id)
         ->first();
 
         // $nb_albums_count =Album::join('users','users.id','albums.user_id')
@@ -69,7 +69,7 @@ class ArtisteController extends Controller
     public function show($id)
     {
         $artistes = User::join('address','address.user_id','users.id')
-                         ->join('albums','albums.user_id','users.id')
+                        //  ->join('albums','albums.user_id','users.id')
                          ->select(
                              'users.id',
                              'users.username',
@@ -81,8 +81,8 @@ class ArtisteController extends Controller
                              'address.city',
                              'address.pays',
                              'address.description as address_description',
-                             'albums.title',
-                             'albums.purchase_date',
+                            //  'albums.title',
+                            //  'albums.purchase_date',
                              )
                          ->where('type','artiste')
                          ->where('users.id',$id)

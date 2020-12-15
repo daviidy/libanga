@@ -17,7 +17,7 @@
           <div class="row mt-3">
             <div class="col-md-12">
               <div class="card-deck">
-                <div class="card shadow border-0 box-hover">
+                <!-- <div class="card shadow border-0 box-hover">
                   <a href="#" class="text-decoration-none">
                   <div class="box-img m-auto">
                     <svg width="161" height="147" viewBox="0 0 161 147" fill="none" class="img-fluid">
@@ -55,7 +55,7 @@
                     <h5 class="card-title text-center font-weight-bold">Gérer vos catégories d'annonce</h5>
                   </div>
                   </a>
-                </div>
+                </div> -->
                 <div class="card shadow border-0 box-hover">
                   <a href="#" class="text-decoration-none">
                   <div class="box-img m-auto py-3">
@@ -66,7 +66,7 @@
                     </svg>
                   </div>
                   <div class="card-body pcard-box">
-                    <h5 class="card-title text-center font-weight-bold">Gérer vos utilisateurs</h5>
+                    <h5 class="card-title text-center font-weight-bold">Gérer less utilisateurs</h5>
                   </div>
                   </a>
                 </div>
@@ -76,7 +76,7 @@
                     <img style="width: 100%;" src="https://image.freepik.com/free-vector/illustration-people-with-money_53876-28543.jpg" alt="">
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title text-center font-weight-bold">Gérer vos tarifs</h5>
+                    <h5 class="card-title text-center font-weight-bold">Gérer les commandes</h5>
                   </div>
                   </a>
                 </div>

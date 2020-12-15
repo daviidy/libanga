@@ -40,7 +40,7 @@ class ChansonController extends Controller
     public function store(Request $request)
     {
         $chansons = Chanson::create($request->all());
-        return redirect('chansons')->with('status', 'Chanson ajoutée');
+        return redirect()->back()->with('status', 'Chanson ajoutée');
     }
 
     /**
@@ -75,7 +75,9 @@ class ChansonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $chansons = Chanson::find($id);
+        $chansons->update($request->all());
+        return redirect()->back()->with('status', 'Chanson modifié avec success');
     }
 
     /**
