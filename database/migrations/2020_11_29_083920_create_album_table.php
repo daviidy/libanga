@@ -16,7 +16,7 @@ class CreateAlbumTable extends Migration
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
             $table->date("purchase_date");
-            $table->string("songs");
+            $table->string("title");
             $table->unsignedBigInteger("user_id");
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

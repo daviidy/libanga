@@ -10,4 +10,58 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+        /**
+     * success response method.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendResponse($result, $message,$view=null)
+    {
+    	$response = [
+            'error' => false,
+            'message' => $message,
+            'data'    => $result,
+            'view'    => $view,
+        ];
+
+
+        return response()->json($response, 200);
+    }
+
+
+    /**
+     * return error response.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendError($error, $errorMessages = [], $code = 422)
+    {
+    	$response = [
+            'error' => true,
+            'message' => $error,
+        ];
+
+
+        if(!empty($errorMessages)){
+            $response['data'] = $errorMessages;
+        }
+
+
+        return response()->json($response, $code);
+    }
+
+    public function arrayToChaine($array)
+    {
+        $message="";
+       // dd($array);
+        $i=0;
+        foreach($array as $element)
+        {
+            //return $element;
+            $message=$message.($i==0?'':' , ').$element[0];
+            $i++;
+        }
+        return $message;
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-Route::get('/', 'ArtisteController@home');
+Route::get('/', 'HomeController@home')->name('home');
 /*Route text*/
 Route::get('/admin1', function () {
     return view('admin1');
@@ -24,32 +22,50 @@ Route::get('/admin1', function () {
 Route::get('/admin0', function () {
     return view('admin');
 });
-Route::get('/create-artiste', function () {
-    return view('users.artistes.albums.create');
+Route::get('/adminusers', function () {
+    return view('users1');
+});
+Route::get('/commande', function () {
+    return view('commandes');
 });
 
-Route::get('/artiste', 'HomeController@indexArtiste')
-    ->middleware('is_artiste')
-    ->name('index.artiste');
+Route::get('/nosartistes', function () {
+    return view('showAllArtiste');
+});
+/*END Route text*/
+// Route::get('/artiste', function () {
+//     return view('users.default.home');
+// });
 
-Route::get('/show-artiste/{id}', 'ArtisteController@showArtiste')
-    ->middleware('is_artiste')
-    ->name('show.artiste');
 
-Route::get('/admin', 'HomeController@indexAdmin')
-    ->middleware('is_admin')
-    ->name('index.admin');
+Route::get('/users/edit/{id}', 'UserController@edit')
+    ->name('edit.users');
+Route::patch('/users/{id}', 'UserController@update')
+    ->name('update.users');
 
+//Artiste
+
+Route::get('/nosartistes', 'ArtisteController@showAllArtiste')->name('nosartistes');
+// Route::get('/artistes/{id}', 'ArtisteController@show')->name('show.artiste');
+
+Route::resource('artistes', 'ArtisteController');
+Route::resource('services', 'ServiceController');
+Route::resource('albums', 'AlbumController');
+Route::resource('chansons', 'ChansonController');
+
+Route::get('/testPaypal', function () {
+    return view('testPaypal');
+});
+Route::get('handle-payment', 'PayPalPaymentController@handlePayment')->name('make.payment');
+Route::get('cancel-payment', 'PayPalPaymentController@paymentCancel')->name('cancel.payment');
+Route::get('payment-success', 'PayPalPaymentController@paymentSuccess')->name('success.payment');
 /*end route text*/
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home', 'HomeController@index')->middleware('auth')->name('dashboard');
 Route::get('/getArtiste/{nb_page}', 'ArtisteController@getArtiste')->name('getArtiste');
-// Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
-// Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
 
-// Route::get('/auth/redirect/{provider}', 'Auth\LoginController@redirect');
-// Route::get('/callback/{provider}', 'Auth\LoginController@callback');
 
-Route::get('/redirect', 'Auth\LoginController@redirect');
-Route::get('/callback', 'Auth\LoginController@callback');
+// Route::get('/redirect', 'Auth\LoginController@redirect');
+// Route::get('/callback', 'Auth\LoginController@callback');

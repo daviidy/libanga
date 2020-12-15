@@ -4,29 +4,22 @@
       <section class="hero position-relative">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-12 col-md-7 d-flex flex-column cta px-md-3 px-0 py-5">
+            <div class="col-12 col-md-12 d-flex flex-column cta px-md-3 px-0 py-5">
               <div class=" mb-md-5 text-center">
                 <p class="font-weight-bold display-4"> <span class="font-weight-lighter">Bienvenue sur  </span>Libanga</p>
                 <h4>"Le Name-dropping à portée de clic"</h4>
               </div>
-              <div class="text-left mt-md-5 my-4">
+              <div class="text-left mt-md-5 my-4 text-center">
                 @if (auth()->check())
-
-                    @if (auth()->user()->isAdmin())
-                        <a href="{{ route('index.admin')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
-                    @elseif(auth()->user()->isArtiste())
-                        <a href="{{ route('index.artiste')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
-                    @else
-                        <a href="{{ route('home')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
-                    @endif
+                    <a href="{{ route('dashboard')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
                 @else
                     <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">S'inscrire</a>
                 @endif
               </div>
             </div>
-            <div class="col-12 col-md-5 image">
+            <!--div class="col-12 col-md-5 image">
               <div class="telephone-image"></div>
-            </div>
+            </div-->
           </div>
         </div>
         <div class="wave d-md-block d-none">
@@ -45,13 +38,13 @@
                     <div class="col-md-2 mt-3">
 
                         <a  @if (auth()->check())
-                                href="{{route('show.artiste',$artiste->id)}}"
+                                href="{{route('artistes.show',$artiste->id)}}"
                             @else
                                 href="#" data-toggle="modal" data-target="#modalLogin"
                             @endif class="text-decoration-none" >
                             <div class="p-3 box-shadow rounded ">
                                 <div class="">
-                                <img src="{{$artiste->image}}" alt="" class="img-fluid">
+                                <img src="{{asset($artiste->image)}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="pt-2">
                                 <h6 class="text-white font-weight-bold">{{$artiste->username}}</h6>
@@ -65,11 +58,12 @@
             {{-- <div class="col-md-2 mt-3" id="test">
             </div> --}}
         </div>
-        <div class="d-flex justify-content-end">
-            <form action="" method="GET" id="artiste-form">
+        <div class="d-flex justify-content-center">
+            <form action="{{route('nosartistes')}}" method="GET" id="artiste-form">
                 @csrf
-                <button class=" btn-sm btn-primary" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
+                <button class="box-shadow btn bg-hero text-white rounded-lg btn-lg" type="button" onclick="getArtisteFromAjax('artiste-form')"> Voir plus</button>
             </form>
+
         </div>
       </section>
       <section class="container-fluid">
@@ -139,7 +133,7 @@
           </div>
           <div class="col-md-6">
             <div class="p-4 text-center">
-            <img src="/assets/images/abort3.webp" alt="abord" class="img-fluid">
+            <img src="/assets/images/abort.jpg" alt="abord" class="img-fluid">
             </div>
           </div>
         </div>
@@ -173,7 +167,11 @@
                         {
                             contenuTableau+=
                             `            <div class="col-md-2 mt-3">
-                                            <a href="{{route('show.artiste','')}}/${index['id']}" class="text-decoration-none">
+                                                <a  @if (auth()->check())
+                                                    href="{{route('artistes.show',$artiste->id)}}"
+                                                @else
+                                                    href="#" data-toggle="modal" data-target="#modalLogin"
+                                                @endif class="text-decoration-none" >
                                                 <div class="p-3 box-shadow rounded ">
                                                     <div class="">
                                                     <img src="${index['image']}" alt="" class="img-fluid">

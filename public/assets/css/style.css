@@ -11,7 +11,9 @@ body {
 }
 
 .hero {
-    background: #2ebd50;
+  background: url('/assets/images/slid2.png') no-repeat center;
+  background-size: cover;
+  height: 600px;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 0px;
@@ -21,7 +23,7 @@ body {
 }
 
 .bg-hero {
-  background-color: #2ebd50;
+  background-color: #2ebd50!important;
 }
 
 .btn-h-2 {
@@ -30,6 +32,12 @@ body {
     font-size: 15px;
     line-height: 15px;
 }
+
+.hero .cta p,
+.hero .cta h4  {
+    text-shadow: 2px 2px 4px #000000;
+    color: #fff;
+  }
 
 .btn-h {
     font-weight: bold;
@@ -83,9 +91,9 @@ border-top: 1px solid #232323!important;
   .w-21 {
       width: 100%;
   }
-  .position-relative .display-4 {
+  /*.position-relative .display-4 {
     font-size: calc(100% + 1vw + 1vh)!important;
-  }
+  }*/
   .hero {
     padding-left: 15px;
     padding-right: 15px;
@@ -96,10 +104,14 @@ border-top: 1px solid #232323!important;
     height: 90px!important;
   }
 
+  .hero {
+    background-size: inherit;
+  }
+
 }
 
 @media (min-width: 768px) {
-    .hero .telephone-image {
+  /*  .hero .telephone-image {
         width: 500px;
         height: 600px;
         background: url('/assets/images/slide2.png') no-repeat center;
@@ -107,7 +119,7 @@ border-top: 1px solid #232323!important;
         background-size: contain;
         position: relative;
         bottom: 35px;
-    }
+    }*/
 
     .hero .image {
         margin-top: 0;

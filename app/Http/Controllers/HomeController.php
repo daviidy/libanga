@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -27,12 +27,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        $artistes = User::where('type','artiste')->get();
-        return view('users/default/home',compact('artistes'));
-    }
-    public function indexArtiste()
-    {
-        // dd(auth()->user()->id);
         $artistes = User::join('address','address.user_id','users.id')
         ->join('albums','albums.user_id','users.id')
         ->select(
@@ -46,26 +40,35 @@ class HomeController extends Controller
             'address.city',
             'address.pays',
             'address.description as address_description',
-            'albums.songs',
+            'albums.title',
             'albums.purchase_date',
             )
         ->where('type','artiste')
-        ->where('users.id',18)
+        ->where('users.id',auth()->user()->id)
         ->first();
 
-        $nb_albums_count =Album::join('users','users.id','albums.user_id')
-               ->where('users.id',18)
-               ->count();
-
         $services = Service::join('users','users.id','services.user_id')
-               ->where('users.id',18)
-               ->get();
-        // dd($artistes,auth()->user()->id);
-        return view('users/artistes/home',compact('artistes','nb_albums_count','services'));
+        ->where('users.id',auth()->user()->id)
+        ->select('services.*')
+        ->get();
+        if(auth()->user()->isArtiste())
+        {
+            return view('users.artistes.home',compact('services'));
+
+        }elseif (auth()->user()->isAdmin()) {
+
+            return view('users.admin.home');
+
+        }else{
+
+            return view('users.default.home',compact('artistes'));
+        }
     }
-    public function indexAdmin()
+
+    public function home()
     {
-        return view('users/admin/home');
+        $artistes = User::where('type','artiste')->limit(6)->get();
+        return view('home',compact('artistes'));
     }
 
 }
