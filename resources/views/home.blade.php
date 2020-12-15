@@ -167,7 +167,11 @@
                         {
                             contenuTableau+=
                             `            <div class="col-md-2 mt-3">
-                                            <a href="{{route('artistes.show','')}}/${index['id']}" class="text-decoration-none">
+                                                <a  @if (auth()->check())
+                                                    href="{{route('artistes.show',$artiste->id)}}"
+                                                @else
+                                                    href="#" data-toggle="modal" data-target="#modalLogin"
+                                                @endif class="text-decoration-none" >
                                                 <div class="p-3 box-shadow rounded ">
                                                     <div class="">
                                                     <img src="${index['image']}" alt="" class="img-fluid">

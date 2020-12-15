@@ -103,79 +103,7 @@
 
 @endsection
 <script>
-    const submitForm = (form_id,divId=null) => {
-        form=$("#"+form_id)
-            // e.preventDefault()
-            $.ajax({
-                url:    form.attr('action'),
-                type    : form.attr('method'),
-                data    : form.serialize(),
-                // dataType: 'json',
-                beforeSend: function(data){
-                    NProgress.start();
-                },
-                success: function (data) {
-                    NProgress.done();
-                    NProgress.remove();
-                    var divContent="";
 
-                    if(data.message!=undefined){
-                        // Create an instance of Notyf
-                        var notyf = new Notyf({position: {x: 'right',y: 'top'}});
-                        // Display a success notification
-                        notyf.success(data.message);
-                    }
-                    form.trigger("reset");
-                    $('.modal').modal('hide');
-                    //Suppression des erreurs
-                    $('div').removeClass('has-error');
-                    $('small.text-danger').remove();
-
-                        divContent=`<div class="col-md-4 mt-3">
-                        <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
-
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bold">${data.data['name']}</h5>
-                                <p class="card-text">${data.data['service_description']}</p>
-                            </div>
-                            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                                <p>
-                                    <a href="#"><i class="fas fa-trash"></i></a>&nbsp;&nbsp;
-                                    <a href="#"><i class="fas fa-edit"></i></a>
-                                </p>
-
-                                <p class="text-muted" style="font-weight:bold">${data.data['price']} F CFA</p>
-                            </div>
-                        </div>
-                    </div>
-                    `;
-                    $('#service').append(divContent);
-                    },
-                error:function(xhr){
-
-                    NProgress.done();
-                    NProgress.remove();
-                    //Message
-                    if(xhr.responseJSON.message!=undefined && typeof(xhr.responseJSON.message)!='object'){
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: xhr.responseJSON.message
-                            });
-
-                    }
-                    // alert(Object.getOwnPropertyNames(xhr.responseJSON.errors))
-                    //Affichage des erreurs
-                    $('div').removeClass('has-error');
-                    $('small.text-danger').remove();
-                    $.each(xhr.responseJSON.message, function(key,value) {
-                        //Affichage des erreurs
-                        $('div.'+key).addClass('has-error');
-                        $('div.'+key).append('<small class="control-label text-danger" for="inputError"><i class="fa fa-times-circle-o"></i>  '+value+'</small>');
-                    })
-                }
-            });
-    }
 
     const showEditModal = (user_id) =>{
         // alert(user_id)
@@ -191,12 +119,13 @@
                 },
                 success: function(datas){
                     console.log(datas);
-                    for (var key in datas) {
+
                             //Remplissage de tous les champs input du modal
-                            $("input[name='"+key+"']").val(datas[key])
-                            $("textarea[name='"+key+"']").val(datas[key])
-                            $("select[name='"+key+"']").val(datas[key])
-                        }
+                            $("input[name='telephone']").val(datas['telephone'])
+                            $("input[name='pays']").val(datas['pays'])
+                            $("input[name='city']").val(datas['city'])
+                            $("textarea[name='user_description']").val(datas['user_description'])
+
                 },
                 error: function(xhr){
                     console.log(xhr)

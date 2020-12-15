@@ -157,3 +157,36 @@
   @include('includes.usersPopup.popupEditDefault')
 
 @endsection
+<script>
+
+
+    const showEditModal = (user_id) =>{
+
+        $('#modalEditDefault').modal('show');
+        $("#edit-user").attr('action',"{{route('update.users','')}}/"+user_id)
+        $.ajax({
+                type: 'GET',
+                url: "{{ route('edit.users','edit')}}"+user_id,
+                // data: {user_id:user_id},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                },
+                success: function(datas){
+                    console.log(datas);
+
+                            //Remplissage de tous les champs input du modal
+                            $("input[name='telephone']").val(datas['telephone'])
+                            $("input[name='pays']").val(datas['pays'])
+                            $("input[name='city']").val(datas['city'])
+                            $("textarea[name='user_description']").val(datas['user_description'])
+
+                },
+                error: function(xhr){
+                    console.log(xhr)
+                    alert('Erreur de chargement');
+                }
+            });
+    }
+
+</script>

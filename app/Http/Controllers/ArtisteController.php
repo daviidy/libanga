@@ -39,7 +39,7 @@ class ArtisteController extends Controller
         //        ->where('users.id',auth()->user()->id)
         //        ->get();
         // dd($artistes,auth()->user()->id);
-        return view('users/artistes/home',compact('artistes','nb_albums_count','services'));
+        return view('users.artistes.home',compact('artistes','nb_albums_count','services'));
     }
     public function showAllArtiste()
     {
@@ -62,7 +62,7 @@ class ArtisteController extends Controller
         ->where('type','artiste')
         ->get();
 
-        return view('users/artistes/showAllArtiste',compact('artistes'));
+        return view('users.artistes.showAllArtiste',compact('artistes'));
     }
 
 
@@ -96,7 +96,7 @@ class ArtisteController extends Controller
                                 ->where('users.id',$id)
                                 ->get();
         // dd($artistes,$id);
-        return view('users/artistes/show',compact('artistes','nb_albums_count','services'));
+        return view('users.artistes.show',compact('artistes','nb_albums_count','services'));
     }
 
 
