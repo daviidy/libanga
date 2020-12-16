@@ -41,20 +41,28 @@
           </div>
         </div>
 
-        <div class="row p-3">
-          <div class="px-3">
-            <div class="row bg-white">
-              <div class="col-md-9">
-                <div class="p-4">
-                  <h4 class="font-weight-bold py-3">Lorem ipsum dolor sit amet</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
+        <div class="row p-3" id="service">
+            @isset($purchases)
+            @foreach ($purchases as $purchase)
+                <div class="col-md-4 mt-3">
+                    <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
+                        {{-- <a href="#" class="text-decoration-none"> --}}
+                          {{-- <div class="wprock-img-zoom">
+                            <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
+                          </div> --}}
+                          <div class="card-body">
+                            <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
+                            <p class="card-text">{{$purchase->username}}</p>
+                          </div>
+                          <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                            <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
+                            <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} F CFA</p>
+                          </div>
+                        {{-- </a> --}}
+                      </div>
                 </div>
-              </div>
-              <div class="col-md-3">
-                  <img src="/assets/images/slide.png" alt="" class="img-fluid w-50">
-              </div>
-            </div>
-          </div>
+            @endforeach
+        @endisset
         </div>
 
         <div class="row bg-white mx-1 mt-3">

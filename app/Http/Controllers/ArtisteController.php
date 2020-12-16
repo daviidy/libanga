@@ -28,7 +28,7 @@ class ArtisteController extends Controller
             'albums.purchase_date',
             )
         ->where('type','artiste')
-        ->where('users.id',18)
+        ->where('users.id',auth()->user()->id)
         ->first();
 
         // $nb_albums_count =Album::join('users','users.id','albums.user_id')
@@ -39,7 +39,7 @@ class ArtisteController extends Controller
         //        ->where('users.id',auth()->user()->id)
         //        ->get();
         // dd($artistes,auth()->user()->id);
-        return view('users/artistes/home',compact('artistes','nb_albums_count','services'));
+        return view('users.artistes.home',compact('artistes','nb_albums_count','services'));
     }
     public function showAllArtiste()
     {
@@ -62,14 +62,14 @@ class ArtisteController extends Controller
         ->where('type','artiste')
         ->get();
 
-        return view('users/artistes/showAllArtiste',compact('artistes'));
+        return view('users.artistes.showAllArtiste',compact('artistes'));
     }
 
 
     public function show($id)
     {
         $artistes = User::join('address','address.user_id','users.id')
-                         ->join('albums','albums.user_id','users.id')
+                        //  ->join('albums','albums.user_id','users.id')
                          ->select(
                              'users.id',
                              'users.username',
@@ -81,8 +81,8 @@ class ArtisteController extends Controller
                              'address.city',
                              'address.pays',
                              'address.description as address_description',
-                             'albums.title',
-                             'albums.purchase_date',
+                            //  'albums.title',
+                            //  'albums.purchase_date',
                              )
                          ->where('type','artiste')
                          ->where('users.id',$id)
@@ -96,7 +96,7 @@ class ArtisteController extends Controller
                                 ->where('users.id',$id)
                                 ->get();
         // dd($artistes,$id);
-        return view('users/artistes/show',compact('artistes','nb_albums_count','services'));
+        return view('users.artistes.show',compact('artistes','nb_albums_count','services'));
     }
 
 

@@ -114,13 +114,13 @@
                 beforeSend: function(){
                 },
                 success: function(datas){
-                    console.log(datas);
-                    for (var key in datas) {
+
                             //Remplissage de tous les champs input du modal
-                            $("input[name='"+key+"']").val(datas[key])
-                            $("textarea[name='"+key+"']").val(datas[key])
-                            $("select[name='"+key+"']").val(datas[key])
-                        }
+                            $("input[name='telephone']").val(datas['telephone'])
+                            $("input[name='pays']").val(datas['pays'])
+                            $("input[name='city']").val(datas['city'])
+                            $("textarea[name='user_description']").val(datas['user_description'])
+
                 },
                 error: function(xhr){
                     console.log(xhr)
@@ -141,13 +141,14 @@
                 beforeSend: function(){
                 },
                 success: function(datas){
-                    for (var key in datas) {
+
                         console.log(datas)
                             //Remplissage de tous les champs input du modal
-                            $("input[name='"+key+"']").val(datas[key])
-                            $("textarea[name='"+key+"']").val(datas[key])
-                            $("select[name='"+key+"']").val(datas[key])
-                        }
+                            $("input[name='telephone']").val(datas['telephone'])
+                            $("input[name='pays']").val(datas['pays'])
+                            $("input[name='city']").val(datas['city'])
+                            $("textarea[name='user_description']").val(datas['user_description'])
+
                 },
                 error: function(xhr){
                     console.log(xhr)

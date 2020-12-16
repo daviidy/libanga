@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Purchase;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,10 @@ class DefaultController extends Controller
      */
     public function index()
     {
-        $default = User::where('type','defautl')->get();
-        return view('users/default/home',compact('default'));
+        $purchases = Purchase::join('services','services.id','purchases.service_id')
+                                ->join('users','users.id','purchases.user_id')
+                                ->where('users.id',1)->get();
+        return view('users.default.commandes.index',compact('purchases'));
     }
 
     /**

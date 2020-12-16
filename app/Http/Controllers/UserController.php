@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class UserController extends Controller
 {
     /**
@@ -74,7 +75,32 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $id = auth()->user()->id;
+        if(!is_file($request->image) || is_null($request->image))
+        {
+            $final_path = (auth()->user()->image) ? auth()->user()->image : null;
+        }else{
+            $filename=auth()->user()->username.'.'.$request->image->extension();
 
+            $path=$request->image->move(storage_path('app/public/uploads/images/users'),$filename);
+            $final_path = 'storage/uploads/images/users/'.$filename;
+        }
+        $users = User::where('id',$id);
+
+        $users->update([
+            'image'                  =>$final_path,
+            'telephone'              =>$request->telephone,
+            'user_description'       =>$request->user_description,
+        ]);
+
+        $address = Address::join('users','users.id','address.user_id')
+                            ->where('users.id',$id);
+        $address->update([
+            'pays'                  =>$request->pays,
+            'city'                  =>$request->city
+        ]);
+
+        return redirect()->back()->with('status', 'Profil modifié avec success');
     }
 
     /**
@@ -86,5 +112,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function uploadImage(Request $request){
+        if(!is_file($request->image) || is_null($request->image)) return null;
+        $filename=Str::slug($request->username);
+        $filename=$filename.'.'.$request->image->extension();
+        $path=$request->image->move(storage_path('app/public//assets/images/users/'),$filename);
+        return 'storage/uploads/logos/png/'.$filename;
     }
 }

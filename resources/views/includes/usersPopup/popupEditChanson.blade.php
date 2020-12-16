@@ -27,17 +27,8 @@
                 <input type="text" required="required" name="title" class="form-control" id="title">
               </div>
 
-              <div class="form-group type">
-                <label for="exampleFormControlSelect1">Selectionner un album</label>
-                <select class="form-control" id="album_id" name="album_id" required="required">
-                  <option value="">Selectionner un type de service</option>
-                  @isset($albums)
-                    @foreach ($albums as $album)
-                        <option value="{{$album->id}}">{{$album->title}}</option>
-                    @endforeach
-                  @endisset
-                </select>
-              </div>
+              <input type="hidden" name="album_id" value="{{$albums->id}}">
+
             </div>
             {{-- <button type="button" onclick="submitForm('add-service')" class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase align-item-center"style="border-radius: 0 0 7px 7px;background: #6f23ff;"> --}}
             <button type="submit"  class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase align-item-center"style="border-radius: 0 0 7px 7px;background: #6f23ff;">

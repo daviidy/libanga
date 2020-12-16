@@ -33,7 +33,7 @@
                 <div class="col-md-2 mt-3">
 
                     <a  @if (auth()->check())
-                            href="{{route('show.artiste',$artiste->id)}}"
+                            href="{{route('artistes.show',$artiste->id)}}"
                         @else
                             href="#" data-toggle="modal" data-target="#modalLogin"
                         @endif class="text-decoration-none" >

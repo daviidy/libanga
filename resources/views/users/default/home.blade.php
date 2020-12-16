@@ -11,8 +11,8 @@
         <div class="row">
           <div class="col-md-12 mt-4 pt-2">
             <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item">
-              <h3>Active Order</h3>
-              <form>
+              <h3>Mes commandes</h3>
+              <!-- <form>
                 <div class="form-group mb-0">
                   <select class="form-control form-control-lg" id="exampleFormControlSelect1">
                     <option>Lorem ipsum dolor</option>
@@ -22,7 +22,7 @@
                     <option>Lorem ipsum dolor</option>
                   </select>
                 </div>
-              </form>
+              </form> -->
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-12">
             <div class="d-flex mt-4 text-white">
               <p class="font-weight-bold w-25">Lorem ipsum</p>
@@ -105,7 +105,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!--div class="row mt-3 p-2">
           <div class="col-md-12">
@@ -157,3 +157,36 @@
   @include('includes.usersPopup.popupEditDefault')
 
 @endsection
+<script>
+
+
+    const showEditModal = (user_id) =>{
+
+        $('#modalEditDefault').modal('show');
+        $("#edit-user").attr('action',"{{route('update.users','')}}/"+user_id)
+        $.ajax({
+                type: 'GET',
+                url: "{{ route('edit.users','edit')}}"+user_id,
+                // data: {user_id:user_id},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                },
+                success: function(datas){
+                    console.log(datas);
+
+                            //Remplissage de tous les champs input du modal
+                            $("input[name='telephone']").val(datas['telephone'])
+                            $("input[name='pays']").val(datas['pays'])
+                            $("input[name='city']").val(datas['city'])
+                            $("textarea[name='user_description']").val(datas['user_description'])
+
+                },
+                error: function(xhr){
+                    console.log(xhr)
+                    alert('Erreur de chargement');
+                }
+            });
+    }
+
+</script>
