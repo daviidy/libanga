@@ -32,6 +32,9 @@ Route::get('/commande', function () {
 Route::get('/nosartistes', function () {
     return view('showAllArtiste');
 });
+Route::get('/nosartiste', function () {
+    return view('allArtiste');
+});
 /*END Route text*/
 // Route::get('/artiste', function () {
 //     return view('users.default.home');
