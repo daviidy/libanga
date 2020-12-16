@@ -16,7 +16,7 @@
         <ul class="list-group">
           <li><a href="{{ route('dashboard')}}" class="list-group-item d-flex justify-content-between align-items-center border-0">Tableau de bord</a></li>
           <li><a onclick="showEditModal({{auth()->user()->id}})" class="list-group-item d-flex justify-content-between align-items-center border-0" >Modifier mon profil</a></li>
-          <li><a href="{{ route('commandes')}}" class="list-group-item d-flex justify-content-between align-items-center border-0">Mes commandes</a></li>
+          <li><a href="{{-- route('commandes')--}}" class="list-group-item d-flex justify-content-between align-items-center border-0">Mes commandes</a></li>
         </ul>
       </div>
     </div>

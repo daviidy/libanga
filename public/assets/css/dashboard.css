@@ -265,9 +265,9 @@ box-shadow: -1px 0px 4px 0 rgb(0 0 0 / 70%), 0px 2px 10px 0 rgb(0 0 0 / 70%);
 }
 /* media queries */
 @media screen and (max-width: 599px) {
-  .logo {
-    display: none;
-  }
+.dropdown .dropdown-menu {
+  width: 100%;
+}
 
   iframe {
     width: 100% !important;

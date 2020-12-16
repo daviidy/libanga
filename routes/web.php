@@ -25,15 +25,12 @@ Route::get('/admin0', function () {
 Route::get('/adminusers', function () {
     return view('users1');
 });
-// Route::get('/commande', function () {
-//     return view('users.default.commandes.index');
-// });
+Route::get('/commande', function () {
+    return view('commandes');
+});
 
 Route::get('/nosartistes', function () {
     return view('showAllArtiste');
-});
-Route::get('/nosartiste', function () {
-    return view('allArtiste');
 });
 /*END Route text*/
 // Route::get('/artiste', function () {
@@ -43,11 +40,9 @@ Route::get('/nosartiste', function () {
 
 Route::get('/users/edit/{id}', 'UserController@edit')
     ->name('edit.users');
-Route::patch('/users/{id}', 'UserController@update')
+Route::put('/users/{id}', 'UserController@update')
     ->name('update.users');
 
-
-Route::get('/commande', 'DefaultController@index')->name('commandes');
 //Artiste
 
 Route::get('/nosartistes', 'ArtisteController@showAllArtiste')->name('nosartistes');

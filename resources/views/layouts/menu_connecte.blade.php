@@ -26,7 +26,7 @@
 
 <body class="bg-main">
   <header>
-    <nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top">
+    {{--<nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top">
       <ul class="navbar-nav flex-row align-items-center">
         <li class="nav-item">
           <a href="#">
@@ -60,6 +60,53 @@
           </div>
         </li>
       </ul>
+    </nav>--}}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-brand" href="#">
+            <i class="fas fa-bars hamburger"></i>
+            <a href="/">
+              <img class="img-fluid" src="/assets/images/libanga.jpg" alt="" width="100">
+            </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mx-md-auto align-items-md-center">
+          <li class="nav-item px-md-4 active">
+            <a class="nav-link font-weight-bold" href="/">Accueil <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item px-md-4 active">
+            <a class="nav-link font-weight-bold" href="/nosartistes">Nos artistes</a>
+          </li>
+          <li class="nav-item px-md-4 active">
+            <a class="nav-link font-weight-bold" href="#">Qui sommes nous?</a>
+          </li>
+          <li class="nav-item px-md-4 active">
+            <a class="nav-link font-weight-bold" href="#">Nous contacter</a>
+          </li>
+        </ul>
+        <div class="my-2 my-lg-0">
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">Accueil</a>
+              <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
+              <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+               {{ __('Déconnexion') }}
+               </a>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
   </header>
 

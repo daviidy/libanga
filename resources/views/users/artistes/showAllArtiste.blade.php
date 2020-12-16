@@ -27,35 +27,12 @@
         </div>
 
         <div class="row py-4 mb-md-5" id="contentArtist">
-{{--
-            @isset($artistes)
-            @foreach ($artistes as $artiste)
-                <div class="col-md-2 mt-3">
 
-                    <a  @if (auth()->check())
-                            href="{{route('artistes.show',$artiste->id)}}"
-                        @else
-                            href="#" data-toggle="modal" data-target="#modalLogin"
-                        @endif class="text-decoration-none" >
-                        <div class="p-3 box-shadow rounded filter">
-                            <div class="">
-                            <img src="{{asset($artiste->image)}}" alt="" class="img-fluid">
-                            </div>
-                            <div class="pt-2">
-                            <h6 class="text-white font-weight-bold">{{$artiste->username}}</h6>
-                            <p class="text-white">{{$artiste->username}}</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        @endisset
---}}
         @isset($artistes)
         @foreach ($artistes as $artiste)
         <div class="col-md-6 mt-3 text-md-left text-center filter">
           <a  @if (auth()->check())
-                  href="{{route('show.artiste',$artiste->id)}}"
+                  href="{{--route('show.artiste',$artiste->id)--}}"
               @else
                   href="#" data-toggle="modal" data-target="#modalLogin"
               @endif class="text-decoration-none" >
