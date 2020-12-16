@@ -28,13 +28,13 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
-              <input type="text" name="telephone" class="form-control" id="telephone">
+              <input type="tel" name="telephone" class="form-control" id="telephone">
             </div>
             <label class="py-3" for="adress">Adresse</label>
 
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" name="pays" class="form-control" id="inputEmail4" placeholder="Pays">
+                <input type="text" name="pays" class="form-control" id="country" placeholder="Pays">
               </div>
               <div class="form-group col-md-6">
                 <input type="text" name="city" class="form-control" id="inputPassword4" placeholder="Ville">

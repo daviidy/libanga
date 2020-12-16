@@ -28,29 +28,29 @@
                 <a class="nav-link font-weight-bold" href="/nosartistes">Nos artistes</a>
               </li>
               <li class="nav-item px-md-4 active">
-                <a class="nav-link font-weight-bold" href="#">Qui sommes nous?</a>
+                <a class="nav-link font-weight-bold" href="/quisommesnous">Qui sommes nous?</a>
               </li>
               <li class="nav-item px-md-4 active">
-                <a class="nav-link font-weight-bold" href="#">Nous contacter</a>
+                <a class="nav-link font-weight-bold" href="/contacternous">Contactez-nous</a>
               </li>
             </ul>
 
             @if (auth()->check())
                 <div class="dropdown">
                     <div class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="rounded-circle img-fluid avatar-size">
+                      <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="rounded-circle img-fluid avatar-size">
                     </div>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                    {{ __('Déconnexion') }}
-                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Déconnexion') }}
+                        </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             @else

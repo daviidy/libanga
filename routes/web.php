@@ -36,7 +36,13 @@ Route::get('/nosartistes', function () {
 // Route::get('/artiste', function () {
 //     return view('users.default.home');
 // });
+Route::get('/quisommesnous', function () {
+    return view('aPropos');
+});
 
+Route::get('/contacternous', function () {
+    return view('contacte');
+});
 
 Route::get('/users/edit/{id}', 'UserController@edit')
     ->name('edit.users');

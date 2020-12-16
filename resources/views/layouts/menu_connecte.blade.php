@@ -21,6 +21,10 @@
   <link rel='stylesheet' href='https://unpkg.com/nprogress@0.2.0/nprogress.css'/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.12.3/dist/sweetalert2.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+  <!--Plugin telephone and contry-->
+  <link rel="stylesheet" href="/assets/plugins/intlTelInput/build/css/intlTelInput.css">
+  <link rel="stylesheet" href="/assets/plugins/intlTelInput/build/css/countrySelect.css">
+  <link rel="stylesheet" href="/assets/plugins/intlTelInput/build/css/demo.css">
 
 </head>
 
@@ -65,7 +69,7 @@
       <div class="navbar-brand" href="#">
             <i class="fas fa-bars hamburger"></i>
             <a href="/">
-              <img class="img-fluid" src="/assets/images/libanga.jpg" alt="" width="100">
+              <img class="img-fluid" src="/assets/images/logo_libanga.png" alt="" width="100">
             </a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,10 +85,10 @@
             <a class="nav-link font-weight-bold" href="/nosartistes">Nos artistes</a>
           </li>
           <li class="nav-item px-md-4 active">
-            <a class="nav-link font-weight-bold" href="#">Qui sommes nous?</a>
+            <a class="nav-link font-weight-bold" href="/quisommesnous">Qui sommes nous?</a>
           </li>
           <li class="nav-item px-md-4 active">
-            <a class="nav-link font-weight-bold" href="#">Nous contacter</a>
+            <a class="nav-link font-weight-bold" href="/contacternous">Contactez-nous</a>
           </li>
         </ul>
         <div class="my-2 my-lg-0">
@@ -127,6 +131,16 @@
     var annee = date.getFullYear();
     document.getElementById('year').innerHTML = annee;
   </script>
+  <!-- Use as a Vanilla JS plugin -->
+  <script src="/assets/plugins/intlTelInput/build/js/intlTelInput.min.js"></script>
+  <script src="/assets/plugins/intlTelInput/build/js/countrySelect.js"></script>
+
+  <!-- Use as a jQuery plugin -->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="/assets/plugins/intlTelInput/build/js/intlTelInput-jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/highlight.min.js"></script>
   <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
@@ -142,6 +156,30 @@
     var annee = date.getFullYear();
     document.getElementById('year').innerHTML = annee;
   </script>
+
+<!--Plugin phone-->
+  <script>
+    var input = document.querySelector("#telephone");
+    window.intlTelInput(input, {
+
+      autoPlaceholder: "polite",
+
+       hiddenInput: "phone",
+
+       nationalMode: true,
+
+       preferredCountries: ["ci", "fr"],
+       separateDialCode: true,
+      utilsScript: "/assets/plugins/intlTelInput/build/js/utils.js",
+    });
+  </script>
+
+  <script>
+    $("#country").countrySelect({
+      preferredCountries: ['ca', 'gb', 'us']
+    });
+  </script>
+
 
   <script>
     $('.hamburger').click(function() {
@@ -161,19 +199,7 @@
       }
     });
   </script>
-  <script>
-    $(document).ready(function() {
-      $("#viewAnswer").click(function() {
-        $(this).addClass("d-none");
-        $("#verifyAnswer").removeClass("d-none")
-      });
 
-      $("#restartQuiz").click(function() {
-        $("#verifyAnswer").addClass("d-none");
-        $("#viewAnswer").removeClass("d-none")
-      });
-    });
-  </script>
 
 </body>
 
