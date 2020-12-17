@@ -8,6 +8,7 @@ h2,
 h3,
 h4,
 h5,
+h6,
 input,
 button,
 ul,
@@ -23,6 +24,7 @@ p {
   color: inherit;
   background: transparent;
   list-style: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Global Setting */
@@ -35,7 +37,11 @@ p {
   z-index: 1999;
 }
 
-body {
+body,
+form,
+a,
+#service,
+.nav-item {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }

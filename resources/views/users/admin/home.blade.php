@@ -66,7 +66,7 @@
                     </svg>
                   </div>
                   <div class="card-body pcard-box">
-                    <h5 class="card-title text-center font-weight-bold">Gérer less utilisateurs</h5>
+                    <h5 class="card-title text-center font-weight-bold">Gérer les utilisateurs</h5>
                   </div>
                   </a>
                 </div>

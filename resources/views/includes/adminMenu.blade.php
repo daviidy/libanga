@@ -17,7 +17,7 @@
 
         <div id="collapseOne" class="collapse show " aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body list-group pcard-boxm rounded-0">
-            <a href="#" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Accueil</a>
+            <a href="{{ route('dashboard')}}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Accueil</a>
           </div>
         </div>
       </div>
