@@ -57,7 +57,7 @@
                   </a>
                 </div> -->
                 <div class="card shadow border-0 box-hover">
-                  <a href="#" class="text-decoration-none">
+                  <a href="{{route(users.index)}}" class="text-decoration-none">
                   <div class="box-img m-auto py-3">
                     <svg width="162" height="145" viewBox="0 0 162 145" fill="none" class="img-fluid">
                         <path d="M21 21L25.5 9L38.5 2H115L127 7L135.5 19V138L106 116H39.5L27 110.5L21 96.5V21Z" fill="#F8F8FF"></path>
