@@ -81,6 +81,69 @@ border-top: 1px solid #232323!important;
 .modal{
   background: #1a1b20;
 }
+/*All artiste*/
+.bg-allArtiste {
+  width: 100%;
+  height: 300px;
+  background: url('/assets/images/nosartistes.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.bg-allArtiste:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    background: rgb(0 0 0 / 55%);
+}
+.bg-allArtiste h1,
+.bg-contacte h1,
+.bg-propos h1 {
+  font-size: 50px;
+  line-height: 1.3em;
+}
+
+.hover-bloc:hover {
+  box-shadow: -4px -4px 4px 0 rgb(138 138 138 / 36%), 4px 4px 7px 0 rgb(138 138 138 / 36%);
+
+}
+/*Apropos*/
+.bg-propos {
+  width: 100%;
+  height: 300px;
+  background: url('/assets/images/3.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.bg-propos:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    background: rgb(0 0 0 / 75%);
+}
+
+/*contactez-nous*/
+.bg-contacte {
+  width: 100%;
+  height: 300px;
+  background: url('/assets/images/4.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.bg-contacte:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    background: rgb(0 0 0 / 75%);
+}
 
 @media (max-width: 768px){
   .h-box {
@@ -185,6 +248,10 @@ border-top: 1px solid #232323!important;
     .avatar-login-img {
       width:90px;
       height:90px!important;
+    }
+
+    .search {
+      width: 50%;
     }
 
 }

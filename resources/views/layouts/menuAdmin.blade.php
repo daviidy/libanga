@@ -13,41 +13,51 @@
   <body class="main-content1">
     <header>
       <nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top">
-        <ul class="navbar-nav flex-row align-items-center">
-          <li class="nav-item">
-            <a href="#" class="text-decoration-none">
+        <div class="navbar-brand" href="#">
               <i class="fas fa-bars hamburger"></i>
-            </a>
-          </li>
-          <li class="nav-item ml-3">
-            <a href="/" class="text-decoration-none">
-              <img class="logo-short img-fluid" src="./assets/images/logo-os-noir.png" alt="Logo">
-              <img class="logo" src="./assets/images/logo-oschool-noir.png" alt="">
-              Libanga
-            </a>
-          </li>
-        </ul>
+              <a href="/">
+                <img class="img-fluid" src="/assets/images/logo_libanga.png" alt="" width="100">
+              </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars hamburger"></i>
+        </button>
 
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Link 1</a>
-              <a class="dropdown-item" href="#">Link 2</a>
-              <a class="dropdown-item" href="#">Link 3</a>
-              <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-               {{ __('Déconnexion') }}
-               </a>
-               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                  @csrf
-              </form>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto mx-md-auto align-items-md-center">
+            <li class="nav-item px-md-4 active">
+              <a class="nav-link font-weight-bold" href="/">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item px-md-4 active">
+              <a class="nav-link font-weight-bold" href="/nosartistes">Nos artistes</a>
+            </li>
+            <li class="nav-item px-md-4 active">
+              <a class="nav-link font-weight-bold" href="/quisommesnous">Qui sommes nous?</a>
+            </li>
+            <li class="nav-item px-md-4 active">
+              <a class="nav-link font-weight-bold" href="/contacternous">Contactez-nous</a>
+            </li>
+          </ul>
+            <div class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbardr" data-toggle="dropdown">
+                <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
+              </a>
+              <div class="dropdown-menu">
+                <!--a class="dropdown-item" href="/">Accueil</a-->
+                <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                 {{ __('Déconnexion') }}
+                 </a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+              </div>
             </div>
-          </li>
-        </ul>
+
+        </div>
+
       </nav>
     </header>
 
