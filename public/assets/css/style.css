@@ -105,10 +105,18 @@ border-top: 1px solid #232323!important;
   line-height: 1.3em;
 }
 
-.hover-bloc:hover {
+.hover-bloc:hover{
   box-shadow: -4px -4px 4px 0 rgb(138 138 138 / 36%), 4px 4px 7px 0 rgb(138 138 138 / 36%);
-
+  background-color: #343a40!important;
+  transition: transform 0.2s ease;
+  color: #fff!important;
+  border: 2px solid #7b7b7b;
+  box-shadow: none;
 }
+.hover-bloc:hover p{
+  color: #fff!important;
+}
+
 /*Apropos*/
 .bg-propos {
   width: 100%;

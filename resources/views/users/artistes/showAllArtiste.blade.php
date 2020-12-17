@@ -30,7 +30,7 @@
 
         @isset($artistes)
         @foreach ($artistes as $artiste)
-        <div class="col-md-6 mt-3 text-md-left text-center filter">
+        <div class="col-md-4 mt-3 text-md-left text-center filter">
           <a  @if (auth()->check())
                   href="{{route('show.artiste',$artiste->id)}}"
               @else
@@ -50,13 +50,13 @@
                     Artiste chanteure
                   </span>
                   <span class="p-1">
-                    {{--$artistes->pays--}}
+                    Côte d'ivoire
                   </span>
 
                 </div>
               </div>
               <div class="p-2">
-                <p>{{--$artistes->user_description--}}</p>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehende</p>
               </div>
             </div>
           </a>
