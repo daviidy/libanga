@@ -12,7 +12,7 @@
   <script src="https://kit.fontawesome.com/d86848cfe0.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <!-- Latest compiled JavaScript -->
@@ -30,41 +30,7 @@
 
 <body class="bg-main">
   <header>
-    {{--<nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top">
-      <ul class="navbar-nav flex-row align-items-center">
-        <li class="nav-item">
-          <a href="#">
-            <i class="fas fa-bars hamburger"></i>
-          </a>
-        </li>
-        <li class="nav-item ml-3">
-          <a href="/">
-            <img class="logo-short img-fluid" src="/assets/images/libanga.jpg" alt="Logo" width="150">
-            <img class="logo img-fluid" src="/assets/images/libanga.jpg" alt="" width="150">
-          </a>
-        </li>
-      </ul>
 
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="/">Accueil</a>
-            <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
-            <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-             {{ __('Déconnexion') }}
-             </a>
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-          </div>
-        </li>
-      </ul>
-    </nav>--}}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="navbar-brand" href="#">
             <i class="fas fa-bars hamburger"></i>
@@ -91,9 +57,8 @@
             <a class="nav-link font-weight-bold" href="/contacternous">Contactez-nous</a>
           </li>
         </ul>
-        <div class="my-2 my-lg-0">
-          <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          <div class="dropdown">
+            <a class="dropdown-toggle" href="#" id="navbardr" data-toggle="dropdown">
               <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
             </a>
             <div class="dropdown-menu">
@@ -109,7 +74,7 @@
               </form>
             </div>
           </div>
-        </div>
+
       </div>
     </nav>
   </header>
@@ -124,6 +89,9 @@
         © <span id="year">2010 </span> LIBANGA. TOUS DROITS RÉSERVÉS.
     </div>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
   <script>
     /*COPYRIGTH SCRIPT*/

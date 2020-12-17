@@ -32,7 +32,7 @@
         @foreach ($artistes as $artiste)
         <div class="col-md-6 mt-3 text-md-left text-center filter">
           <a  @if (auth()->check())
-                  href="{{--route('show.artiste',$artiste->id)--}}"
+                  href="{{route('show.artiste',$artiste->id)}}"
               @else
                   href="#" data-toggle="modal" data-target="#modalLogin"
               @endif class="text-decoration-none" >

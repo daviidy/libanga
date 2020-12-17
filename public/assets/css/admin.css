@@ -42,8 +42,7 @@ body {
 
 .dropdown-menu {
   position: absolute !important;
-  left: auto;
-  right: 0;
+  left: -90px!important;
 }
 
 /* main */
@@ -126,9 +125,11 @@ i {
 
 /* media queries */
 @media screen and (max-width: 599px) {
-  .logo {
-    display: none;
+  .dropdown-menu {
+    left: 0!important;
+    width: 100%;
   }
+
 }
 
 

@@ -28,14 +28,12 @@ Route::get('/adminusers', function () {
 Route::get('/commande', function () {
     return view('commandes');
 });
-
+/*
 Route::get('/nosartistes', function () {
     return view('showAllArtiste');
-});
+});*/
 /*END Route text*/
-// Route::get('/artiste', function () {
-//     return view('users.default.home');
-// });
+
 Route::get('/quisommesnous', function () {
     return view('aPropos');
 });
