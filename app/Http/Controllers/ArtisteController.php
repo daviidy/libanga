@@ -93,9 +93,10 @@ class ArtisteController extends Controller
                                 ->count();
 
         $services = Service::join('users','users.id','services.user_id')
+                                ->select('services.*')
                                 ->where('users.id',$id)
                                 ->get();
-        // dd($artistes,$id);
+        // dd($artistes,$id,$services);
         return view('users.artistes.show',compact('artistes','nb_albums_count','services'));
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Purchase;
 use App\Models\Service;
 use App\User;
 use Illuminate\Http\Request;
@@ -51,6 +52,13 @@ class HomeController extends Controller
         ->where('users.id',auth()->user()->id)
         ->select('services.*')
         ->get();
+
+        $purchases = Purchase::join('services','services.id','purchases.service_id')
+        ->join('users','users.id','purchases.user_id')
+        ->where('users.id',auth()->user()->id)
+        ->where('purchases.status','validé')
+        ->get();
+
         if(auth()->user()->isArtiste())
         {
             return view('users.artistes.home',compact('services'));
@@ -61,7 +69,7 @@ class HomeController extends Controller
 
         }else{
 
-            return view('users.default.home',compact('artistes'));
+            return view('users.default.home',compact('purchases'));
         }
     }
 

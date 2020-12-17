@@ -35,7 +35,7 @@
             @if (auth()->check())
                 <div class="dropdown">
                     <div class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="rounded-circle img-fluid avatar-size">
+                    <img src="{{asset(auth()->user()->image)}}" alt="" class="rounded-circle img-fluid avatar-size">
                     </div>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
@@ -53,7 +53,7 @@
             @else
                 <div class="mt-md-0 mt-4">
                     <a href="#" class="text-decoration-none h-auto rounded-pill py-3 px-5 text-white btn-h-2 btn-shadow" data-toggle="modal" data-target="#modalLogin">
-                    S'inscrire
+                    Se connecter
                     </a>
                 </div>
             @endif

@@ -17,7 +17,7 @@ class DefaultController extends Controller
     {
         $purchases = Purchase::join('services','services.id','purchases.service_id')
                                 ->join('users','users.id','purchases.user_id')
-                                ->where('users.id',1)->get();
+                                ->where('users.id',auth()->user()->id)->get();
         return view('users.default.commandes.index',compact('purchases'));
     }
 

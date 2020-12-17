@@ -43,32 +43,26 @@
 
         <div class="row p-3" id="service">
             @isset($purchases)
-            @foreach ($purchases as $purchase)
-                <div class="col-md-4 mt-3">
-                    <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
-                        {{-- <a href="#" class="text-decoration-none"> --}}
-                          {{-- <div class="wprock-img-zoom">
-                            <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
-                          </div> --}}
-                          <div class="card-body">
-                            <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
-                            <p class="card-text">{{$purchase->username}}</p>
-                          </div>
-                          <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                            <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
-                            <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} F CFA</p>
-                          </div>
-                        {{-- </a> --}}
-                      </div>
-                </div>
-            @endforeach
-        @endisset
-        </div>
-
-        <div class="row bg-white mx-1 mt-3">
-          <div class="col-md-12 p-2">
-            <h4 class="text-center font-weight-bolder p-2">Lorem ipsum dolor sit amet, consectetur adipisicing</h4>
-          </div>
+                @foreach ($purchases as $purchase)
+                    <div class="col-md-4 mt-3">
+                        <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
+                            {{-- <a href="#" class="text-decoration-none"> --}}
+                            {{-- <div class="wprock-img-zoom">
+                                <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
+                            </div> --}}
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
+                                <p class="card-text">{{$purchase->username}}</p>
+                            </div>
+                            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
+                                <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} F CFA</p>
+                            </div>
+                            {{-- </a> --}}
+                        </div>
+                    </div>
+                @endforeach
+            @endisset
         </div>
       </div>
       <!--end main content-->

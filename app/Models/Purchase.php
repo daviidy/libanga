@@ -8,9 +8,10 @@ class Purchase extends Model
 {
     protected $table='purchases';
     protected $fillable =[
-                'serive_id',
+                'service_id',
                 'user_id',
-                'status'
+                'status',
+                'purchase_state',
     ];
 
     public function users()

@@ -54,6 +54,22 @@
             <div class="bg-white p-md-4 p-3 mb-3 card-shadow">
               <h3 class="h3 font-weight-bold">Mes services</h3>
             </div>
+            @if($message = Session::get('error'))
+                <div class="card-body">
+                    <div class="alert alert-danger" role="alert">
+                        {!! $message !!}
+                    </div>
+                </div>
+                <?php Session::forget('error');?>
+            @endif
+            @if($message = Session::get('success'))
+                <div class="card-body">
+                    <div class="alert alert-success" role="alert">
+                        {!! $message !!}
+                    </div>
+                </div>
+                <?php Session::forget('success');?>
+            @endif
             <div class="">
               <div class="card-deck">
                 <div class="row py-4"  id="test">
@@ -68,9 +84,11 @@
                                       <div class="card-body">
                                         <h5 class="card-title font-weight-bold">{{$service->name}}</h5>
                                         <p class="card-text">{{$service->service_description}}</p>
+
                                       </div>
                                       <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                         {{-- <i class="fas fa-heart"></i> --}}
+                                        <a  onclick="commandeModalShow({{$service->id}})" class="fas fa-heart"> Commander</a>
                                         <p class="text-muted" style="font-weight:bold">{{number_format($service->price,0,'.',' ')}} F CFA</p>
                                       </div>
 
@@ -127,7 +145,15 @@
                   <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander mes services</p>
                 </div>
                 <div class="text-left mt-md-5 my-4 text-center">
-                  <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mt-3 mb-5 text-white btn-h btn-shadow">Commander maintenant</a>
+                    <form action="{{route('paypal')}}" method="post">
+                            @csrf
+                             <button type="submit" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mt-3 mb-5 text-white btn-h btn-shadow">Commander maintenant</button>
+                            <input type="hidden" name="user_id">
+                            <input type="hidden" name="id">
+                            <input type="hidden" name="price">
+                            <input type="hidden" name="name">
+                    </form>
+                  {{-- <a href="{{ route('make.payment') }}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mt-3 mb-5 text-white btn-h btn-shadow">Commander maintenant</a> --}}
                 </div>
             </div>
           </div>
@@ -136,3 +162,30 @@
     </div>
   </div>
 @endsection
+<script>
+    const commandeModalShow = (service_id) =>{
+
+        $('#modalLogin').modal('show');
+        $.ajax({
+                type: 'GET',
+                url: "{{ route('services.edit','"+service_id+"')}}",
+                data: {service_id:service_id},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                },
+                success: function(datas){
+                    for (var key in datas) {
+                        console.log(datas)
+                            //Remplissage de tous les champs input du modal
+                            $("input[name='"+key+"']").val(datas[key])
+                        }
+                },
+                error: function(xhr){
+                    console.log(xhr)
+                    alert('Erreur de chargement');
+                }
+            });
+    }
+
+</script>
