@@ -15,20 +15,23 @@
     <div class="main-content bg-main">
       <header class="bg-hero">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="/"><img src="/assets/images/libanga.jpg" alt="" class="img-fluid" style="width:150px"></a>
+          <a class="navbar-brand" href="/"><img src="/assets/images/logo_libanga.png" alt="" class="img-fluid" style="width:150px"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-md-auto">
               <li class="nav-item px-md-4 active">
-                <a class="nav-link font-weight-bold" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link font-weight-bold" href="/">Accueil <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item px-md-4 active">
-                <a class="nav-link font-weight-bold" href="#">Features</a>
+                <a class="nav-link font-weight-bold" href="/nosartistes">Nos artistes</a>
               </li>
               <li class="nav-item px-md-4 active">
-                <a class="nav-link font-weight-bold" href="#">Pricing</a>
+                <a class="nav-link font-weight-bold" href="/quisommesnous">Qui sommes nous?</a>
+              </li>
+              <li class="nav-item px-md-4 active">
+                <a class="nav-link font-weight-bold" href="/contacternous">Contactez-nous</a>
               </li>
             </ul>
 
@@ -37,17 +40,17 @@
                     <div class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="{{asset(auth()->user()->image)}}" alt="" class="rounded-circle img-fluid avatar-size">
                     </div>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                    {{ __('Déconnexion') }}
-                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Déconnexion') }}
+                        </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             @else
@@ -73,7 +76,13 @@
   </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
@@ -84,6 +93,40 @@
     var annee = date.getFullYear();
     document.getElementById('year').innerHTML = annee;
 </script>
+
+<script>
+
+    $(document).ready(function(){
+      $("#courseSearch").keyup(function() {
+
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val(),
+          count = 0;
+
+        // Loop through the comment list
+        $("#contentArtist .filter").each(function() {
+
+
+          // If the list item does not contain the text phrase fade it out
+          if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+            $(this).hide();
+
+            // Show the list item if the phrase matches and increase the count by 1
+          } else {
+            $(this).show();
+            count++;
+          }
+
+        });
+
+      });
+
+    });
+
+
+</script>
+
+
 
     @if(old('test') == "is_error")
 

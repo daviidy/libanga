@@ -17,7 +17,7 @@
           <div class="row mt-3">
             <div class="col-md-12">
               <div class="card-deck">
-                <div class="card shadow border-0 box-hover">
+                <!-- <div class="card shadow border-0 box-hover">
                   <a href="#" class="text-decoration-none">
                   <div class="box-img m-auto">
                     <svg width="161" height="147" viewBox="0 0 161 147" fill="none" class="img-fluid">
@@ -55,9 +55,9 @@
                     <h5 class="card-title text-center font-weight-bold">Gérer vos catégories d'annonce</h5>
                   </div>
                   </a>
-                </div>
+                </div> -->
                 <div class="card shadow border-0 box-hover">
-                  <a href="#" class="text-decoration-none">
+                  <a href="{{route('users.index')}}" class="text-decoration-none">
                   <div class="box-img m-auto py-3">
                     <svg width="162" height="145" viewBox="0 0 162 145" fill="none" class="img-fluid">
                         <path d="M21 21L25.5 9L38.5 2H115L127 7L135.5 19V138L106 116H39.5L27 110.5L21 96.5V21Z" fill="#F8F8FF"></path>
@@ -66,7 +66,7 @@
                     </svg>
                   </div>
                   <div class="card-body pcard-box">
-                    <h5 class="card-title text-center font-weight-bold">Gérer vos utilisateurs</h5>
+                    <h5 class="card-title text-center font-weight-bold">Gérer les utilisateurs</h5>
                   </div>
                   </a>
                 </div>
@@ -76,7 +76,7 @@
                     <img style="width: 100%;" src="https://image.freepik.com/free-vector/illustration-people-with-money_53876-28543.jpg" alt="">
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title text-center font-weight-bold">Gérer vos tarifs</h5>
+                    <h5 class="card-title text-center font-weight-bold">Gérer les commandes</h5>
                   </div>
                   </a>
                 </div>

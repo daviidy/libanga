@@ -11,8 +11,8 @@
         <div class="row">
           <div class="col-md-12 mt-4 pt-2">
             <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item">
-              <h3>Dashboard Default</h3>
-              <form>
+              <h3>Mes commandes</h3>
+              <!-- <form>
                 <div class="form-group mb-0">
                   <select class="form-control form-control-lg" id="exampleFormControlSelect1">
                     <option>Lorem ipsum dolor</option>
@@ -22,7 +22,7 @@
                     <option>Lorem ipsum dolor</option>
                   </select>
                 </div>
-              </form>
+              </form> -->
             </div>
           </div>
         </div>
@@ -31,10 +31,7 @@
                 @foreach ($purchases as $purchase)
                     <div class="col-md-4 mt-3">
                         <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
-                            {{-- <a href="#" class="text-decoration-none"> --}}
-                            {{-- <div class="wprock-img-zoom">
-                                <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
-                            </div> --}}
+
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
                                 <p class="card-text">{{$purchase->username}}</p>
