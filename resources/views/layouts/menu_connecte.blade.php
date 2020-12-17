@@ -143,6 +143,22 @@
   </script>
 
   <script>
+    var input = document.querySelector("#telephone1");
+    window.intlTelInput(input, {
+
+      autoPlaceholder: "polite",
+
+       hiddenInput: "phone",
+
+       nationalMode: true,
+
+       preferredCountries: ["ci", "fr"],
+       separateDialCode: true,
+      utilsScript: "/assets/plugins/intlTelInput/build/js/utils.js",
+    });
+  </script>
+
+  <script>
     $("#country").countrySelect({
       preferredCountries: ['ca', 'gb', 'us']
     });
