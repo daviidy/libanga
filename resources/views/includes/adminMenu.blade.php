@@ -40,6 +40,25 @@
         </div>
       </div>
 
+      <div class="card border-0 rounded-0">
+        <div class="card-header bg-menu" id="headingThree">
+          <h2 class="mb-0">
+            <button class="bg-menu btn btn-link text-decoration-none d-flex justify-content-between align-items-center btn-block text-left collapsed bg-heard" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <div class="">
+                <span><i class="fas fa-shopping-bag"></i></span>
+                Les commandes
+              </div>
+              <span><i class="fas fa-angle-right"></i></span>
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body list-group pcard-boxm rounded-0">
+            <a href="#" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Liste des commandes</a>
+          </div>
+        </div>
+      </div>
+
       </div>
     </div>
   </div>
