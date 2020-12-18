@@ -46,6 +46,16 @@
 
               <div class="input-group input-group-lg mb-3">
                 <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+                </div>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Client</option>
+                  <option>Artiste</option>
+                </select>
+              </div>
+
+              <div class="input-group input-group-lg mb-3">
+                <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg"><i class="fas fa-lock"></i></span>
                 </div>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Mot de passe">                @error('password')
