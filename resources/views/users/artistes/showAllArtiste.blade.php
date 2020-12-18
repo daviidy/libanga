@@ -32,7 +32,7 @@
         @foreach ($artistes as $artiste)
         <div class="col-md-4 mt-3 text-md-left text-center filter">
           <a  @if (auth()->check())
-                  href="{{route('show.artiste',$artiste->id)}}"
+                  href="{{route('artistes.show',$artiste->id)}}"
               @else
                   href="#" data-toggle="modal" data-target="#modalLogin"
               @endif class="text-decoration-none" >
@@ -50,13 +50,13 @@
                     Artiste chanteure
                   </span>
                   <span class="p-1">
-                    Côte d'ivoire
+                    {{$artiste->pays}}
                   </span>
 
                 </div>
               </div>
               <div class="p-2">
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehende</p>
+                <p class="text-muted">{{$artiste->user_description}}</p>
               </div>
             </div>
           </a>

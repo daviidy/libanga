@@ -44,7 +44,7 @@ class ArtisteController extends Controller
     public function showAllArtiste()
     {
         $artistes = User::join('address','address.user_id','users.id')
-        ->join('albums','albums.user_id','users.id')
+        // ->leftJoin('albums','albums.user_id','users.id')
         ->select(
             'users.id',
             'users.username',
@@ -56,8 +56,8 @@ class ArtisteController extends Controller
             'address.city',
             'address.pays',
             'address.description as address_description',
-            'albums.title',
-            'albums.purchase_date',
+            // 'albums.title',
+            // 'albums.purchase_date',
             )
         ->where('type','artiste')
         ->get();
