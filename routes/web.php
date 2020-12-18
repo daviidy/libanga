@@ -52,6 +52,7 @@ Route::put('/users/{id}', 'UserController@update')
 //Artiste
 
 Route::get('/nosartistes', 'ArtisteController@showAllArtiste')->name('nosartistes');
+Route::get('/commandes', 'DefaultController@index')->name('commandes');
 // Route::get('/artistes/{id}', 'ArtisteController@show')->name('show.artiste');
 
 Route::resource('artistes', 'ArtisteController');
