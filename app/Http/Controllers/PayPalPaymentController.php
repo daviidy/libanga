@@ -1,51 +1,138 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests;
+use App\Models\Purchase;
 use Illuminate\Http\Request;
-use Srmklive\PayPal\Services\ExpressCheckout;
+use Validator;
+use URL;
+use Session;
+use Redirect;
+use Input;
+use PayPal\Rest\ApiContext;
+use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Api\Amount;
+use PayPal\Api\Details;
+use PayPal\Api\Item;
+use PayPal\Api\ItemList;
+use PayPal\Api\Payer;
+use PayPal\Api\Payment;
+use PayPal\Api\RedirectUrls;
+use PayPal\Api\ExecutePayment;
+use PayPal\Api\PaymentExecution;
+use PayPal\Api\Transaction;
 
 class PayPalPaymentController extends Controller
 {
-    public function handlePayment()
+    private $_api_context;
+
+    public function __construct()
     {
-        $product = [];
-        $product['items'] = [
-            [
-                'name' => 'Nike Joyride 2',
-                'price' => 112,
-                'desc'  => 'Running shoes for Men',
-                'qty' => 2
-            ]
-        ];
 
-        $product['invoice_id'] = 1;
-        $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
-        $product['return_url'] = route('success.payment');
-        $product['cancel_url'] = route('cancel.payment');
-        $product['total'] = 224;
-
-        $paypalModule = new ExpressCheckout();
-
-        $res = $paypalModule->setExpressCheckout($product);
-        $res = $paypalModule->setExpressCheckout($product, true);
-
-        return redirect($res['paypal_link']);
+        $paypal_configuration = \Config::get('paypal');
+        $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_configuration['client_id'], $paypal_configuration['secret']));
+        $this->_api_context->setConfig($paypal_configuration['settings']);
     }
 
-    public function paymentCancel()
+    public function payWithPaypal()
     {
-        dd('Your payment has been declend. The payment cancelation page goes here!');
+        return redirect()->route('artistes.show',auth()->user()->id);
     }
 
-    public function paymentSuccess(Request $request)
+    public function postPaymentWithpaypal(Request $request)
     {
-        $paypalModule = new ExpressCheckout();
-        $response = $paypalModule->getExpressCheckoutDetails($request->token);
+        $data_purchase = Purchase::create([
+            "service_id"=>$request->id,
+            "user_id"   =>auth()->user()->id,
+            "status"    =>"en attente",
+            "purchase_state"    =>"en cours",
+        ]);
 
-        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            dd('Payment was successfull. The payment success page goes here!');
+        $request['amount'] = $request->price;
+        $payer = new Payer();
+        $payer->setPaymentMethod('paypal');
+
+    	$item_1 = new Item();
+
+        $item_1->setName($request->name)
+            ->setCurrency('USD')
+            ->setQuantity(1)
+            ->setPrice($request->get('amount'));
+
+        $item_list = new ItemList();
+        $item_list->setItems(array($item_1));
+
+        $amount = new Amount();
+        $amount->setCurrency('USD')
+            ->setTotal($request->get('amount'));
+
+        $transaction = new Transaction();
+        $transaction->setAmount($amount)
+            ->setItemList($item_list)
+            ->setDescription('Enter Your transaction description');
+
+        $redirect_urls = new RedirectUrls();
+        $redirect_urls->setReturnUrl(URL::route('status'))
+            ->setCancelUrl(URL::route('status'));
+
+        $payment = new Payment();
+        $payment->setIntent('Sale')
+            ->setPayer($payer)
+            ->setRedirectUrls($redirect_urls)
+            ->setTransactions(array($transaction));
+        try {
+            $payment->create($this->_api_context);
+        } catch (\PayPal\Exception\PPConnectionException $ex) {
+            if (\Config::get('app.debug')) {
+                \Session::put('error','Connection timeout');
+                return Redirect::route('artistes.show',auth()->user()->id);
+            } else {
+                \Session::put('error','Some error occur, sorry for inconvenient');
+                return Redirect::route('artistes.show',auth()->user()->id);
+            }
         }
 
-        dd('Error occured!');
+        foreach($payment->getLinks() as $link) {
+            if($link->getRel() == 'approval_url') {
+                $redirect_url = $link->getHref();
+                break;
+            }
+        }
+
+        Session::put('paypal_payment_id', $payment->getId());
+
+        if(isset($redirect_url)) {
+            return Redirect::away($redirect_url);
+        }
+
+        \Session::put('error','Unknown error occurred');
+    	return Redirect::route('artistes.show',auth()->user()->id);
+    }
+
+    public function getPaymentStatus(Request $request)
+    {
+        $payment_id = Session::get('paypal_payment_id');
+
+        Session::forget('paypal_payment_id');
+        if (empty($request->input('PayerID')) || empty($request->input('token'))) {
+            \Session::put('error','Payment failed');
+            return Redirect::route('artistes.show',auth()->user()->id);
+        }
+        $payment = Payment::get($payment_id, $this->_api_context);
+        $execution = new PaymentExecution();
+        $execution->setPayerId($request->input('PayerID'));
+        $result = $payment->execute($execution, $this->_api_context);
+
+        if ($result->getState() == 'approved') {
+            \Session::put('success','Payment success !!');
+
+            $update_purchase = Purchase::where('user_id',auth()->user()->id)->get()->last();
+            $update_purchase->update(['status'=>'validé']);
+            return Redirect::route('dashboard');
+        }
+
+        \Session::put('error','Payment failed!!');
+		return Redirect::route('artistes.show',auth()->user()->id);
     }
 }

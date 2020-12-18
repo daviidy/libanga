@@ -16,7 +16,9 @@
         "laravel/framework": "^7.29",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "2.4"
+        "laravel/ui": "2.4",
+        "paypal/rest-api-sdk-php": "^1.14",
+        "srmklive/paypal": "~1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -44,6 +44,8 @@ Route::get('/contacternous', function () {
 
 Route::get('/users/edit/{id}', 'UserController@edit')
     ->name('edit.users');
+Route::get('/users', 'UserController@index')
+    ->name('users.index');
 Route::put('/users/{id}', 'UserController@update')
     ->name('update.users');
 
@@ -57,12 +59,10 @@ Route::resource('services', 'ServiceController');
 Route::resource('albums', 'AlbumController');
 Route::resource('chansons', 'ChansonController');
 
-Route::get('/testPaypal', function () {
-    return view('testPaypal');
-});
-Route::get('handle-payment', 'PayPalPaymentController@handlePayment')->name('make.payment');
-Route::get('cancel-payment', 'PayPalPaymentController@paymentCancel')->name('cancel.payment');
-Route::get('payment-success', 'PayPalPaymentController@paymentSuccess')->name('success.payment');
+
+Route::get('paywithpaypal', array('as' => 'paywithpaypal','uses' => 'PayPalPaymentController@payWithPaypal',));
+Route::post('paypal', array('as' => 'paypal','uses' => 'PayPalPaymentController@postPaymentWithpaypal',));
+Route::get('paypal', array('as' => 'status','uses' => 'PayPalPaymentController@getPaymentStatus',));
 /*end route text*/
 Auth::routes();
 

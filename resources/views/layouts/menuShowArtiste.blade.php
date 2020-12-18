@@ -32,9 +32,9 @@
         </li-->
         <li class="nav-item ml-3">
           <a href="/">
-            <img class="logo-short img-fluid" src="./assets/images/logo-os-noir.png" alt="Logo">
-            <img class="logo" src="./assets/images/logo-oschool-noir.png" alt="">
-            Libanga
+            <img class="logo-short img-fluid" src="/assets/images/libanga.jpg" alt="Logo" width="150">
+            <img class="logo img-fluid" src="/assets/images/libanga.jpg" alt="" width="150">
+
           </a>
         </li>
       </ul>
@@ -42,7 +42,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            <img class="rounded-circle img-fluid user-avatar" src="./assets/images/logo-oschool-noir.png" alt="User">
+            <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/">Accueil</a>
