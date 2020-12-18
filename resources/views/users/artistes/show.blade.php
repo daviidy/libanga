@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card w-100 p-3 card-shadow">
-            <img src="{{asset($artistes->image)}}" class="card-img-top rounded-circle img-fluid text-center m-auto avatar-card" alt="...">
+            <img src="{{asset($artistes->image ?? "assets/images/users/avatar_default.png")}}" class="card-img-top rounded-circle img-fluid text-center m-auto avatar-card" alt="...">
             <h5 class="h4 card-title text-center pt-2 font-weight-bold">{{$artistes->username}}</h5>
             <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
             {{-- <a href="#" class="btn btn-primary mt-3">Me contatez</a> --}}

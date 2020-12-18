@@ -4,7 +4,7 @@
   <main class="container-fluid">
     <div class="row">
       <!--progression-->
-      @include('includes\menuLeftDashboard\menuDefautLeft')
+      @include('includes.menuLeftDashboard.menuDefautLeft')
       <!--end progression-->
       <!--main content-->
       <div class="col-md-9 main-content">
