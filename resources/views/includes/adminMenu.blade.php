@@ -54,7 +54,7 @@
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body list-group pcard-boxm rounded-0">
-            <a href="#" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Liste des commandes</a>
+            <a href="{{route('listeCommandes')}}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Liste des commandes</a>
           </div>
         </div>
       </div>
