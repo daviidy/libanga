@@ -56,7 +56,7 @@
                                   </svg>
                                 </button>
                             </form>
-                            <a href="{{route('albums.show',$album->id)}}" class="fas fa-eye">Voir</a>
+                            <a href="{{route('albums.show',$album->id)}}"><i class="fas fa-eye"></i> Voir</a>
                             {{-- <p class="text-muted" style="font-weight:bold">{{number_format($album->price, 0, '.', ' ')}} F CFA</p> --}}
                           </div>
                         {{-- </a> --}}
