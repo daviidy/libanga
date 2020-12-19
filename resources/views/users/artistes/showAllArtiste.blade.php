@@ -46,13 +46,6 @@
                     </svg>
                     {{$artiste->username}}
                   </span>
-                  <span class="p-1">
-                    Artiste chanteure
-                  </span>
-                  <span class="p-1">
-                    {{$artiste->pays}}
-                  </span>
-
                 </div>
               </div>
               <div class="p-2">
