@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Purchase;
+use App\User;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
@@ -11,9 +13,18 @@ class PurchaseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        //
+        $purchases = Purchase::join('services','services.id','purchases.service_id')
+        ->join('users','users.id','purchases.user_id')
+        ->select('purchases.*','services.user_id as artiste','services.price','users.username')
+        ->where('status','validé')
+        ->where('purchase_state','en cours')
+        ->get();
+        $users = User::all();
+        return view('users.admin.commandes',compact('purchases','users'));
     }
 
     /**
@@ -66,9 +77,13 @@ class PurchaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        $commande = Purchase::where('id',$request->purchase_id)->first();
+        $commande->update(['purchase_state'=>$request->purchase_state]);
+
+        return redirect()->back()->with('status', 'Commande modifié avec success');
     }
 
     /**

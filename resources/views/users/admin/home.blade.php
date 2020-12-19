@@ -71,7 +71,7 @@
                   </a>
                 </div>
                 <div class="card shadow border-0 box-hover">
-                  <a href="#" class="text-decoration-none">
+                  <a href="{{route('listeCommandes')}}" class="text-decoration-none">
                   <div class="box-img m-auto py-3 ">
                     <img style="width: 100%;" src="https://image.freepik.com/free-vector/illustration-people-with-money_53876-28543.jpg" alt="">
                   </div>

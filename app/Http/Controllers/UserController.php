@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.admin.home',['users' =>$users]);
+        return view('users.admin.index',['users' =>$users]);
     }
 
     /**
@@ -66,6 +66,13 @@ class UserController extends Controller
 
         return json_encode($users);
     }
+    public function editByAdmin(Request $request)
+    {
+        $users = User::where('id',$request['user_id'])
+        ->first();
+
+        return json_encode($users);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -102,6 +109,24 @@ class UserController extends Controller
         ]);
 
         return redirect()->back()->with('status', 'Profil modifié avec success');
+    }
+    public function updateByAdmin(Request $request, $id)
+    {
+        $users = User::where('id',$id)->first();
+        if(!is_file($request->image) || is_null($request->image))
+        {
+            $final_path = ($users->image) ? $users->image : null;
+        }else{
+            $filename=$users->username.'.'.$request->image->extension();
+
+            $path=$request->image->move(storage_path('app/public/uploads/images/users'),$filename);
+            $final_path = 'storage/uploads/images/users/'.$filename;
+        }
+        $users->update([
+            'image'                  =>$final_path,
+            'type'                   =>$request->type
+        ]);
+        return redirect()->back()->with('status', 'Utilisateur modifié avec success');
     }
 
     /**

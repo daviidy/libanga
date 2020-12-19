@@ -44,15 +44,21 @@ Route::get('/contacternous', function () {
 
 Route::get('/users/edit/{id}', 'UserController@edit')
     ->name('edit.users');
+Route::get('/users/editByAdmin/{id}', 'UserController@editByAdmin')
+    ->name('editByAdmin.users');
 Route::get('/users', 'UserController@index')
     ->name('users.index');
 Route::put('/users/{id}', 'UserController@update')
     ->name('update.users');
+Route::put('/usersByAdmin/{id}', 'UserController@updateByAdmin')
+    ->name('updateByAdmin.users');
 
 //Artiste
 
 Route::get('/nosartistes', 'ArtisteController@showAllArtiste')->name('nosartistes');
 Route::get('/commandes', 'DefaultController@index')->name('commandes');
+Route::get('/liste_commandes', 'PurchaseController@index')->name('listeCommandes');
+Route::put('/update/commande', 'PurchaseController@update')->name('updateCommande');
 // Route::get('/artistes/{id}', 'ArtisteController@show')->name('show.artiste');
 
 Route::resource('artistes', 'ArtisteController');

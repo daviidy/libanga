@@ -48,9 +48,9 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
                 </div>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>Client</option>
-                  <option>Artiste</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="type">
+                  <option value="default">Client</option>
+                  <option value="artiste">Artiste</option>
                 </select>
               </div>
 
