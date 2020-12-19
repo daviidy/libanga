@@ -71,35 +71,27 @@
                 <?php Session::forget('success');?>
             @endif
             <div class="">
-              <div class="card-deck">
-                <div class="row py-4"  id="test">
-                    @isset($services)
-                        @foreach ($services as $service)
-                            <div class="col-md-4 mt-3">
-                                <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
+              <div class="container-fluid">
+                <div class="row">
+                  @isset($services)
+                      @foreach ($services as $service)
 
-                                      {{-- <div class="wprock-img-zoom">
-                                        <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
-                                      </div> --}}
-                                      <div class="card-body">
-                                        <h5 class="card-title font-weight-bold">{{$service->name}}</h5>
-                                        <p class="card-text">{{$service->service_description}}</p>
+                  <div class="col-md-4 mb-3">
+                    <div class="card card-shadow" data-toggle="modal" data-target="#modalLogin">
+                      <div class="card-body">
+                        <h5 class="card-title font-weight-bold">{{$service->name}}</h5>
+                        <p class="card-text">{{$service->service_description}}</p>
+                      </div>
+                      <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                        <a  onclick="commandeModalShow({{$service->id}})"> <i class="fas fa-heart"></i> Commander</a>
+                        <p class="text-muted" style="font-weight:bold">{{number_format($service->price,0,'.',' ')}} F CFA</p>
+                      </div>
+                    </div>
+                  </div>
 
-                                      </div>
-                                      <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                                        {{-- <i class="fas fa-heart"></i> --}}
-                                        <a  onclick="commandeModalShow({{$service->id}})" class="fas fa-heart"> Commander</a>
-                                        <p class="text-muted" style="font-weight:bold">{{number_format($service->price,0,'.',' ')}} F CFA</p>
-                                      </div>
-
-                                  </div>
-                            </div>
-                        @endforeach
-                    @endisset
-                    {{-- <div class="col-md-2 mt-3" id="test">
-                    </div> --}}
+                  @endforeach
+                @endisset
                 </div>
-
               </div>
             </div>
           </div>
@@ -139,7 +131,7 @@
           <div class="" style="border-radius: 7px; background:#e7cbc2">
             <div class="position-relative text-center p-md-3 p-2" style="bottom:30px">
               <div class="mx-auto">
-                <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" alt="" class="img-fluid rounded-circle avatar-login-img">
+                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
               </div>
                 <div class="">
                   <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander mes services</p>

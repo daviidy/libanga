@@ -125,7 +125,7 @@
           <div class="" style="border-radius: 7px; background:#e7cbc2">
             <div class="position-relative text-center p-md-3 p-2" style="bottom:30px">
               <div class="mx-auto">
-                <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" alt="" class="img-fluid rounded-circle avatar-login-img">
+                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
               </div>
                 <div class="">
                   <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander mes services</p>
