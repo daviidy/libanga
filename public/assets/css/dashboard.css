@@ -26,6 +26,9 @@ p {
   list-style: none;
   font-family: 'Montserrat', sans-serif;
 }
+.card a {
+  font-family: 'Montserrat', sans-serif;
+}
 
 /* Global Setting */
 @font-face {

@@ -3,7 +3,7 @@
       <div>
         <ul class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-center border-0">
-            <img class="rounded-circle img-fluid user-avatar" src="{{(auth()->user()->image) ? asset(auth()->user()->image) : "/assets/images/users/avatar_default.png"}}" alt="User">
+            <img class="rounded-circle img-fluid user-avatar" src="{{(auth()->user()->image) ? asset(auth()->user()->image) : asset("/assets/images/users/avatar_default.png")}}" alt="User">
             <span>{{auth()->user()->username}}</span>
           </li>
         </ul>
