@@ -15,7 +15,7 @@
                 @if (auth()->check())
                     <a href="{{ route('dashboard')}}" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow">Demarrer</a>
                 @else
-                    <a href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">Se connecter</a>
+                    <a style="background-color: #2EBD50 !important;" href="#" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-5 mt-3 mb-5 text-white btn-h btn-shadow" data-toggle="modal" data-target="#modalLogin">S'inscrire</a>
                 @endif
               </div>
             </div>
