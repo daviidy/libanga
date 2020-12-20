@@ -38,7 +38,7 @@
             @if (auth()->check())
                 <div class="dropdown">
                     <div class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{asset(auth()->user()->image)}}" alt="" class="rounded-circle img-fluid avatar-size">
+                    <img src="{{(auth()->user()->image) ? asset(auth()->user()->image) : "/assets/images/users/avatar_default.png"}}" alt="" class="rounded-circle img-fluid avatar-size">
                     </div>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('dashboard')}}">Tableau de bord</a>

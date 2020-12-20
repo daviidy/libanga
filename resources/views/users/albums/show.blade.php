@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card w-100 p-3 card-shadow">
-            <img src="{{asset(auth()->user()->image)}}" class="card-img-top rounded-circle img-fluid text-center m-auto avatar-card" alt="...">
+            <img src="{{(auth()->user()->image) ? asset(auth()->user()->image) : "/assets/images/users/avatar_default.png"}}" class="card-img-top rounded-circle img-fluid text-center m-auto avatar-card" alt="...">
             <h5 class="h4 card-title text-center pt-2 font-weight-bold"></h5>
             <p class="card-text text-center">{{auth()->user()->username}}</p>
             {{-- <a href="#" class="btn btn-primary mt-3">Me contatez</a> --}}

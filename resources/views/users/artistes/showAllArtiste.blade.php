@@ -38,7 +38,7 @@
               @endif class="text-decoration-none" >
             <div class="bg-white rounded-lg p-3 hover-bloc">
               <div class="d-md-flex p-2">
-                <img src="{{asset($artiste->image)}}" alt="" width="150" height="150" class="img-fluid rounded-lg">
+                <img src="{{($artiste->image) ? asset($artiste->image) : "/assets/images/users/avatar_default.png"}}" alt="" width="150" height="150" class="img-fluid rounded-lg">
                 <div class="d-flex flex-column p-3">
                   <span class="p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">

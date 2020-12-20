@@ -42,7 +42,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            <img class="rounded-circle img-fluid user-avatar" src="{{asset(auth()->user()->image)}}" alt="User">
+            <img class="rounded-circle img-fluid user-avatar" src="{{(auth()->user()->image) ? asset(auth()->user()->image) : "/assets/images/users/avatar_default.png"}}" alt="User">
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/">Accueil</a>
