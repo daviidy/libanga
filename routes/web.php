@@ -78,5 +78,5 @@ Route::get('/home', 'HomeController@index')->middleware('auth')->name('dashboard
 Route::get('/getArtiste/{nb_page}', 'ArtisteController@getArtiste')->name('getArtiste');
 
 
-// Route::get('/redirect', 'Auth\LoginController@redirect');
-// Route::get('/callback', 'Auth\LoginController@callback');
+Route::get('/redirect', 'Auth\LoginController@redirect');
+Route::get('/callback', 'Auth\LoginController@callback');

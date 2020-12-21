@@ -47,9 +47,7 @@ class LoginController extends Controller
     }
     public function callback()
     {
-        // $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
-        // auth()->login($user);
-        // return redirect()->to('/home');
+
         try {
             $user = Socialite::driver('facebook')->user();
 
@@ -58,7 +56,7 @@ class LoginController extends Controller
                 Auth::login($finduser);
                  return redirect('/home');
             } else {
-                $newUser = User::create(['username' => $user->name, 'email' => $user->email, 'provider_id' => $user->id, 'provider' => $user->id]);
+                $newUser = User::create(['username' => $user->name, 'email' => $user->email, 'provider_id' => $user->id, 'provider' => $user->id,'image' =>"/assets/images/users/avatar_default.png"]);
                 Auth::login($newUser);
                 return redirect('/home');
                 // return redirect()->back();
@@ -68,52 +66,5 @@ class LoginController extends Controller
             return redirect('/redirect');
         }
     }
-    public function redirectToFacebook() {
-        return Socialite::driver('facebook')->redirect();
-    }
 
-    public function handleFacebookCallback() {
-        try {
-            $user = Socialite::driver('facebook')->user();
-
-            $finduser = User::where('provider_id', $user->id)->first();
-            if ($finduser) {
-                Auth::login($finduser);
-                 return redirect('/home');
-            } else {
-                $newUser = User::create(['username' => $user->name, 'email' => $user->email, 'provider_id' => $user->id, 'provider' => 'facebook']);
-                Auth::login($newUser);
-                return redirect('/home');
-                // return redirect()->back();
-            }
-        }
-        catch(Exception $e) {
-            return redirect('auth/facebook');
-        }
-    }
-
-    // public function redirect($provider)
-    // {
-    //     return Socialite::driver($provider)->redirect();
-    // }
-    // public function callback($provider)
-    // {
-    //   $getInfo = Socialite::driver($provider)->user();
-    //   $user = $this->createUser($getInfo,$provider);
-    //   auth()->login($user);
-    //   return redirect()->to('/home');
-    // }
-    // function createUser($getInfo,$provider){
-    // $user = User::where('provider_id', $getInfo->id)->first();
-    // if (!$user) {
-    //      $user = User::create([
-    //         'username'     => $getInfo->name,
-    //         'name'     => $getInfo->name,
-    //         'email'    => $getInfo->email,
-    //         'provider' => $provider,
-    //         'provider_id' => $getInfo->id
-    //     ]);
-    //   }
-    //   return $user;
-    // }
 }
