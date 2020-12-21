@@ -48,7 +48,7 @@ Route::get('/users/editByAdmin/{id}', 'UserController@editByAdmin')
     ->name('editByAdmin.users');
 Route::get('/users', 'UserController@index')
     ->name('users.index');
-Route::put('/users/{id}', 'UserController@update')
+Route::patch('/users/{id}', 'UserController@update')
     ->name('update.users');
 Route::put('/usersByAdmin/{id}', 'UserController@updateByAdmin')
     ->name('updateByAdmin.users');
