@@ -30,11 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'facebook'      => [
-        'client_id'     => env('FACEBOOK_CLIENT_ID'),
-        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect'      => env('FACEBOOK_REDIRECT_URL')
-    ]
+    'facebook' => [
+        'client_id' => '236693911134043',
+        'client_secret' => '79ff601787120d1ec94c4f4bd092f18e',
+        'redirect' => 'https://libanga.rikudo.ci/callback',
+      ],
 
 
 ];
