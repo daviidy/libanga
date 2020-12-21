@@ -82,7 +82,7 @@
                         <h5 class="card-title font-weight-bold">{{$service->name}}</h5>
                         <p class="card-text">{{$service->service_description}}</p>
                       </div>
-                      <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                      <div class="card-footer bg-white d-flex justify-content-between align-items-center p-2">
                         <a  onclick="commandeModalShow({{$service->id}})"> <i class="fas fa-heart"></i> Commander</a>
                         <p class="text-muted" style="font-weight:bold">{{number_format($service->price,0,'.',' ')}} F CFA</p>
                       </div>
