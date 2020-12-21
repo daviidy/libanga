@@ -44,7 +44,7 @@
             <a class="nav-link font-weight-bold" href="/nosartistes">Nos artistes</a>
           </li>
           <li class="nav-item px-md-4 active">
-            <a class="nav-link font-weight-bold" href="/quisommesnous">Qui sommes nous?</a>
+            <a class="nav-link font-weight-bold" href="/quisommesnous">Qui sommes-nous ?</a>
           </li>
           <li class="nav-item px-md-4 active">
             <a class="nav-link font-weight-bold" href="/contacternous">Contactez-nous</a>

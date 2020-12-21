@@ -20,7 +20,7 @@
           </div>
           <form method="POST" enctype="multipart/form-data" id="edit-user">
               @csrf
-              {{ method_field('put') }}
+              {{ method_field('patch') }}
               <div class="p-md-4 p-3 bg-white">
               <div class="form-group">
                 <label for="file">Photo de profil</label>
