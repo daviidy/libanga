@@ -9,7 +9,7 @@
         <div class="" style="border-radius: 7px 7px 0 0; background:#e7cbc2">
           <div class="position-relative text-center p-3" style="bottom:30px">
             <div class="mx-auto">
-              <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
+              <img src="{{(auth()->user()->image) ? asset(auth()->user()->image) : asset("/assets/images/users/avatar_default.png")}}" alt="" class="img-fluid rounded-circle avatar-login-img">
             </div>
               <div class="">
                 <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Modifiez votre profil</p>
@@ -18,7 +18,7 @@
           </div>
 
         </div>
-        <form method="POST" enctype="multipart/form-data" id="edit-user">
+        <form method="POST" enctype="multipart/form-data" id="edit-user" action="/users/{{auth()->user()->id}}">
             @csrf
             {{ method_field('patch') }}
             <div class="p-md-4 p-3 bg-white">
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
-              <input type="tel" name="telephone" class="form-control" id="telephone">
+              <input type="tel" name="telephone" class="form-control" id="telephone" value="{{auth()->user()->telephone}}">
             </div>
             <label class="py-3" for="adress">Adresse</label>
 
