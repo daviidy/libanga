@@ -56,6 +56,7 @@ Route::put('/usersByAdmin/{id}', 'UserController@updateByAdmin')
 //Artiste
 
 Route::get('/nosartistes', 'ArtisteController@showAllArtiste')->name('nosartistes');
+Route::get('/artistes/commandes', 'ArtisteController@getCommande')->name('commandesArtiste');
 Route::get('/commandes', 'DefaultController@index')->name('commandes');
 Route::get('/liste_commandes', 'PurchaseController@index')->name('listeCommandes');
 Route::put('/update/commande', 'PurchaseController@update')->name('updateCommande');

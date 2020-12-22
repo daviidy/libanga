@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Purchase;
 use App\Models\Service;
 use App\User;
 use Illuminate\Http\Request;
@@ -35,25 +36,7 @@ class ArtisteController extends Controller
     }
     public function showAllArtiste()
     {
-        $artistes = User::leftJoin('address','address.user_id','users.id')
-        // ->leftJoin('albums','albums.user_id','users.id')
-        ->select(
-            'users.id',
-            'users.username',
-            'users.email',
-            'users.user_description',
-            'users.image',
-            'users.type',
-            'users.created_at',
-            'address.city',
-            'address.pays',
-            'address.description as address_description',
-            // 'albums.title',
-            // 'albums.purchase_date',
-            )
-        ->where('type','artiste')
-        ->get();
-
+        $artistes = User::where('type','artiste')->get();
         return view('users.artistes.showAllArtiste',compact('artistes'));
     }
 
@@ -95,4 +78,22 @@ class ArtisteController extends Controller
         $artistes = User::where('type','artiste')->offset($nb_pages*6)->limit(6)->get();
         return json_encode($artistes);
     }
+
+    public function getCommande()
+    {
+        $id = auth()->user()->id;
+        $purchases = Purchase::join('services','services.id','purchases.service_id')
+        ->join('users','users.id','purchases.user_id')
+        ->select('purchases.*','services.price','users.username','services.name')
+        ->where('status','validé')
+        ->where('purchase_state','en cours')
+        ->where('services.user_id',$id)
+        ->get();
+
+        $users = User::where('id',$id)->first();
+        // dd($purchases,$users);
+        return view('users.artistes.showCommande',compact('purchases'));
+
+    }
+
 }
