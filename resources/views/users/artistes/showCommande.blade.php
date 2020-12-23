@@ -33,7 +33,7 @@
 
             @isset($purchases)
                 @foreach ($purchases as $purchase)
-                    <div class="col-md-4 mt-3">
+                    <div class="col-md-6 mt-3">
                         <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
                             {{-- <a href="#" class="text-decoration-none"> --}}
                             {{-- <div class="wprock-img-zoom">
@@ -46,6 +46,7 @@
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
                                 <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} F CFA</p>
+                                <p class="text-muted btn" data-toggle="modal" data-target="#modalAddMedia">Ajouter un extrait</p>
                             </div>
                             {{-- </a> --}}
                         </div>
@@ -80,6 +81,7 @@
   @include('includes.usersPopup.popupEditDefault')
   @include('includes.usersPopup.popupAddService')
   @include('includes.usersPopup.popupEditService')
+  @include('includes.usersPopup.popupAddMedia')
 
 @endsection
 <script>
