@@ -28,6 +28,9 @@
                         <option>3</option>
                       </select>
                     </div>
+                    <div class="text-center">
+                      <button type="submit" class=" text-center text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 text-white btn-hs btn-shadow border border-white">Envoyer votre appréciation</button>
+                    </div>
                   </form>
               </div>
           </div>
