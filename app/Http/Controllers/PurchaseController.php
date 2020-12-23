@@ -79,11 +79,18 @@ class PurchaseController extends Controller
      */
     public function update(Request $request)
     {
+        try {
 
-        $commande = Purchase::where('id',$request->purchase_id)->first();
-        $commande->update(['purchase_state'=>$request->purchase_state]);
+            $commande = Purchase::where('id',$request->purchase_id)->first();
+            $commande->update(['purchase_state'=>$request->purchase_state]);
 
-        return redirect()->back()->with('status', 'Commande modifié avec success');
+            return redirect()->back()->with('status', 'Commande modifié avec success');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('erreur', 'Une erreur est survenue');
+        }
+
     }
 
     /**

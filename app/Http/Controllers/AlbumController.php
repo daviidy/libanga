@@ -38,8 +38,16 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        $albums = Album::create($request->all());
-        return redirect('albums')->with('status', 'Album ajoutée');
+        try {
+
+            $albums = Album::create($request->all());
+            return redirect('albums')->with('status', 'Album ajoutée');
+        } catch (\Throwable $th) {
+
+            return redirect('albums')->with('erreur', 'Une erreur est survenue veuillez bien remplir le formulaire');
+        }
+
+
     }
 
     /**

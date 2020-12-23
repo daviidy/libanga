@@ -39,8 +39,16 @@ class ChansonController extends Controller
      */
     public function store(Request $request)
     {
-        $chansons = Chanson::create($request->all());
-        return redirect()->back()->with('status', 'Chanson ajoutée');
+        try {
+
+            $chansons = Chanson::create($request->all());
+            return redirect()->back()->with('status', 'Chanson ajoutée');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('ereur', 'Une erreur est survenue veuillez bien remplir le formulaire');
+        }
+
     }
 
     /**
@@ -75,9 +83,17 @@ class ChansonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $chansons = Chanson::find($id);
-        $chansons->update($request->all());
-        return redirect()->back()->with('status', 'Chanson modifié avec success');
+        try {
+
+            $chansons = Chanson::find($id);
+            $chansons->update($request->all());
+            return redirect()->back()->with('status', 'Chanson modifié avec success');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('ereur', 'Une erreur est survenue veuillez bien remplir le formulaire');
+        }
+
     }
 
     /**
@@ -88,7 +104,15 @@ class ChansonController extends Controller
      */
     public function destroy($id)
     {
-        Chanson::where('id',$id)->delete();
-        return redirect()->back()->with('status', 'Chanson supprimé de la base de données');
+        try {
+
+            Chanson::where('id',$id)->delete();
+            return redirect()->back()->with('status', 'Chanson supprimé de la base de données');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('ereur', 'Une erreur est survenue');
+        }
+
     }
 }

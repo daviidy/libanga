@@ -12,6 +12,7 @@
           <div class="col-md-12 mt-4 pt-2">
             <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item">
               <h3>Mes commandes</h3>
+
               <!-- <form>
                 <div class="form-group mb-0">
                   <select class="form-control form-control-lg" id="exampleFormControlSelect1">
@@ -26,7 +27,24 @@
             </div>
           </div>
         </div>
+        @if($message = Session::get('error'))
+            <div class="card-body">
+                <div class="alert alert-danger" role="alert">
+                    {!! $message !!}
+                </div>
+            </div>
+            <?php Session::forget('error');?>
+       @endif
+      @if($message = Session::get('success'))
+            <div class="card-body">
+                <div class="alert alert-success" role="alert">
+                    {!! $message !!}
+                </div>
+            </div>
+            <?php Session::forget('success');?>
+      @endif
         <div class="row">
+
             @isset($purchases)
                 @foreach ($purchases as $purchase)
                     <div class="col-md-4 mt-3">
@@ -34,7 +52,13 @@
 
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
-                                <p class="card-text">{{$purchase->username}}</p>
+                                <p class="card-text">
+                                    @foreach ($users as $user)
+                                        @if ($user->id = $purchase->user_id)
+                                            {{$user->username}}
+                                        @endif
+                                    @endforeach
+                                </p>
                             </div>
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
@@ -117,9 +141,11 @@
 
                             //Remplissage de tous les champs input du modal
                             $("input[name='telephone']").val(datas['telephone'])
-                            $("input[name='pays']").val(datas['pays'])
+                            $("select[name='pays']").val(datas['pays'])
                             $("input[name='city']").val(datas['city'])
+                            $("input[name='state']").val(datas['state'])
                             $("textarea[name='user_description']").val(datas['user_description'])
+                            $("textarea[name='description']").val(datas['description'])
 
                 },
                 error: function(xhr){

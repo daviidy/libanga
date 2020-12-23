@@ -34,6 +34,13 @@
                         </div>
                     </div>
                 @endif
+                @if(session('erreur'))
+                    <div class="card-body">
+                        <div class="alert alert-danger" role="alert">
+                            {{session('erreur')}}
+                        </div>
+                    </div>
+                @endif
               <div class="col-md-12">
                 <div class="table-responsive-md">
                   <table class="table">

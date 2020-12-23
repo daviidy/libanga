@@ -61,7 +61,7 @@ class UserController extends Controller
     {
         $users = User::join('address','address.user_id','users.id')
         ->where('users.id',auth()->user()->id)
-        ->select('users.*','address.pays','address.city')
+        ->select('users.*','address.pays','address.city','address.state','address.description')
         ->first();
 
         return json_encode($users);
@@ -83,50 +83,74 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $id = auth()->user()->id;
-        if(!is_file($request->image) || is_null($request->image))
-        {
-            $final_path = (auth()->user()->image) ? auth()->user()->image : null;
-        }else{
-            $filename=auth()->user()->username.'.'.$request->image->extension();
 
-            $path=$request->image->move(storage_path('app/public/uploads/images/users'),$filename);
-            $final_path = 'storage/uploads/images/users/'.$filename;
+        try {
+
+            $id = auth()->user()->id;
+            if(!is_file($request->image) || is_null($request->image))
+            {
+                $final_path = (auth()->user()->image) ? auth()->user()->image : null;
+            }else{
+                $filename=auth()->user()->username.'.'.$request->image->extension();
+
+                $path=$request->image->move(storage_path('app/public/uploads/images/users'),$filename);
+                $final_path = 'storage/uploads/images/users/'.$filename;
+            }
+            $users = User::where('id',$id);
+
+            $users->update([
+                'image'                  =>$final_path,
+                'telephone'              =>$request->telephone,
+                'user_description'       =>$request->user_description,
+            ]);
+
+            $address = Address::join('users','users.id','address.user_id')
+                                ->where('users.id',$id)
+                                ->select('users.*','address.id')
+                                ->first();
+
+                Address::updateOrCreate(
+                            [
+                                'pays'                  =>$request->pays,
+                                'city'                  =>$request->city,
+                                'state'                  =>$request->state,
+                                'description'             =>$request->description,
+                                'user_id'                  =>$id
+                            ]);
+
+            return redirect()->back()->with('status', 'Profil modifié avec success');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('erreur', 'Une erreur est survenue');
         }
-        $users = User::where('id',$id);
-
-        $users->update([
-            'image'                  =>$final_path,
-            'telephone'              =>$request->telephone,
-            'user_description'       =>$request->user_description,
-        ]);
-
-        $address = Address::join('users','users.id','address.user_id')
-                            ->where('users.id',$id);
-        $address->update([
-            'pays'                  =>$request->pays,
-            'city'                  =>$request->city
-        ]);
-
-        return redirect()->back()->with('status', 'Profil modifié avec success');
     }
     public function updateByAdmin(Request $request, $id)
     {
-        $users = User::where('id',$id)->first();
-        if(!is_file($request->image) || is_null($request->image))
-        {
-            $final_path = ($users->image) ? $users->image : null;
-        }else{
-            $filename=$users->username.'.'.$request->image->extension();
 
-            $path=$request->image->move(storage_path('app/public/uploads/images/users'),$filename);
-            $final_path = 'storage/uploads/images/users/'.$filename;
+        try {
+
+            $users = User::where('id',$id)->first();
+            if(!is_file($request->image) || is_null($request->image))
+            {
+                $final_path = ($users->image) ? $users->image : null;
+            }else{
+                $filename=$users->username.'.'.$request->image->extension();
+
+                $path=$request->image->move(storage_path('app/public/uploads/images/users'),$filename);
+                $final_path = 'storage/uploads/images/users/'.$filename;
+            }
+            $users->update([
+                'image'                  =>$final_path,
+                'type'                   =>$request->type
+            ]);
+            return redirect()->back()->with('status', 'Utilisateur modifié avec success');
+
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('erreur', 'Une erreur est survenue');
         }
-        $users->update([
-            'image'                  =>$final_path,
-            'type'                   =>$request->type
-        ]);
-        return redirect()->back()->with('status', 'Utilisateur modifié avec success');
     }
 
     /**
@@ -137,7 +161,16 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+
+            User::where('id',$id)->delete();
+            return redirect()->back()->with('status', 'Utilisateur supprimé de la base de données');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('erreur', 'Une erreur est survenue');
+        }
+
     }
 
     public function uploadImage(Request $request){

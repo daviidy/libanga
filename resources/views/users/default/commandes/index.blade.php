@@ -40,8 +40,22 @@
             </div>
           </div>
         </div>
-
+        @if(session('status'))
+            <div class="card-body">
+                <div class="alert alert-success" role="alert">
+                    {{session('status')}}
+                </div>
+            </div>
+        @endif
+        @if(session('erreur'))
+            <div class="card-body">
+                <div class="alert alert-danger" role="alert">
+                    {{session('erreur')}}
+                </div>
+            </div>
+        @endif
         <div class="row p-3" id="service">
+
             @isset($purchases)
                 @foreach ($purchases as $purchase)
                     <div class="col-md-4 mt-3">
@@ -52,7 +66,13 @@
                             </div> --}}
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
-                                <p class="card-text">{{$purchase->username}}</p>
+                                <p class="card-text">
+                                    @foreach ($users as $user)
+                                        @if ($user->id = $purchase->user_id)
+                                            {{$user->username}}
+                                        @endif
+                                    @endforeach
+                                </p>
                             </div>
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
@@ -72,3 +92,38 @@
   @include('includes.usersPopup.popupEditDefault')
 
 @endsection
+<script>
+
+
+    const showEditModal = (user_id) =>{
+
+        $('#modalEditDefault').modal('show');
+        $("#edit-user").attr('action',"{{route('update.users','')}}/"+user_id)
+        $.ajax({
+                type: 'GET',
+                url: "{{ route('edit.users','edit')}}"+user_id,
+                // data: {user_id:user_id},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                },
+                success: function(datas){
+                    console.log(datas);
+
+                            //Remplissage de tous les champs input du modal
+                            $("input[name='telephone']").val(datas['telephone'])
+                            $("select[name='pays']").val(datas['pays'])
+                            $("input[name='city']").val(datas['city'])
+                            $("input[name='state']").val(datas['state'])
+                            $("textarea[name='user_description']").val(datas['user_description'])
+                            $("textarea[name='description']").val(datas['description'])
+
+                },
+                error: function(xhr){
+                    console.log(xhr)
+                    alert('Erreur de chargement');
+                }
+            });
+    }
+
+</script>

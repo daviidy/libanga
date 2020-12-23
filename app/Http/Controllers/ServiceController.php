@@ -36,8 +36,16 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $services = Service::create($request->all());
-        return redirect()->back()->with('status', 'Service ajouté avec succès');
+        try {
+
+            $services = Service::create($request->all());
+            return redirect()->back()->with('status', 'Service ajouté avec succès');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('erreur', 'Une erreur est survenue veuillez bien remplir le formulaire');
+        }
+
 
     }
 
@@ -74,9 +82,17 @@ class ServiceController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $services = Service::find($id);
-        $services->update($request->all());
-        return redirect('home')->with('status', 'Service modifiée');
+        try {
+
+            $services = Service::find($id);
+            $services->update($request->all());
+            return redirect('home')->with('status', 'Service modifiée');
+
+        } catch (\Throwable $th) {
+
+            return redirect('home')->with('erreur', 'Une erreur est survenue veuillez bien remplir le formulaire');
+        }
+
     }
 
     /**
@@ -87,7 +103,15 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        Service::where('id',$id)->delete();
-        return redirect()->back()->with('status', 'Service supprimé de la base de données');
+        try {
+
+            Service::where('id',$id)->delete();
+            return redirect()->back()->with('status', 'Service supprimé de la base de données');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('erreur', 'Une erreur est survenue');
+        }
+
     }
 }
