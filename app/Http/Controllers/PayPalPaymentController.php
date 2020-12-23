@@ -56,7 +56,7 @@ class PayPalPaymentController extends Controller
     	$item_1 = new Item();
 
         $item_1->setName($request->name)
-            ->setCurrency('USD')
+            ->setCurrency('EUR')
             ->setQuantity(1)
             ->setPrice($request->get('amount'));
 
@@ -64,7 +64,7 @@ class PayPalPaymentController extends Controller
         $item_list->setItems(array($item_1));
 
         $amount = new Amount();
-        $amount->setCurrency('USD')
+        $amount->setCurrency('EUR')
             ->setTotal($request->get('amount'));
 
         $transaction = new Transaction();

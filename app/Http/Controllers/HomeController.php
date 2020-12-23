@@ -54,10 +54,11 @@ class HomeController extends Controller
         ->get();
 
         $purchases = Purchase::join('services','services.id','purchases.service_id')
-        ->join('users','users.id','purchases.user_id')
-        ->where('users.id',auth()->user()->id)
-        ->where('purchases.status','validé')
-        ->get();
+                                ->join('users','users.id','purchases.user_id')
+                                ->select('services.*','users.username','purchases.status','purchases.purchase_state')
+                                ->where('users.id',auth()->user()->id)
+                                ->get();
+        $users = User::where('type','artiste')->get();
 
         if(auth()->user()->isArtiste())
         {
@@ -69,7 +70,7 @@ class HomeController extends Controller
 
         }else{
 
-            return view('users.default.home',compact('purchases'));
+            return view('users.default.home',compact('purchases','users'));
         }
     }
 

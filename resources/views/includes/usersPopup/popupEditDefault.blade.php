@@ -18,7 +18,7 @@
           </div>
 
         </div>
-        <form method="POST" enctype="multipart/form-data" id="edit-user" action="/users/{{auth()->user()->id}}">
+        <form enctype="multipart/form-data" id="edit-user">
             @csrf
             {{ method_field('patch') }}
             <div class="p-md-4 p-3 bg-white">
@@ -30,6 +30,10 @@
               <label for="exampleInputPassword1">Téléphone</label>
               <input type="tel" name="telephone" class="form-control" id="telephone" value="{{auth()->user()->telephone}}">
             </div>
+            <div class="form-group">
+                <label for="Description">Description users</label>
+                <textarea class="form-control" name="user_description" id="description" rows="3"></textarea>
+              </div>
             <label class="py-3" for="adress">Adresse</label>
 
             <div class="form-row">
@@ -294,8 +298,12 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="Description">Description</label>
-              <textarea class="form-control" name="user_description" id="description" rows="3"></textarea>
+                <label for="exampleInputPassword1">State</label>
+                <input type="text" name="state" class="form-control" id="state">
+            </div>
+            <div class="form-group">
+              <label for="Description">Description adresse</label>
+              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
             </div>
           </div>
 

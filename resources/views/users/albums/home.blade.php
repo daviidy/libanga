@@ -25,6 +25,13 @@
                     </div>
                 </div>
             @endif
+            @if(session('erreur'))
+                <div class="card-body">
+                    <div class="alert alert-danger" role="alert">
+                        {{session('erreur')}}
+                    </div>
+                </div>
+            @endif
           </div>
         </div>
         <div class="row" id="service">
@@ -114,9 +121,11 @@
 
                             //Remplissage de tous les champs input du modal
                             $("input[name='telephone']").val(datas['telephone'])
-                            $("input[name='pays']").val(datas['pays'])
+                            $("select[name='pays']").val(datas['pays'])
                             $("input[name='city']").val(datas['city'])
+                            $("input[name='state']").val(datas['state'])
                             $("textarea[name='user_description']").val(datas['user_description'])
+                            $("textarea[name='description']").val(datas['description'])
 
 
                 },

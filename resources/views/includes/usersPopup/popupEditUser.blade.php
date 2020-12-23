@@ -35,6 +35,7 @@
                   <option value="default">Default</option>
                 </select>
               </div>
+
             </div>
             <input type="hidden" name="user_id">
             <button type="submit" class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase align-item-center"style="border-radius: 0 0 7px 7px;background: #6f23ff;">

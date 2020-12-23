@@ -23,6 +23,13 @@
                         </div>
                     </div>
                 @endif
+                @if(session('erreur'))
+                    <div class="card-body">
+                        <div class="alert alert-danger" role="alert">
+                            {{session('erreur')}}
+                        </div>
+                    </div>
+                @endif
                 <div class="table-responsive-md">
                     <table class="table">
                       <thead class="thead-dark">
@@ -53,7 +60,14 @@
                                     </form> --}}
                                     {{$user->type}}
                                     </td>
-                                    <td><button type="button" onclick="showEditModal({{$user->id}})" class="btn btn-primary"><i class="far fa-edit"></i></button></td>
+                                    <td>
+                                        <form action="{{ route('destroy.users', $user->id)}}" method="post">
+                                            @csrf @method('DELETE')
+                                            <button type="button" onclick="showEditModal({{$user->id}})" class="btn btn-primary"><i class="far fa-edit"></i></button>
+
+                                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                               @endforeach
                           @endisset
