@@ -283,6 +283,13 @@ i {
     line-height: 15px;
     min-height: 55px;
 }
+.btn-hs {
+    font-weight: bold;
+    background: #005a8d !important;
+    font-size: 15px;
+    line-height: 15px;
+    min-height: 45px;
+}
 /*end popup*/
 .btn-commande {
   box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.19);

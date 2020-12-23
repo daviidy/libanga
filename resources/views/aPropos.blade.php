@@ -1,47 +1,136 @@
-
-@extends('layouts.menu')
+@extends('layouts.menu_connecte')
 @section('content')
 
-<section class="bg-propos d-flex flex-column justify-content-center position-relative">
-  <div class="container">
-    <div class="row justify-content-md-center align-items-center">
-      <div class="col-md-12">
-        <div class="">
-          <div class="">
-            <h1 class="text-center text-white font-weight-bold">Qui sommes nous?</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="container-fluid">
-  <h1 class="text-center text-white font-weight-bold p-md-5 h3 p-3">Nous sommes :</h1>
-  <div class="row justify-content-md-center align-items-center">
-    <div class="col-md-6">
-      <div class="p-3 align-items-center">
-        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="p-3">
-        <img src="/assets/images/who.jpg" alt="" class="img-fluid">
-      </div>
-    </div>
-  </div>
+  <main class="container-fluid">
 
-  <div class="row justify-content-md-center align-items-center mt-md-4 mt-3">
-    <div class="col-md-6">
-      <div class="p-3">
-        <img src="/assets/images/who.jpg" alt="" class="img-fluid">
+    <div class="row">
+      <!--progression-->
+      @include('includes.menuLeftDashboard.menuLeftArtiste')
+      <!--end progression-->
+      <!--main content-->
+      <div class="col-md-9 main-content">
+        <div class="row">
+
+          <div class="col-md-12 mt-4 pt-2">
+            <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item">
+              <h3>Tableau de Bord Artiste | Mes Commandes</h3>
+              <form>
+                <div class="form-group mb-0">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAddService">Ajouter Service</button>
+                </div>
+              </form>
+
+        </div>
+        <div class="row" id="service">
+
+
+                    <div class="col-md-6 mt-3">
+                        <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
+                            {{-- <a href="#" class="text-decoration-none"> --}}
+                            {{-- <div class="wprock-img-zoom">
+                                <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
+                            </div> --}}
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">cococococ</h5>
+                                <p class="card-text">cocococ</p>
+                            </div>
+                            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                                <p>Statut : <span class="font-weight-bold">en attente</span></p>
+                                <p class="text-muted" style="font-weight:bold">15 F CFA</p>
+                                <p class="text-muted btn" style="font-weight:bold" data-toggle="modal" data-target="#modalAddMedia">Ajouter un extrait</p>
+                            </div>
+                            {{-- </a> --}}
+                        </div>
+                    </div>
+
+        </div>
+
+
+        {{-- <div class="row p-3">
+          <div class="px-3">
+            <div class="row bg-white">
+              <div class="col-md-9">
+                <div class="p-4">
+                  <h4 class="font-weight-bold py-3">Lorem ipsum dolor sit amet</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                  <img src="/assets/images/slide.png" alt="" class="img-fluid w-50">
+              </div>
+            </div>
+          </div>
+        </div> --}}
+
+
       </div>
+      <!--end main content-->
+      <div id="overlay"></div>
     </div>
-    <div class="col-md-6">
-      <div class="p-3 align-items-center">
-        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </main>
+  @include('includes.usersPopup.popupEditDefault')
+  @include('includes.usersPopup.popupAddService')
+  @include('includes.usersPopup.popupEditService')
+  @include('includes.usersPopup.popupAddMedia')
+
 
 @endsection
+<script>
+
+
+    const showEditModal = (user_id) =>{
+        // alert(user_id)
+        $('#modalEditDefault').modal('show');
+        $("#edit-user").attr('action',"{{route('update.users','')}}/"+user_id)
+        $.ajax({
+                type: 'GET',
+                url: "{{ route('edit.users','edit')}}"+user_id,
+                // data: {user_id:user_id},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                },
+                success: function(datas){
+                    console.log(datas);
+
+                            //Remplissage de tous les champs input du modal
+                            $("input[name='telephone']").val(datas['telephone'])
+                            $("input[name='pays']").val(datas['pays'])
+                            $("input[name='city']").val(datas['city'])
+                            $("textarea[name='user_description']").val(datas['user_description'])
+
+                },
+                error: function(xhr){
+                    console.log(xhr)
+                    alert('Erreur de chargement');
+                }
+            });
+    }
+    const showEditService = (service_id) =>{
+
+        $('#modalEditService').modal('show');
+        $("#edit-service").attr('action',"{{route('services.update','')}}/"+service_id)
+        $.ajax({
+                type: 'GET',
+                url: "{{ route('services.edit','"+service_id+"')}}",
+                data: {service_id:service_id},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                },
+                success: function(datas){
+                    for (var key in datas) {
+                        console.log(datas)
+                            //Remplissage de tous les champs input du modal
+                            $("input[name='"+key+"']").val(datas[key])
+                            $("textarea[name='"+key+"']").val(datas[key])
+                            $("select[name='"+key+"']").val(datas[key])
+                        }
+                },
+                error: function(xhr){
+                    console.log(xhr)
+                    alert('Erreur de chargement');
+                }
+            });
+    }
+</script>
