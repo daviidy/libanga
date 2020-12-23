@@ -23,7 +23,7 @@
             {{ method_field('patch') }}
             <div class="p-md-4 p-3 bg-white">
               <div class="form-group name">
-                <label for="exampleInputPassword1">Libellé</label>
+                <label for="exampleInputPassword1">Le titre de la chanson</label>
                 <input type="text" required="required" name="title" class="form-control" id="title">
               </div>
 
