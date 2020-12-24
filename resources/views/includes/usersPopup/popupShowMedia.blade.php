@@ -15,19 +15,21 @@
               <div class="">
                 <p class="mx-auto mb-0 text-center h4 pt-3">Voir l'extrait de votre commande</p>
               </div>
-              <div class="mt-md-4 my-4">
-                  <form >
-                    <div class="text-center">
-                      <button type="submit" class=" text-center text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mb-4 text-white btn-h btn-shadow">Télécharger l'extrait</button>
-                    </div>
+              <div class="text-center mt-5">
+                <a download="" id="media-link" class=" text-center text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mb-4 text-white btn-h btn-shadow">Télécharger l'extrait</a>
+              </div>
+              <div class="mt-md-5 my-4">
+                <form class="" id="update-purchase" method="post">
+                    @csrf
+                    @method('put')
                     <div class="form-group">
-                      <label class="text-uppercase font-weight-bold">Votre appréciation</label>
-                      <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                      </select>
+                        <select class="form-control" id="exampleFormControlSelect1" name="purchase_state">
+                            <option value="en cours">En cours de traitement</option>
+                            <option value="annuler">Annuler</option>
+                            <option value="valider">Valider</option>
+                        </select>
                     </div>
+                    <input type="hidden" name="purchase_id">
                     <div class="text-center">
                       <button type="submit" class=" text-center text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 text-white btn-hs btn-shadow border border-white">Envoyer votre appréciation</button>
                     </div>

@@ -16,10 +16,16 @@
                 <p class="mx-auto mb-0 text-center h4 pt-3">Ajouter un extrait du service</p>
               </div>
               <div class="mt-md-4 my-4">
-                  <form class="p-md-4 text-center">
+                  <form id="add-media" class="p-md-4 text-center" method="POST" enctype="multipart/form-data">
+                      @csrf
                     <div class="form-group">
-                      <input type="file" class="form-control-file bg-white p-1" id="exampleFormControlFile1">
+                      <input type="file" required class="form-control-file bg-white p-1" name="media" id="exampleFormControlFile1">
                     </div>
+                    <input type="hidden" name="purchase_id">
+                    <input type="hidden" name="service_id">
+                    <input type="hidden" name="status">
+                    <input type="hidden" name="user_id">
+                    <input type="hidden" name="purchase_state">
                     <button type="submit" class=" text-center text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 text-white btn-hs btn-shadow border border-white">Ajouter un extrait</button>
                   </form>
               </div>

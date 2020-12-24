@@ -12,6 +12,7 @@ class Purchase extends Model
                 'user_id',
                 'status',
                 'purchase_state',
+                'medias_id'
     ];
 
     public function users()
@@ -21,5 +22,9 @@ class Purchase extends Model
     public function serives()
     {
         return $this->belongsTo(Service::class);
+    }
+    public function medias()
+    {
+        return $this->belongsTo(Media::class);
     }
 }

@@ -177,7 +177,7 @@ class UserController extends Controller
         if(!is_file($request->image) || is_null($request->image)) return null;
         $filename=Str::slug($request->username);
         $filename=$filename.'.'.$request->image->extension();
-        $path=$request->image->move(storage_path('app/public//assets/images/users/'),$filename);
+        $path=$request->image->move(storage_path('app/public/assets/images/users/'),$filename);
         return 'storage/uploads/logos/png/'.$filename;
     }
 }

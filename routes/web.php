@@ -62,12 +62,15 @@ Route::get('/artistes/commandes', 'ArtisteController@getCommande')->name('comman
 Route::get('/commandes', 'DefaultController@index')->name('commandes');
 Route::get('/liste_commandes', 'PurchaseController@index')->name('listeCommandes');
 Route::put('/update/commande', 'PurchaseController@update')->name('updateCommande');
-// Route::get('/artistes/{id}', 'ArtisteController@show')->name('show.artiste');
+Route::get('/show/{id}', 'PurchaseController@show')->name('edit.purchase');
+Route::get('/purchases/edit/{id}', 'PurchaseController@edit')->name('edit.ArtistePurchase');
+
 
 Route::resource('artistes', 'ArtisteController');
 Route::resource('services', 'ServiceController');
 Route::resource('albums', 'AlbumController');
 Route::resource('chansons', 'ChansonController');
+Route::resource('medias', 'MediaController');
 
 
 Route::get('paywithpaypal', array('as' => 'paywithpaypal','uses' => 'PayPalPaymentController@payWithPaypal',));
