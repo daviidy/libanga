@@ -256,6 +256,14 @@ i {
   background-color: #fff;
   box-shadow: 0px 0px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
+.svg-delete1 {
+    z-index: 30;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
+}
 
 .modal{
   background: #1a1b20;
@@ -264,6 +272,23 @@ i {
 .avatar-login-img {
     width: 90px;
     height: 90px!important;
+}
+.btn-shadow {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+.btn-h {
+    font-weight: bold;
+    background: #005a8d !important;
+    font-size: 18px;
+    line-height: 15px;
+    min-height: 55px;
+}
+.btn-hs {
+    font-weight: bold;
+    background: #005a8d !important;
+    font-size: 15px;
+    line-height: 15px;
+    min-height: 45px;
 }
 /*end popup*/
 .btn-commande {

@@ -43,11 +43,25 @@
             </div>
             <?php Session::forget('success');?>
       @endif
+      @if(session('status'))
+      <div class="card-body">
+          <div class="alert alert-success" role="alert">
+              {{session('status')}}
+          </div>
+      </div>
+    @endif
+     @if(session('erreur'))
+      <div class="card-body">
+          <div class="alert alert-danger" role="alert">
+              {{session('erreur')}}
+          </div>
+      </div>
+    @endif
         <div class="row">
 
             @isset($purchases)
                 @foreach ($purchases as $purchase)
-                    <div class="col-md-4 mt-3">
+                    <div class="col-md-6 mt-3">
                         <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
 
                             <div class="card-body">
@@ -63,6 +77,9 @@
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
                                 <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} F CFA</p>
+                                @if ($purchase->medias_id != null)
+                                    <p class="text-muted btn" onclick="getMedia({{$purchase->medias_id}},{{$purchase->purchase_id}})">Voir l'extrait</p>
+                                @endif
                             </div>
                             {{-- </a> --}}
                         </div>
@@ -120,33 +137,28 @@
   </main>
   @include('includes.usersPopup.popupEditDefault')
 
+  @include('includes.usersPopup.popupShowMedia')
+
 @endsection
 <script>
 
 
-    const showEditModal = (user_id) =>{
-
-        $('#modalEditDefault').modal('show');
-        $("#edit-user").attr('action',"{{route('update.users','')}}/"+user_id)
+    const getMedia = (media_id,purchase_id) =>{
+        console.log(media_id,purchase_id)
+        $('#modalMedia').modal('show');
+        $("#update-purchase").attr('action',"{{route('updateCommande')}}")
         $.ajax({
                 type: 'GET',
-                url: "{{ route('edit.users','edit')}}"+user_id,
-                // data: {user_id:user_id},
+                url: "{{ route('medias.show','')}}/"+media_id,
+                data: {media_id:media_id},
                 dataType: 'JSON',
 
                 beforeSend: function(){
                 },
                 success: function(datas){
-                    console.log(datas);
-
-                            //Remplissage de tous les champs input du modal
-                            $("input[name='telephone']").val(datas['telephone'])
-                            $("select[name='pays']").val(datas['pays'])
-                            $("input[name='city']").val(datas['city'])
-                            $("input[name='state']").val(datas['state'])
-                            $("textarea[name='user_description']").val(datas['user_description'])
-                            $("textarea[name='description']").val(datas['description'])
-
+                    console.log(datas)
+                     $("#media-link").attr('href',"/"+datas.media)
+                     $("input[name='purchase_id']").val(purchase_id)
                 },
                 error: function(xhr){
                     console.log(xhr)
@@ -154,5 +166,4 @@
                 }
             });
     }
-
 </script>

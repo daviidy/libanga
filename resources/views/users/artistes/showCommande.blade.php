@@ -14,11 +14,6 @@
           <div class="col-md-12 mt-4 pt-2">
             <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item">
               <h3>Tableau de Bord Artiste | Mes Commandes</h3>
-              <form>
-                <div class="form-group mb-0">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAddService">Ajouter Service</button>
-                </div>
-              </form>
             </div>
             @if(session('status'))
                 <div class="card-body">
@@ -33,7 +28,7 @@
 
             @isset($purchases)
                 @foreach ($purchases as $purchase)
-                    <div class="col-md-4 mt-3">
+                    <div class="col-md-6 mt-3">
                         <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
                             {{-- <a href="#" class="text-decoration-none"> --}}
                             {{-- <div class="wprock-img-zoom">
@@ -46,6 +41,7 @@
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
                                 <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} F CFA</p>
+                                <p class="text-muted btn" onclick="getPurchase({{$purchase->id}})">Ajouter un extrait </p>
                             </div>
                             {{-- </a> --}}
                         </div>
@@ -80,59 +76,30 @@
   @include('includes.usersPopup.popupEditDefault')
   @include('includes.usersPopup.popupAddService')
   @include('includes.usersPopup.popupEditService')
+  @include('includes.usersPopup.popupAddMedia')
 
 @endsection
 <script>
 
-
-    const showEditModal = (user_id) =>{
-        // alert(user_id)
-        $('#modalEditDefault').modal('show');
-        $("#edit-user").attr('action',"{{route('update.users','')}}/"+user_id)
+    const getPurchase = (purchase_id) =>{
+        console.log(purchase_id)
+        $('#modalAddMedia').modal('show');
+        $("#add-media").attr('action',"{{route('medias.store')}}")
         $.ajax({
                 type: 'GET',
-                url: "{{ route('edit.users','edit')}}"+user_id,
-                // data: {user_id:user_id},
+                url: "{{ route('edit.ArtistePurchase','"+purchase_id+"')}}",
+                data: {purchase_id:purchase_id},
                 dataType: 'JSON',
 
                 beforeSend: function(){
                 },
                 success: function(datas){
-                    console.log(datas);
-
-                            //Remplissage de tous les champs input du modal
-                            $("input[name='telephone']").val(datas['telephone'])
-                            $("input[name='pays']").val(datas['pays'])
-                            $("input[name='city']").val(datas['city'])
-                            $("textarea[name='user_description']").val(datas['user_description'])
-
-                },
-                error: function(xhr){
-                    console.log(xhr)
-                    alert('Erreur de chargement');
-                }
-            });
-    }
-    const showEditService = (service_id) =>{
-
-        $('#modalEditService').modal('show');
-        $("#edit-service").attr('action',"{{route('services.update','')}}/"+service_id)
-        $.ajax({
-                type: 'GET',
-                url: "{{ route('services.edit','"+service_id+"')}}",
-                data: {service_id:service_id},
-                dataType: 'JSON',
-
-                beforeSend: function(){
-                },
-                success: function(datas){
-                    for (var key in datas) {
-                        console.log(datas)
-                            //Remplissage de tous les champs input du modal
-                            $("input[name='"+key+"']").val(datas[key])
-                            $("textarea[name='"+key+"']").val(datas[key])
-                            $("select[name='"+key+"']").val(datas[key])
-                        }
+                    console.log(datas)
+                    $("input[name='purchase_id']").val(datas['id'])
+                    $("input[name='service_id']").val(datas['service_id'])
+                    $("input[name='status']").val(datas['status'])
+                    $("input[name='user_id']").val(datas['user_id'])
+                    $("input[name='purchase_state']").val(datas['purchase_state'])
                 },
                 error: function(xhr){
                     console.log(xhr)

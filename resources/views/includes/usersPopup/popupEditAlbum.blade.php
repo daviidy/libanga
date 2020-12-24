@@ -23,11 +23,11 @@
             {{ method_field('patch') }}
             <div class="p-md-4 p-3 bg-white">
               <div class="form-group name">
-                <label for="exampleInputPassword1">Libellé</label>
+                <label for="exampleInputPassword1">Le titre de l'album</label>
                 <input type="text" required="required" name="title" class="form-control" id="title">
               </div>
               <div class="form-group price">
-                <label for="exampleInputPassword1">Date</label>
+                <label for="exampleInputPassword1">La date de sortie</label>
                 <input type="date" required="required" name="purchase_date" class="form-control" id="purchase_date">
               </div>
 
