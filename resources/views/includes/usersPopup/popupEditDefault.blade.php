@@ -18,7 +18,7 @@
           </div>
 
         </div>
-        <form enctype="multipart/form-data" id="edit-user">
+        <form method="POST" enctype="multipart/form-data" id="edit-user">
             @csrf
             {{ method_field('patch') }}
             <div class="p-md-4 p-3 bg-white">

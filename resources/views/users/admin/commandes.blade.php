@@ -67,7 +67,7 @@
                                             @endif
                                         @endforeach
                                     </td>
-                                    <td>{{number_format($purchase->price,0,'.',' ').' Fcfa'}}</td>
+                                    <td>{{number_format($purchase->price,0,'.',' ').' €'}}</td>
                                     <td>{{$purchase->status}}</td>
                                     <td>
                                     <form class="" action="{{route('updateCommande')}}" method="post">

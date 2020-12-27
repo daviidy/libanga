@@ -68,7 +68,7 @@
                                 <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
                                 <p class="card-text">
                                     @foreach ($users as $user)
-                                        @if ($user->id = $purchase->user_id)
+                                        @if ($user->id == $purchase->user_id)
                                             {{$user->username}}
                                         @endif
                                     @endforeach
@@ -76,7 +76,7 @@
                             </div>
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
-                                <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} F CFA</p>
+                                <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} €</p>
                                 @if ($purchase->medias_id != null)
                                     <p class="text-muted btn" onclick="getMedia({{$purchase->medias_id}},{{$purchase->purchase_id}})">Voir l'extrait</p>
                                 @endif
@@ -142,6 +142,36 @@
 @endsection
 <script>
 
+const showEditModal = (user_id) =>{
+        // alert(user_id)
+        $('#modalEditDefault').modal('show');
+        $("#edit-user").attr('action',"{{route('update.users','')}}/"+user_id)
+        $.ajax({
+                type: 'GET',
+                url: "{{ route('edit.users','edit')}}"+user_id,
+                // data: {user_id:user_id},
+                dataType: 'JSON',
+
+                beforeSend: function(){
+                },
+                success: function(datas){
+                    console.log(datas);
+
+                            //Remplissage de tous les champs input du modal
+                            $("input[name='telephone']").val(datas['telephone'])
+                            $("select[name='pays']").val(datas['pays'])
+                            $("input[name='city']").val(datas['city'])
+                            $("input[name='state']").val(datas['state'])
+                            $("textarea[name='user_description']").val(datas['user_description'])
+                            $("textarea[name='description']").val(datas['description'])
+
+                },
+                error: function(xhr){
+                    console.log(xhr)
+                    alert('Erreur de chargement');
+                }
+            });
+    }
 
     const getMedia = (media_id,purchase_id) =>{
         console.log(media_id,purchase_id)

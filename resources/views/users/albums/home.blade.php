@@ -64,7 +64,7 @@
                                 </button>
                             </form>
                             <a href="{{route('albums.show',$album->id)}}"><i class="fas fa-eye" style="font-size:20px;"></i> Voir</a>
-                            {{-- <p class="text-muted" style="font-weight:bold">{{number_format($album->price, 0, '.', ' ')}} F CFA</p> --}}
+                            {{-- <p class="text-muted" style="font-weight:bold">{{number_format($album->price, 0, '.', ' ')}} €</p> --}}
                           </div>
                         {{-- </a> --}}
                       </div>

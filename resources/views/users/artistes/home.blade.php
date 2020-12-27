@@ -72,7 +72,7 @@
                             </form>
 
 
-                            <p class="text-muted" style="font-weight:bold">{{number_format($service->price, 0, '.', ' ')}} F CFA</p>
+                            <p class="text-muted" style="font-weight:bold">{{number_format($service->price, 0, '.', ' ')}} € </p>
                           </div>
                         {{-- </a> --}}
                       </div>

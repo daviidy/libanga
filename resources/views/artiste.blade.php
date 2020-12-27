@@ -71,7 +71,7 @@
                                       </div>
                                       <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                         {{-- <i class="fas fa-heart"></i> --}}
-                                        <p class="text-muted" style="font-weight:bold">{{$service->price}} F CFA</p>
+                                        <p class="text-muted" style="font-weight:bold">{{$service->price}} €</p>
                                       </div>
                                     </a>
                                   </div>
