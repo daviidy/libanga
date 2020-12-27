@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::patch('/update/users/{id}', 'UserController@update')
+    ->name('update.users');
 Route::get('/', 'HomeController@home')->name('home');
 /*Route text*/
 Route::get('/admin1', function () {
@@ -48,8 +49,7 @@ Route::get('/users/editByAdmin/{id}', 'UserController@editByAdmin')
     ->name('editByAdmin.users');
 Route::get('/users', 'UserController@index')
     ->name('users.index');
-Route::put('/users/{id}', 'UserController@update')
-    ->name('update.users');
+
 Route::delete('/users/{id}', 'UserController@destroy')
     ->name('destroy.users');
 Route::patch('/usersByAdmin/{id}', 'UserController@updateByAdmin')

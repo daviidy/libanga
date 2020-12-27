@@ -76,7 +76,7 @@
                             </div>
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
-                                <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} F CFA</p>
+                                <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} €</p>
                                 <p class="text-muted btn" data-toggle="modal" data-target="#modalMedia">Voir l'extrait</p>
                             </div>
                             {{-- </a> --}}

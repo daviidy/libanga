@@ -22,10 +22,10 @@
                   <span class=""><i class="fas fa-map-marker-alt"></i> Pays</span>
                   {{$artistes->pays}}
                 </li>
-                <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
+                {{-- <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="fas fa-microphone-alt"></i> Artiste depuis</span>
                   {{Carbon::parse($artistes->created_at)->translatedFormat('d F Y') }}
-                </li>
+                </li> --}}
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="fas fa-record-vinyl"></i> Albums</span>
                   {{$nb_albums_count}}
@@ -84,7 +84,7 @@
                       </div>
                       <div class="card-footer bg-white d-flex justify-content-between align-items-center p-2">
                         <a  onclick="commandeModalShow({{$service->id}})"> <i class="fas fa-heart"></i> Commander</a>
-                        <p class="text-muted" style="font-weight:bold">{{number_format($service->price,0,'.',' ')}} F CFA</p>
+                        <p class="text-muted" style="font-weight:bold">{{number_format($service->price,0,'.',' ')}} €</p>
                       </div>
                     </div>
                   </div>
