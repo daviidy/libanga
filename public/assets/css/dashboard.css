@@ -303,6 +303,12 @@ box-shadow: -1px 0px 4px 0 rgb(0 0 0 / 70%), 0px 2px 10px 0 rgb(0 0 0 / 70%);
   width: 100%;
 }
 
+.side-menu {
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+}
+
   iframe {
     width: 100% !important;
     height: 315px !important;
