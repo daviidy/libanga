@@ -28,17 +28,17 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
-              <input type="tel" name="telephone" class="form-control" id="telephone" value="{{auth()->user()->telephone}}">
+              <input type="tel" name="telephone" class="form-control" id="telephone" value="{{auth()->user()->telephone}}" required="required">
             </div>
             <div class="form-group">
-                <label for="Description">Description users</label>
-                <textarea class="form-control" name="user_description" id="description" rows="3"></textarea>
+                <label for="Description">A propos de moi</label>
+                <textarea class="form-control" name="user_description" id="description" rows="3" required="required"></textarea>
               </div>
-            <label class="py-3" for="adress">Adresse</label>
+            <label class="py-3" for="adress">Pays / Ville</label>
 
             <div class="form-row">
               <div class="form-group col-md-6">
-                <select name="pays" class="form-control" id="country" placeholder="Pays">
+                <select name="pays" class="form-control" id="country" placeholder="Pays" required="required">
                   <option value="Afghanistan">Afghanistan </option>
 									<option value="Afrique_Centrale">Afrique_Centrale </option>
 									<option value="Afrique_du_sud">Afrique_du_Sud </option>
@@ -294,16 +294,16 @@
                 </select>
               </div>
               <div class="form-group col-md-6">
-                <input type="text" name="city" class="form-control" id="inputPassword4" placeholder="Ville">
+                <input type="text" name="city" class="form-control" id="inputPassword4" placeholder="Ville" required="required">
               </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">State</label>
-                <input type="text" name="state" class="form-control" id="state">
+                <input type="text" name="state" class="form-control" id="state" required="required">
             </div>
             <div class="form-group">
-              <label for="Description">Description adresse</label>
-              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+              <label for="Description">Adresse</label>
+              <textarea class="form-control" name="description" id="description" rows="3" required="required"></textarea>
             </div>
           </div>
 
