@@ -40,7 +40,7 @@
   <div class="row justify-content-md-center align-items-center mt-md-4 mt-3">
     <div class="col-md-6">
       <div class="p-3">
-        <img src="/assets/images/who.jpg" alt="" class="img-fluid">
+        <img src="/assets/images/who2.jpg" alt="" class="img-fluid">
       </div>
     </div>
     <div class="col-md-6">
