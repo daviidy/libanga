@@ -61,7 +61,7 @@ class UserController extends Controller
     {
         $users = User::join('address','address.user_id','users.id')
         ->where('users.id',auth()->user()->id)
-        ->select('users.*','address.pays','address.city','address.state','address.description')
+        ->select('users.*','address.pays','address.city','address.description')
         ->first();
 
         return json_encode($users);
@@ -113,7 +113,6 @@ class UserController extends Controller
                             [
                                 'pays'                  =>$request->pays,
                                 'city'                  =>$request->city,
-                                'state'                  =>$request->state,
                                 'description'             =>$request->description,
                                 'user_id'                  =>$id
                             ]);

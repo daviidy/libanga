@@ -161,7 +161,6 @@ const showEditModal = (user_id) =>{
                             $("input[name='telephone']").val(datas['telephone'])
                             $("select[name='pays']").val(datas['pays'])
                             $("input[name='city']").val(datas['city'])
-                            $("input[name='state']").val(datas['state'])
                             $("textarea[name='user_description']").val(datas['user_description'])
                             $("textarea[name='description']").val(datas['description'])
 

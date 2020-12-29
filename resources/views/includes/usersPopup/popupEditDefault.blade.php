@@ -298,10 +298,6 @@
               </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">State</label>
-                <input type="text" name="state" class="form-control" id="state" required="required">
-            </div>
-            <div class="form-group">
               <label for="Description">Adresse</label>
               <textarea class="form-control" name="description" id="description" rows="3" required="required"></textarea>
             </div>
