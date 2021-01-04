@@ -58,7 +58,7 @@
 
             @isset($purchases)
                 @foreach ($purchases as $purchase)
-                    <div class="col-md-4 mt-3">
+                    <div class="col-md-6 mt-3">
                         <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
                             {{-- <a href="#" class="text-decoration-none"> --}}
                             {{-- <div class="wprock-img-zoom">

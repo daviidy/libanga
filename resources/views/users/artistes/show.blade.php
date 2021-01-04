@@ -76,7 +76,7 @@
                   @isset($services)
                       @foreach ($services as $service)
 
-                  <div class="col-md-4 mb-3">
+                  <div class="col-md-6 mb-3">
                     <div class="card card-shadow cusor" data-toggle="modal" data-target="#modalLogin">
                       <div class="card-body">
                         <h5 class="card-title font-weight-bold">{{$service->name}}</h5>
@@ -134,7 +134,7 @@
                 <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
               </div>
                 <div class="">
-                  <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander mes services</p>
+                  <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander ce service</p>
                 </div>
                 <div class="text-left mt-md-5 my-4 text-center">
                     <form action="{{route('paypal')}}" method="post">
