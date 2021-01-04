@@ -29,7 +29,7 @@
             @isset($purchases)
                 @foreach ($purchases as $purchase)
                     <div class="col-md-6 mt-3">
-                        <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
+                        <div class="card card-shadow wprock-img-zoom-hover cusor" data-toggle="modal" data-target="#modalLogin">
                             {{-- <a href="#" class="text-decoration-none"> --}}
                             {{-- <div class="wprock-img-zoom">
                                 <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">

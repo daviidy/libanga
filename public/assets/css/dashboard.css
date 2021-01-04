@@ -26,6 +26,14 @@ p {
   list-style: none;
   font-family: 'Montserrat', sans-serif;
 }
+
+.wprock-img-zoom-hover{
+  cursor: pointer!important;
+}
+
+a{
+  cursor: pointer!important;
+}
 .card a {
   font-family: 'Montserrat', sans-serif;
 }

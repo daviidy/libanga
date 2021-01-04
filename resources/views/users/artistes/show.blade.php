@@ -10,7 +10,7 @@
     <div class="conntainer-fluid p-md-4">
       <div class="row">
         <div class="col-md-4">
-          <div class="card w-100 p-3 card-shadow">
+          <div class="card w-100 p-3 card-shadow cusor">
             <img src="{{($artistes->image) ? asset($artistes->image) : asset("assets/images/users/avatar_default.png")}}" class="card-img-top rounded-circle img-fluid text-center m-auto avatar-card" alt="...">
             <h5 class="h4 card-title text-center pt-2 font-weight-bold">{{$artistes->username}}</h5>
             <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -41,7 +41,7 @@
             </div>
           </div> --}}
 
-          <div class="card w-100 p-3 mt-3 card-shadow">
+          <div class="card w-100 p-3 mt-3 card-shadow cusor">
             <div class="card-body">
               <h5 class="card-title font-weight-bold h5 text-uppercase">Description</h5>
               <p class="card-text">{{$artistes->user_description}}</p>
@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-8">
           <div class="mt-3 mt-md-0">
-            <div class="bg-white p-md-4 p-3 mb-3 card-shadow">
+            <div class="bg-white p-md-4 p-3 mb-3 card-shadow cusor">
               <h3 class="h3 font-weight-bold">Mes services</h3>
             </div>
             @if($message = Session::get('error'))
@@ -77,7 +77,7 @@
                       @foreach ($services as $service)
 
                   <div class="col-md-4 mb-3">
-                    <div class="card card-shadow" data-toggle="modal" data-target="#modalLogin">
+                    <div class="card card-shadow cusor" data-toggle="modal" data-target="#modalLogin">
                       <div class="card-body">
                         <h5 class="card-title font-weight-bold">{{$service->name}}</h5>
                         <p class="card-text">{{$service->service_description}}</p>

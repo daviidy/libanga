@@ -2,6 +2,14 @@ body {
     font-family: 'Montserrat', sans-serif !important;
 }
 
+a{
+  cursor: pointer!important;
+}
+
+.cusor{
+  cursor: pointer!important;
+}
+
 .avatar-size{
   width: 45px;
 }
