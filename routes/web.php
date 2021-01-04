@@ -39,6 +39,10 @@ Route::get('/quisommesnous', function () {
     return view('aPropos');
 });
 
+Route::get('/confidentialite', function () {
+    return view('politique');
+});
+
 Route::get('/contacternous', function () {
     return view('contacte');
 });

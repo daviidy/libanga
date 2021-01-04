@@ -153,6 +153,24 @@ border-top: 1px solid #232323!important;
     background: rgb(0 0 0 / 75%);
 }
 
+/*contactez-nous*/
+.bg-politic {
+  width: 100%;
+  height: 300px;
+  background: url('/assets/images/politic2.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.bg-politic:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    background: rgb(0 0 0 / 75%);
+}
+
 @media (max-width: 768px){
   .h-box {
       height: 100%;
