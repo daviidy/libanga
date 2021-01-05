@@ -7,6 +7,14 @@ body {
   overflow-x: hidden;
 }
 
+a{
+  cursor: pointer!important;
+}
+
+.cusor{
+  cursor: pointer!important;
+}
+
 .main-content1 {
   background-color: #f2f7fb;
 }
