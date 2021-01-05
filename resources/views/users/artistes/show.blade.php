@@ -10,7 +10,7 @@
     <div class="conntainer-fluid p-md-4">
       <div class="row">
         <div class="col-md-4">
-          <div class="card w-100 p-3 card-shadow">
+          <div class="card w-100 p-3 card-shadow cusor">
             <img src="{{($artistes->image) ? asset($artistes->image) : asset("assets/images/users/avatar_default.png")}}" class="card-img-top rounded-circle img-fluid text-center m-auto avatar-card" alt="...">
             <h5 class="h4 card-title text-center pt-2 font-weight-bold">{{$artistes->username}}</h5>
             <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -30,6 +30,17 @@
                   <span class=""><i class="fas fa-record-vinyl"></i> Albums</span>
                   {{$nb_albums_count}}
                 </li>
+                <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
+                  <span class=""><i class="fas fa-record-vinyl"></i> Chansons</span>
+
+                    @isset($chansons)
+                    @foreach ($chansons as $chanson)
+                        <li class="text-right"> {{$chanson->title}}</li>
+                    @endforeach
+                   @endisset
+
+
+                </li>
               </ul>
             </div>
           </div>
@@ -41,7 +52,7 @@
             </div>
           </div> --}}
 
-          <div class="card w-100 p-3 mt-3 card-shadow">
+          <div class="card w-100 p-3 mt-3 card-shadow cusor">
             <div class="card-body">
               <h5 class="card-title font-weight-bold h5 text-uppercase">Description</h5>
               <p class="card-text">{{$artistes->user_description}}</p>
@@ -51,7 +62,7 @@
         </div>
         <div class="col-md-8">
           <div class="mt-3 mt-md-0">
-            <div class="bg-white p-md-4 p-3 mb-3 card-shadow">
+            <div class="bg-white p-md-4 p-3 mb-3 card-shadow cusor">
               <h3 class="h3 font-weight-bold">Mes services</h3>
             </div>
             @if($message = Session::get('error'))
@@ -76,8 +87,8 @@
                   @isset($services)
                       @foreach ($services as $service)
 
-                  <div class="col-md-4 mb-3">
-                    <div class="card card-shadow" data-toggle="modal" data-target="#modalLogin">
+                  <div class="col-md-6 mb-3">
+                    <div class="card card-shadow cusor" data-toggle="modal" data-target="#modalLogin">
                       <div class="card-body">
                         <h5 class="card-title font-weight-bold">{{$service->name}}</h5>
                         <p class="card-text">{{$service->service_description}}</p>
@@ -134,7 +145,7 @@
                 <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
               </div>
                 <div class="">
-                  <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander mes services</p>
+                  <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander ce service</p>
                 </div>
                 <div class="text-left mt-md-5 my-4 text-center">
                     <form action="{{route('paypal')}}" method="post">

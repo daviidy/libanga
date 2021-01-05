@@ -35,8 +35,12 @@ Route::get('/nosartistes', function () {
 });*/
 /*END Route text*/
 
-Route::get('/quisommesnous', function () {
+Route::get('/qui-sommes-nous', function () {
     return view('aPropos');
+});
+
+Route::get('/mentions-legales', function () {
+    return view('politique');
 });
 
 Route::get('/contacternous', function () {
