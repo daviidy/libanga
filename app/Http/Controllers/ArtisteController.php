@@ -89,16 +89,9 @@ class ArtisteController extends Controller
     {
         $id = auth()->user()->id;
         $purchases = Purchase::join('services','services.id','purchases.service_id')
-        ->join('users','users.id','purchases.user_id')
-        ->select('purchases.*','services.price','users.username','services.name')
+        ->select('purchases.*','services.price','services.name')
         ->where('status','validé')
-        ->where('purchase_state','en cours')
-        ->where('services.user_id',$id)
         ->get();
-
-        dd($purchases,$id);
-        $users = User::where('id',$id)->first();
-        // dd($purchases,$users);
         return view('users.artistes.showCommande',compact('purchases'));
 
     }
