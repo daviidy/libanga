@@ -26,6 +26,14 @@ p {
   font-family: 'Montserrat', sans-serif;
 
 }
+
+a{
+  cursor: pointer!important;
+}
+
+.cusor{
+  cursor: pointer!important;
+}
 .card-footer a,
 .card-footer p{
   font-family: 'Montserrat', sans-serif;

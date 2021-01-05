@@ -51,7 +51,7 @@
             <a class="nav-link font-weight-bold" href="/nosartistes">Nos artistes</a>
           </li>
           <li class="nav-item px-md-4 active">
-            <a class="nav-link font-weight-bold" href="/quisommesnous">A propos</a>
+            <a class="nav-link font-weight-bold" href="/qui-sommes-nous">A propos</a>
           </li>
           <li class="nav-item px-md-4 active">
             <a class="nav-link font-weight-bold" href="/contacternous">Contactez-nous</a>
@@ -85,8 +85,12 @@
 
 
   <footer class="container-fluid bg-main border-top-footer">
-    <div class="p-md-4 p-3 text-white">
-        © <span id="year">2010 </span> LIBANGA. TOUS DROITS RÉSERVÉS.
+    <div class="p-md-4 p-3 text-white d-md-flex justify-content-between">
+      <p>© <span id="year">2010 </span> LIBANGA. TOUS DROITS RÉSERVÉS.</p>
+      <div class="d-md-flex">
+        <p><a class="text-light text-decoration-none" href="/mentions-legales">Mentions légales</a> </p>
+        <p class="px-md-3"><a class="text-light text-decoration-none" href="/contacternous">Contactez-nous</a> </p>
+      </div>
     </div>
   </footer>
 
