@@ -30,6 +30,17 @@
                   <span class=""><i class="fas fa-record-vinyl"></i> Albums</span>
                   {{$nb_albums_count}}
                 </li>
+                <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
+                  <span class=""><i class="fas fa-record-vinyl"></i> Chansons</span>
+
+                    @isset($chansons)
+                    @foreach ($chansons as $chanson)
+                        <li class="text-right"> {{$chanson->title}}</li>
+                    @endforeach
+                   @endisset
+
+
+                </li>
               </ul>
             </div>
           </div>
@@ -134,7 +145,7 @@
                 <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-circle avatar-login-img">
               </div>
                 <div class="">
-                  <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander mes services</p>
+                  <p class="w-75 mx-auto mb-0 text-center h4 pt-3">Commander ce service</p>
                 </div>
                 <div class="text-left mt-md-5 my-4 text-center">
                     <form action="{{route('paypal')}}" method="post">

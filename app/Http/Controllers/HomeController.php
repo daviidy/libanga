@@ -57,6 +57,7 @@ class HomeController extends Controller
                                 ->join('users','users.id','purchases.user_id')
                                 ->select('services.*','users.username','purchases.status','purchases.purchase_state','purchases.medias_id','purchases.id as purchase_id')
                                 ->where('users.id',auth()->user()->id)
+                                ->where('purchases.status','validé')
                                 ->get();
 
         $users = User::where('type','artiste')->get();

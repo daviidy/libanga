@@ -14,7 +14,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
+        $services = Service::where('user_id',auth()->user()->id)->get();
         return view('users.artistes.home', ['services' => $services]);
     }
 

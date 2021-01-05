@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Chanson;
 use App\Models\Purchase;
 use App\Models\Service;
 use App\User;
@@ -68,8 +69,13 @@ class ArtisteController extends Controller
                                 ->select('services.*')
                                 ->where('users.id',$id)
                                 ->get();
+        $chansons = Chanson::join('albums','albums.id','chansons.album_id')
+                            ->join('users','users.id','albums.user_id')
+                            ->where('users.id',$id)
+                            ->select('chansons.*','albums.title as album_title')
+                            ->get();
         // dd($artistes,$id,$services);
-        return view('users.artistes.show',compact('artistes','nb_albums_count','services'));
+        return view('users.artistes.show',compact('artistes','nb_albums_count','services','chansons'));
     }
 
 
@@ -90,6 +96,7 @@ class ArtisteController extends Controller
         ->where('services.user_id',$id)
         ->get();
 
+        dd($purchases,$id);
         $users = User::where('id',$id)->first();
         // dd($purchases,$users);
         return view('users.artistes.showCommande',compact('purchases'));

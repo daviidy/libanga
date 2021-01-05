@@ -116,7 +116,7 @@ class PayPalPaymentController extends Controller
 
         Session::forget('paypal_payment_id');
         if (empty($request->input('PayerID')) || empty($request->input('token'))) {
-            \Session::put('error','Payment failed');
+            \Session::put('error','Paiement échoué');
             return Redirect::route('artistes.show',auth()->user()->id);
         }
         $payment = Payment::get($payment_id, $this->_api_context);
@@ -125,14 +125,14 @@ class PayPalPaymentController extends Controller
         $result = $payment->execute($execution, $this->_api_context);
 
         if ($result->getState() == 'approved') {
-            \Session::put('success','Payment success !!');
+            \Session::put('success','Paiement validé !!');
 
             $update_purchase = Purchase::where('user_id',auth()->user()->id)->get()->last();
             $update_purchase->update(['status'=>'validé']);
             return Redirect::route('dashboard');
         }
 
-        \Session::put('error','Payment failed!!');
+        \Session::put('error','Paiement échoué!!');
 		return Redirect::route('artistes.show',auth()->user()->id);
     }
 }
