@@ -22,14 +22,10 @@
     <div class="col-md-6">
       <div class="d-flex flex-column text-white">
         <div class="p-3">
-          <p class="h6 font-weight-bold">Cote d'ivoire</p>
-          <p>148 boulevard <br> de Ménilmontant 75020</p>
-          <p>Tel : 01 47 97 03 81</p>
-        </div>
-        <div class="p-3">
-          <p class="h6 font-weight-bold">Congo</p>
-          <p>13 Rue Miriam Makeba <br> 93000 Bobigny</p>
-          <p>Tel : 01 70 26 04 45</p>
+          <p class="h6 font-weight-bold">Libanga</p>
+          <p>Siret 88484942300014</p>
+          <p>Mail : contact@libanga.fr</p>
+          <p>Directeur de publication : Christ Henriti</p>
         </div>
       </div>
       </div>
