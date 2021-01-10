@@ -25,6 +25,6 @@ class Purchase extends Model
     }
     public function medias()
     {
-        return $this->belongsTo(Media::class);
+        return $this->hasOne(Media::class);
     }
 }

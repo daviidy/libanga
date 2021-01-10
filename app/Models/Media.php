@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
-    protected $fillable = ['media'];
+    protected $fillable = ['media','name','purchase_id'];
     protected $table = 'medias';
 
     public function purchases()
     {
-        return $this->hasMany(Purchase::class);
+        return $this->belongsTo(Purchase::class);
     }
 }

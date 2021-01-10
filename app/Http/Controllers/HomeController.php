@@ -55,7 +55,8 @@ class HomeController extends Controller
 
         $purchases = Purchase::join('services','services.id','purchases.service_id')
                                 ->join('users','users.id','purchases.user_id')
-                                ->select('services.*','users.username','purchases.status','purchases.purchase_state','purchases.medias_id','purchases.id as purchase_id')
+                                ->leftJoin('medias','medias.purchase_id','purchases.id')
+                                ->select('services.*','users.username','purchases.status','purchases.purchase_state','purchases.id as purchase_id','medias.id as media_id')
                                 ->where('users.id',auth()->user()->id)
                                 ->where('purchases.status','validé')
                                 ->get();
