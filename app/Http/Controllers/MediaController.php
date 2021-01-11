@@ -44,8 +44,9 @@ class MediaController extends Controller
             if(is_file($request->media) || !is_null($request->media))
             {
 
-                $filename=Str::slug(auth()->user()->username);
-                $filename=auth()->user()->id.auth()->user()->email.'_'.$filename.'.'.$request->media->extension();
+                $filename=$request->media;
+
+                $filename=auth()->user()->username.'_'.$filename->getClientOriginalName();
                 $path=$request->media->move(storage_path('app/public/uploads/medias/'),$filename);
                 $final_path = 'storage/uploads/medias/'.$filename;
             }else{
@@ -53,12 +54,14 @@ class MediaController extends Controller
             }
 
             $medias = Media::create([
-                'media' =>$final_path
+                'media' =>$final_path,
+                'name' =>$filename,
+                'purchase_id' =>$request->purchase_id
             ]);
-            $purchase = Purchase::where('id',$request->purchase_id)->first();
-            $purchase->update([
-                "medias_id" => $medias->id
-            ]);
+            // $purchase = Purchase::where('id',$request->purchase_id)->first();
+            // $purchase->update([
+            //     "medias_id" => $medias->id
+            // ]);
             return redirect()->back()->with('status','Media ajouté avec succés');
 
 
@@ -126,6 +129,16 @@ class MediaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+
+            Media::where('id',$id)->delete();
+            return redirect()->back()->with('status', 'Media supprimé de la base de données');
+
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('ereur', 'Une erreur est survenue');
+        }
+
+
     }
 }

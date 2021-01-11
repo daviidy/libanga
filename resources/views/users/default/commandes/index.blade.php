@@ -68,7 +68,7 @@
                                 <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
                                 <p class="card-text">
                                     @foreach ($users as $user)
-                                        @if ($user->id = $purchase->user_id)
+                                        @if ($user->id == $purchase->user_id)
                                             {{$user->username}}
                                         @endif
                                     @endforeach
@@ -77,7 +77,9 @@
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
                                 <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} €</p>
-                                <p class="text-muted btn" data-toggle="modal" data-target="#modalMedia">Voir l'extrait</p>
+                                @if ($purchase->media_id != null)
+                                    <p class="text-muted btn" onclick="getMedia({{$purchase->media_id}},{{$purchase->purchase_id}})">Voir l'extrait</p>
+                                @endif
                             </div>
                             {{-- </a> --}}
                         </div>
@@ -128,4 +130,27 @@
             });
     }
 
+    const getMedia = (media_id,purchase_id) =>{
+    console.log(media_id,purchase_id)
+    $('#modalMedia').modal('show');
+    $("#update-purchase").attr('action',"{{route('updateCommande')}}")
+    $.ajax({
+            type: 'GET',
+            url: "{{ route('medias.show','')}}/"+media_id,
+            data: {media_id:media_id},
+            dataType: 'JSON',
+
+            beforeSend: function(){
+            },
+            success: function(datas){
+                console.log(datas)
+                    $("#media-link").attr('href',"/"+datas.media)
+                    $("input[name='purchase_id']").val(purchase_id)
+            },
+            error: function(xhr){
+                console.log(xhr)
+                alert('Erreur de chargement');
+            }
+        });
+}
 </script>

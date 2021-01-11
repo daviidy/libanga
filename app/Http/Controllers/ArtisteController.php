@@ -88,11 +88,22 @@ class ArtisteController extends Controller
     public function getCommande()
     {
         $id = auth()->user()->id;
+        $username=auth()->user()->username;
         $purchases = Purchase::join('services','services.id','purchases.service_id')
-        ->select('purchases.*','services.price','services.name')
+        ->leftJoin('medias','medias.purchase_id','purchases.id')
+        ->select('purchases.*','services.price','services.name','services.user_id','medias.id as media_id','medias.name as media_name','medias.media')
         ->where('status','validé')
+        ->where('services.user_id',$id)
         ->get();
-        return view('users.artistes.showCommande',compact('purchases'));
+
+        // $medias = Purchase::join('services','services.id','purchases.service_id')
+        // ->leftJoin('medias','medias.purchase_id','purchases.id')
+        // ->select('medias.*','services.price','services.name as service_name','services.user_id')
+        // ->where('status','validé')
+        // ->where('services.user_id',$id)
+        // ->first();
+        // dd($medias);
+        return view('users.artistes.showCommande',compact('purchases','username'));
 
     }
 
