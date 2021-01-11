@@ -28,7 +28,11 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
-              <input type="tel" name="telephone" class="form-control" id="telephone" value="{{auth()->user()->telephone}}" required="required">
+              <input type="tel" name="telephone" class="form-control" id="telephone">
+              @if (auth()->user()->telephone)
+                <small class="small-text" style="margin-left: 75px;color:red">Numero de télephone : {{auth()->user()->telephone}}</small>
+              @endif
+
             </div>
             <div class="form-group">
                 <label for="Description">A propos de moi</label>
