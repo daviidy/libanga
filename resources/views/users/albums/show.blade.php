@@ -169,7 +169,7 @@
                 success: function(datas){
 
                             //Remplissage de tous les champs input du modal
-                            $("input[name='telephone']").val(datas['telephone'])
+                            //$("input[name='telephone']").val(datas['telephone'])
                             $("select[name='pays']").val(datas['pays'])
                             $("input[name='city']").val(datas['city'])
                             $("textarea[name='user_description']").val(datas['user_description'])
