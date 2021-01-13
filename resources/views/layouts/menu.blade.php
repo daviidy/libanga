@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel='stylesheet' href='https://unpkg.com/nprogress@0.2.0/nprogress.css'/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   </head>
   <body class="bg-main">
     <div class="main-content bg-main">
@@ -54,7 +55,7 @@
                     </div>
                 </div>
             @else
-                <div class="mt-md-0 mt-4">
+                <div class="my-4">
                     <a href="#" class="text-decoration-none h-auto rounded-pill py-3 px-5 text-white btn-h-2 btn-shadow" data-toggle="modal" data-target="#modalLogin">
                     Se connecter
                     </a>
