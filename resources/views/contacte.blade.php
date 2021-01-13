@@ -36,18 +36,17 @@
 
               <div class="col">
                 <label >Nom</label>
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="text" class="form-control" placeholder="Nom">
               </div>
               <div class="col">
                 <label >Prenom</label>
-                <input type="text" class="form-control" placeholder="Last name">
+                <input type="text" class="form-control" placeholder="Prenoms">
               </div>
             </div>
 
             <div class="form-group pb-3">
-              <label for="exampleInputEmail1">address email</label>
+              <label for="exampleInputEmail1">Adresse email</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
 
             <div class="form-group pb-3">

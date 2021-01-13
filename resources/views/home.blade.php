@@ -108,7 +108,7 @@
                 </li>
                 <li class="list-group-item bg-main border-0 d-flex align-items-center">
                   <span class="badge badge-dark rounded-circle p-3 mr-3 font-weight-ace_bold">2</span>
-                  Sélectionnez l’artiste
+                   <span>Sélectionnez l’artiste <a href="{{route('nosartistes')}}" class="font-weight-bold "> ici</a></span> 
                 </li>
                 <li class="list-group-item bg-main border-0 d-flex align-items-center">
                   <span class="badge badge-dark rounded-circle p-3 mr-3 font-weight-ace_bold">3</span>
