@@ -49,7 +49,7 @@
                 </div>
               </div>
               <div class="p-2">
-                <p class="text-muted">{{$artiste->user_description}}</p>
+                <p class="text-muted text-break">{{$artiste->user_description}}</p>
               </div>
             </div>
           </a>
