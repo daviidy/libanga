@@ -64,7 +64,7 @@
                   </ul>
                   <div class="py-3 text-center">
                     <a href="#" class="btn card-image-bg shadow-sm text-btn-size text-white font-weight-bold">Modifier mon profil</a>
-                    <a href="#" class="btn border ml-md-2 mt-4 mt-md-0 text-btn-size font-weight-bold">Publier un projet</a>
+                    <a href="#" class="btn border ml-md-2 mt-4 mt-md-0 text-btn-size font-weight-bold" data-toggle="modal" data-target="#modalAddService">Ajouter Service</a>
                   </div>
                 </div>
               </div>
