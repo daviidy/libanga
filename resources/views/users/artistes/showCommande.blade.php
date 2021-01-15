@@ -22,6 +22,13 @@
                     </div>
                 </div>
             @endif
+            @if(session('erreur'))
+                <div class="card-body">
+                    <div class="alert alert-danger" role="alert">
+                        {{session('erreur')}}
+                    </div>
+                </div>
+            @endif
           </div>
         </div>
         <div class="row" id="service">
