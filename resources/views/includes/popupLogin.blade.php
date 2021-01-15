@@ -1,7 +1,7 @@
 {{-- {{dd(\Session::all(),old('test'))}} --}}
 <!-- Modal-->
 <div  class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
-  <span class="float-right position-absolute rounded-circle svg-delete close" data-dismiss="modal" aria-label="Close"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <span class="float-right position-absolute rounded-circle svg-delete close" data-dismiss="modal" aria-label="Close" style="z-index: 1;"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
     </svg></span>
   <div class="modal-dialog modal-dialog-centered">
@@ -69,11 +69,6 @@
                     @enderror
 
             </div>
-
-            <a class="btn btn-small btn-primary btn-block" href="{{ url('/redirect') }}">
-                <strong>Login With Facebook</strong>
-            </a>
-
             <p class="text-center">
                 @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -81,8 +76,18 @@
                     </a>
                 @endif
             </p>
+            <p class="text-center mt-2 pt-4 mb-0">Êtes-vous inscrit ? <a href="#" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalRegister">Inscrivez-vous</a> </p>
+          </div>
 
-            <p class="text-center">Êtes-vous inscrit ? <a href="#" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalRegister">Inscrivez-vous</a> </p>
+          <div class="bg-white pb-3">
+            <p class="text-center font-weight-bold ">
+              Ou connectez-vous avec <span class="h3"><i class="bi bi-arrow-down-short"></i></span>
+            </p>
+            <div class="text-center">
+              <a class="h1" href="{{ url('/redirect') }}">
+                  <strong><i class="bi bi-facebook"></i></strong>
+              </a>
+            </div>
           </div>
 
               <button class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase" type="submit" style="border-radius: 0 0 7px 7px; background:#6f23ff">{{ __('Se Connecter') }} <span>
@@ -92,7 +97,6 @@
                 </span>
               </button>
               {{--  --}}
-
         </form>
       </div>
     </div>
@@ -100,5 +104,3 @@
 </div>
 
 @include('includes.popupRegister')
-
-
