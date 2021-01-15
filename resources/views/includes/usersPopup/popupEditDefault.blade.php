@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="Description">A propos de moi</label>
-                <textarea class="form-control" name="user_description" id="description" rows="3" required="required"></textarea>
+                <textarea class="form-control" name="user_description" id="description" rows="3"></textarea>
               </div>
             <label class="py-3" for="adress">Pays / Ville</label>
 
