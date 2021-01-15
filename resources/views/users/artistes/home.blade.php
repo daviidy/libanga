@@ -36,7 +36,45 @@
             @endif
           </div>
         </div>
-        <div class="row" id="service">
+
+        <div class="pt-md-5 py-4 ">
+
+          <div class="row row-cols-1 row-cols-md-2">
+            <div class="col-md-3 d-md-block d-none"> </div>
+            <div class="col-md-6">
+              <div class="card box-shadows p-1">
+                <div class="text-center px-md-5 ">
+                  <img src="https://s3.amazonaws.com/assets.materialup.com/users/pictures/000/526/994/thumb/Group_11999.png?1608275306" class="card-img-top p-2 img-fluid rounded-circle w-25 mx-auto" alt="...">
+                  <h3 class="font-weight-bold text-center ">Arsene Kouassi</h3>
+                </div>
+                <div class="card-body p-md-5 p-2">
+                  <ul class="list-group text-md-center">
+                    <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
+                      <!--span class=""><i class="bi bi-person-circle h2"></i></span-->
+                      <span class="font-weight-bold badge">Nom : </span>Arsene Kouassi
+                    </li>
+                    <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
+                      <!--span class=""><i class="bi bi-envelope h2"></i></span-->
+                      <span class="font-weight-bold badge">Email : </span>arsene@oschool.ci
+                    </li>
+                    <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
+                      <!--span class=""><i class="bi bi-envelope h2"></i></span-->
+                      <span class="font-weight-bold badge">Nombre de projet : </span>10
+                    </li>
+                  </ul>
+                  <div class="py-3 text-center">
+                    <a href="#" class="btn card-image-bg shadow-sm text-btn-size text-white font-weight-bold">Modifier mon profil</a>
+                    <a href="#" class="btn border ml-md-2 mt-4 mt-md-0 text-btn-size font-weight-bold">Publier un projet</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 d-md-block d-none"></div>
+          </div>
+        </div>
+
+
+        <!--div class="row" id="service">
 
             @isset($services)
             @foreach ($services as $service)
@@ -79,25 +117,7 @@
                 </div>
             @endforeach
         @endisset
-        </div>
-
-
-        {{-- <div class="row p-3">
-          <div class="px-3">
-            <div class="row bg-white">
-              <div class="col-md-9">
-                <div class="p-4">
-                  <h4 class="font-weight-bold py-3">Lorem ipsum dolor sit amet</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
-                </div>
-              </div>
-              <div class="col-md-3">
-                  <img src="/assets/images/slide.png" alt="" class="img-fluid w-50">
-              </div>
-            </div>
-          </div>
-        </div> --}}
-
+      </div-->
 
       </div>
       <!--end main content-->

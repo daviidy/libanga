@@ -305,6 +305,32 @@ i {
 .box-shadow {
 box-shadow: -1px 0px 4px 0 rgb(0 0 0 / 70%), 0px 2px 10px 0 rgb(0 0 0 / 70%);
 }
+
+/*mon profil*/
+.card-image-box{
+  border-radius: 20px!important;
+}
+
+.text-btn-size {
+  font-size: 12px!important;
+}
+
+.box-shadows{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-image-bg {
+  background-color: #6788ff!important;
+}
+
+.card-image-box-set {
+    border-radius: 0px 0px 20px 20px!important;
+}
+
+.profit-225 .form-control:focus {
+    border-color: transparent!important;
+    box-shadow: none!important;
+}
 /* media queries */
 @media screen and (max-width: 599px) {
 .dropdown .dropdown-menu {
