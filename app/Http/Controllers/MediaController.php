@@ -40,11 +40,14 @@ class MediaController extends Controller
 
         try
         {
-
+            $filename=$request->media;
             if(is_file($request->media) || !is_null($request->media))
             {
 
-                $filename=$request->media;
+                if($filename->getClientOriginalExtension() != 'mp3')
+                {
+                    return redirect()->back()->with('erreur',"Le fichier doit être obligatoirement de type mp3");
+                }
 
                 $filename=auth()->user()->username.'_'.$filename->getClientOriginalName();
                 $path=$request->media->move(storage_path('app/public/uploads/medias/'),$filename);
@@ -67,7 +70,7 @@ class MediaController extends Controller
 
         } catch (\Throwable $th) {
 
-            return redirect()->back()->with('status','Media ajouté avec succés');
+            return redirect()->back()->with('erreur',"Une erreur est survenue veuillez bien remplir le formulaire");
         }
 
 

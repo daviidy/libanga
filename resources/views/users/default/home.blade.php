@@ -11,19 +11,7 @@
         <div class="row">
           <div class="col-md-12 mt-4 pt-2">
             <div class="align-items-center bg-white border-0 d-flex justify-content-between list-group-item">
-              <h3>Mes commandes</h3>
-
-              <!-- <form>
-                <div class="form-group mb-0">
-                  <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                    <option>Lorem ipsum dolor</option>
-                    <option>Lorem ipsum dolor</option>
-                    <option>Lorem ipsum dolor</option>
-                    <option>Lorem ipsum dolor</option>
-                    <option>Lorem ipsum dolor</option>
-                  </select>
-                </div>
-              </form> -->
+              <h3>Mon Profil</h3>
             </div>
           </div>
         </div>
@@ -57,7 +45,45 @@
           </div>
       </div>
     @endif
-        <div class="row">
+
+    <div class="pt-md-5 py-4 ">
+
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col-md-3 d-md-block d-none"> </div>
+        <div class="col-md-6">
+          <div class="card box-shadows p-1">
+            <div class="text-center px-md-5 ">
+              <img src="https://s3.amazonaws.com/assets.materialup.com/users/pictures/000/526/994/thumb/Group_11999.png?1608275306" class="card-img-top p-2 img-fluid rounded-circle w-25 mx-auto" alt="...">
+              <h3 class="font-weight-bold text-center ">Arsene Kouassi</h3>
+            </div>
+            <div class="card-body p-md-5 p-2">
+              <ul class="list-group text-md-center">
+                <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
+                  <!--span class=""><i class="bi bi-person-circle h2"></i></span-->
+                  <span class="font-weight-bold badge">Nom : </span>Arsene Kouassi
+                </li>
+                <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
+                  <!--span class=""><i class="bi bi-envelope h2"></i></span-->
+                  <span class="font-weight-bold badge">Email : </span>arsene@oschool.ci
+                </li>
+                <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
+                  <!--span class=""><i class="bi bi-envelope h2"></i></span-->
+                  <span class="font-weight-bold badge">Nombre de projet : </span>10
+                </li>
+              </ul>
+              <div class="py-3 text-center">
+                <a href="#" class="btn card-image-bg shadow-sm text-btn-size text-white font-weight-bold">Modifier mon profil</a>
+                <!--a href="#" class="btn border ml-md-2 mt-4 mt-md-0 text-btn-size font-weight-bold">Publier un projet</a-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-md-block d-none"></div>
+      </div>
+    </div>
+
+
+        <!--div class="row">
 
             @isset($purchases)
                 @foreach ($purchases as $purchase)
@@ -86,50 +112,9 @@
                     </div>
                 @endforeach
             @endisset
-        </div>
-
-        <!--div class="row mt-3 p-2">
-          <div class="col-md-12">
-            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner" style="height: 250px;">
-                <div class="carousel-item active">
-                  <img src="https://images.unsplash.com/photo-1573164574230-db1d5e960238?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" class="d-block w-100 img-fluid" alt="...">
-                  <div class="carousel-caption d-none d-md-block bg-dark">
-                    <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <img src="https://oschoolelearning.com/images/divers/corporate-1.jpg" class="d-block w-100" alt="...">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" class="d-block w-100" alt="...">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                  </div>
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
         </div-->
+
+
       </div>
       <!--end main content-->
       <div id="overlay"></div>

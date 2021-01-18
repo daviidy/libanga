@@ -19,7 +19,7 @@
                   <form id="add-media" class="p-md-4 text-center" method="POST" enctype="multipart/form-data">
                       @csrf
                     <div class="form-group">
-                      <input type="file" required class="form-control-file bg-white p-1" name="media" id="exampleFormControlFile1">
+                      <input type="file" required class="form-control-file bg-white p-1" name="media" id="exampleFormControlFile1" accept="audio/mp3">
                     </div>
                     <input type="hidden" name="purchase_id">
                     <input type="hidden" name="service_id">
