@@ -54,7 +54,7 @@
           <div class="card box-shadows p-1">
             <div class="text-center px-md-5 ">
               <img src="{{(auth()->user()->image) ? asset(auth()->user()->image) : asset("/assets/images/users/avatar_default.png")}}" class="card-img-top p-2 img-fluid rounded-circle w-25 mx-auto" alt="...">
-              <h3 class="font-weight-bold text-center ">Arsene Kouassi</h3>
+              <h3 class="font-weight-bold text-center ">{{auth()->user()->username}}</h3>
             </div>
             <div class="card-body p-md-5 p-2">
                 <ul class="list-group text-md-center">
