@@ -53,26 +53,22 @@
         <div class="col-md-6">
           <div class="card box-shadows p-1">
             <div class="text-center px-md-5 ">
-              <img src="https://s3.amazonaws.com/assets.materialup.com/users/pictures/000/526/994/thumb/Group_11999.png?1608275306" class="card-img-top p-2 img-fluid rounded-circle w-25 mx-auto" alt="...">
+              <img src="{{(auth()->user()->image) ? asset(auth()->user()->image) : asset("/assets/images/users/avatar_default.png")}}" class="card-img-top p-2 img-fluid rounded-circle w-25 mx-auto" alt="...">
               <h3 class="font-weight-bold text-center ">Arsene Kouassi</h3>
             </div>
             <div class="card-body p-md-5 p-2">
-              <ul class="list-group text-md-center">
-                <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
-                  <!--span class=""><i class="bi bi-person-circle h2"></i></span-->
-                  <span class="font-weight-bold badge">Nom : </span>Arsene Kouassi
-                </li>
-                <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
-                  <!--span class=""><i class="bi bi-envelope h2"></i></span-->
-                  <span class="font-weight-bold badge">Email : </span>arsene@oschool.ci
-                </li>
-                <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
-                  <!--span class=""><i class="bi bi-envelope h2"></i></span-->
-                  <span class="font-weight-bold badge">Nombre de projet : </span>10
-                </li>
-              </ul>
+                <ul class="list-group text-md-center">
+                    <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
+                      <!--span class=""><i class="bi bi-person-circle h2"></i></span-->
+                      <span class="font-weight-bold badge">Nom : </span>{{auth()->user()->username}}
+                    </li>
+                    <li class="align-items-center border-0 list-group-item justify-content-between d-md-flex">
+                      <!--span class=""><i class="bi bi-envelope h2"></i></span-->
+                      <span class="font-weight-bold badge">Email : </span>{{auth()->user()->email}}
+                    </li>
+                  </ul>
               <div class="py-3 text-center">
-                <a href="#" class="btn card-image-bg shadow-sm text-btn-size text-white font-weight-bold">Modifier mon profil</a>
+                <a href="#" onclick="showEditModal({{auth()->user()->id}})" class="btn card-image-bg shadow-sm text-btn-size text-white font-weight-bold">Modifier mon profil</a>
                 <!--a href="#" class="btn border ml-md-2 mt-4 mt-md-0 text-btn-size font-weight-bold">Publier un projet</a-->
               </div>
             </div>
