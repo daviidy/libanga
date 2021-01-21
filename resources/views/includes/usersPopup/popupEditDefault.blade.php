@@ -28,10 +28,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
-              <input type="tel" name="telephone" class="form-control" placeholder="+225 8905050500">
-              @if (auth()->user()->telephone)
-                <small class="small-text" style="margin-left: 75px;color:red">Numero de télephone : {{auth()->user()->telephone}}</small>
-              @endif
+              <input type="tel" name="telephone" class="form-control" placeholder="+225 8905050500"  @if (auth()->user()->telephone) value="{{auth()->user()->telephone}}"  @endif>
 
             </div>
             <div class="form-group">
