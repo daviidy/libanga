@@ -74,10 +74,12 @@
 <footer class="container-fluid bg-main border-top-footer">
   <div class="p-md-4 p-3 text-white d-md-flex justify-content-between">
     <p>© <span id="year">2010 </span> LIBANGA. TOUS DROITS RÉSERVÉS.</p>
-    <div class="d-md-flex">
-      <p><a class="text-light text-decoration-none" href="/mentions-legales">Mentions légales </a> </p>
-      <p class="px-md-3"><a class="text-light text-decoration-none" href="/contacternous">Contactez-nous</a> </p>
-    </div>
+    <ul class="list-group list-group-horizontal-md">
+      <li class="list-group-item py-0 bg-transparent border-0 mt-md-n1"><a class="text-white text-decoration-none" href="https://www.facebook.com/libanga.fr" target="_blank"><i class="bi bi-facebook" style="font-size: 20px"></i></a> </li>
+      <li class="list-group-item py-0 bg-transparent border-0"><a class="text-white text-decoration-none" href="/mentions-legales">Mentions légales </a> </li>
+      <li class="list-group-item py-0 bg-transparent border-0"><a class="text-white text-decoration-none" href="/conditions-generales-d-utilisation">Conditions générales d'utilisation</a></li>
+      <li class="list-group-item py-0 bg-transparent border-0"><a class="text-white text-decoration-none" href="/contacternous">Contactez-nous</a></li>
+    </ul>
   </div>
 </footer>
 
