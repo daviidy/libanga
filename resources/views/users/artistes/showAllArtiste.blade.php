@@ -7,7 +7,7 @@
             <div class="col-md-12">
               <div class="">
                 <div class="">
-                  <h1 class="text-center text-white font-weight-bold">Trouvez nos artistes</h1>
+                  <h1 class="text-center text-white font-weight-bold">Decouvrez nos artistes</h1>
                 </div>
               </div>
             </div>
