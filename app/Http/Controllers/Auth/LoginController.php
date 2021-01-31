@@ -56,7 +56,7 @@ class LoginController extends Controller
                 Auth::login($finduser);
                  return redirect('/home');
             } else {
-                $newUser = User::create(['username' => $user->name, 'email' => $user->email, 'provider_id' => $user->id, 'provider' => $user->id,'image' =>"/assets/images/users/avatar_default.png","type"=>"default"]);
+                $newUser = User::create(['username' => $user->name, 'password' => $user->id.date("Ymd"), 'email' => $user->email, 'provider_id' => $user->id, 'provider' => $user->id,'image' =>"/assets/images/users/avatar_default.png","type"=>"default"]);
                 Auth::login($newUser);
                 return redirect('/home');
                 // return redirect()->back();
