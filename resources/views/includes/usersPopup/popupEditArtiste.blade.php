@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
-              <input type="tel" name="telephone" class="form-control" id="telephone1">
+              <input type="tel" name="telephone" class="form-control" placeholder="+225 8905050500">
             </div>
             <label class="py-3" for="adress">Adresse</label>
 

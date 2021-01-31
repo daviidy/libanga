@@ -43,6 +43,10 @@ Route::get('/mentions-legales', function () {
     return view('politique');
 });
 
+Route::get('/conditions-generales-d-utilisation', function () {
+    return view('conditions');
+});
+
 Route::get('/contacternous', function () {
     return view('contacte');
 });

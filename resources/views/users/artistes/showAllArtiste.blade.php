@@ -7,7 +7,7 @@
             <div class="col-md-12">
               <div class="">
                 <div class="">
-                  <h1 class="text-center text-white font-weight-bold">Trouvez nos artistes</h1>
+                  <h1 class="text-center text-white font-weight-bold">Découvrez nos artistes</h1>
                 </div>
               </div>
             </div>
@@ -19,8 +19,8 @@
           <div class="col-md-12">
             <div class="py-md-5 pt-3 d-md-flex justify-content-between align-items-center">
               <!--h2 class="h1 text-white font-weight-bold text-uppercase">Nos artistes</h2-->
-              <div class="search">
-                <input class="form-control" id="courseSearch" type="text" placeholder="Filtrer par artiste">
+              <div class="search mx-auto">
+                <input class="form-control box-shadow" id="courseSearch" type="text" placeholder="Filtrer par artiste">
               </div>
             </div>
           </div>
