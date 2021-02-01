@@ -36,11 +36,11 @@
 
               <div class="col">
                 <label >Nom</label>
-                <input type="text" class="form-control" placeholder="Nom">
+                <input type="text" class="form-control" >
               </div>
               <div class="col">
                 <label >Prenom</label>
-                <input type="text" class="form-control" placeholder="Prenoms">
+                <input type="text" class="form-control" >
               </div>
             </div>
 

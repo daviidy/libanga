@@ -28,7 +28,7 @@
               <input type="hidden" name="album_id" value="{{$albums->id}}">
             </div>
             {{-- <button type="button" onclick="submitForm('add-service')" class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase align-item-center"style="border-radius: 0 0 7px 7px;background: #6f23ff;"> --}}
-            <button type="submit"  class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase align-item-center"style="border-radius: 0 0 7px 7px;background: #6f23ff;">
+            <button type="submit"  class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase d-flex justify-content-center align-items-center"style="border-radius: 0 0 7px 7px;background: #6f23ff;">
               Enregistrer
               <span>
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

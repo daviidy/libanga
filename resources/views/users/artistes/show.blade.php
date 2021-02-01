@@ -32,14 +32,11 @@
                 </li>
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="fas fa-record-vinyl"></i> Chansons</span>
-
                     @isset($chansons)
                     @foreach ($chansons as $chanson)
-                        <li class="text-right"> {{$chanson->title}}</li>
+                        {{$chanson->title}}<br>
                     @endforeach
                    @endisset
-
-
                 </li>
               </ul>
             </div>
@@ -110,27 +107,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Modal ->
-  <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-center" id="modalLoginLabel">Commander mes services</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div-->
 
   <div  class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
