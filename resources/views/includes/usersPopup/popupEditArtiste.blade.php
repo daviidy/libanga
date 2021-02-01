@@ -80,7 +80,7 @@
 									<option value="Colombie">Colombie </option>
 									<option value="Comores">Colombie </option>
 									<option value="Congo">Congo </option>
-									<option value="Congo democratique">Congo_democratique </option>
+									<option value="RDC">RDC</option>
 									<option value="Cook">Cook </option>
 									<option value="Coree du_Nord">Coree_du_Nord </option>
 									<option value="Coree du Sud">Coree du_Sud </option>
