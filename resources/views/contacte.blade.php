@@ -22,10 +22,9 @@
     <div class="col-md-6">
       <div class="d-flex flex-column text-white">
         <div class="p-3">
-          <p class="h6 font-weight-bold">Libanga</p>
-          <p>Siret 88484942300014</p>
-          <p>Mail : contact@libanga.fr</p>
-          <p>Directeur de publication : Christ Henriti</p>
+          <p class="h5 font-weight-bold">Vous pouvez nous contacter par mail à l'adresse</p>
+          <p class="h5 font-weight-bold">contact@libanga.fr</p>
+          <p class="h5 font-weight-bold">ou en utilisant le formulaire</p>
         </div>
       </div>
       </div>
@@ -36,11 +35,11 @@
 
               <div class="col">
                 <label >Nom</label>
-                <input type="text" class="form-control" placeholder="Nom">
+                <input type="text" class="form-control" >
               </div>
               <div class="col">
                 <label >Prenom</label>
-                <input type="text" class="form-control" placeholder="Prenoms">
+                <input type="text" class="form-control">
               </div>
             </div>
 
@@ -50,7 +49,7 @@
             </div>
 
             <div class="form-group pb-3">
-              <label for="exampleFormControlTextarea1">Votre commentaire</label>
+              <label for="exampleFormControlTextarea1">Votre message</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
