@@ -87,7 +87,7 @@
 									<option value="Colombie">Colombie </option>
 									<option value="Comores">Colombie </option>
 									<option value="Congo">Congo </option>
-									<option value="Congo democratique">Congo_democratique </option>
+									<option value="RDC">RDC</option>
 									<option value="Cook">Cook </option>
 									<option value="Coree du_Nord">Coree_du_Nord </option>
 									<option value="Coree du Sud">Coree du_Sud </option>
@@ -304,7 +304,7 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase align-item-center"style="border-radius: 0 0 7px 7px;background: #6f23ff;">
+          <button type="submit" class="btn btn-lg btn-block p-md-4 p-3 text-center text-white mb-0 text-uppercase d-flex justify-content-center align-items-center"style="border-radius: 0 0 7px 7px;background: #6f23ff;">
             Modifier
             <span>
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

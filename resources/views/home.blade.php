@@ -19,9 +19,7 @@
                 @endif
               </div>
             </div>
-            <!--div class="col-12 col-md-5 image">
-              <div class="telephone-image"></div>
-            </div-->
+            
           </div>
         </div>
         <div class="wave d-md-block d-none">
@@ -46,11 +44,10 @@
                             @endif class="text-decoration-none" >
                             <div class="p-3 box-shadow rounded ">
                                 <div class="">
-                                <img src="{{ ($artiste->image) ? asset($artiste->image) : asset("/assets/images/users/avatar_default.png")}}" alt="" class="img-fluid">
+                                <img src="{{ ($artiste->image) ? asset($artiste->image) : asset("/assets/images/users/avatar_default.png")}}" alt="" class="img-fluid" style="width: 150px">
                                 </div>
                                 <div class="pt-2">
                                 <h6 class="text-white font-weight-bold">{{$artiste->username}}</h6>
-                                <p class="text-white">{{$artiste->username}}</p>
                                 </div>
                             </div>
                         </a>
@@ -108,7 +105,7 @@
                 </li>
                 <li class="list-group-item bg-main border-0 d-flex align-items-center">
                   <span class="badge badge-dark rounded-circle p-3 mr-3 font-weight-ace_bold">2</span>
-                   <span>Sélectionnez l’artiste <a href="{{route('nosartistes')}}" class="font-weight-bold "> ici</a></span> 
+                   <span>Sélectionnez l’artiste <a href="{{route('nosartistes')}}" class="font-weight-bold "> ici</a></span>
                 </li>
                 <li class="list-group-item bg-main border-0 d-flex align-items-center">
                   <span class="badge badge-dark rounded-circle p-3 mr-3 font-weight-ace_bold">3</span>
