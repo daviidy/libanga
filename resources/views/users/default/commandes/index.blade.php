@@ -1,3 +1,6 @@
+@php
+    use Carbon\Carbon;
+@endphp
 @extends('layouts.menu_connecte')
 @section('content')
 
@@ -69,10 +72,11 @@
                                 <p class="card-text">
                                     @foreach ($users as $user)
                                         @if ($user->id == $purchase->user_id)
-                                            {{$user->username}}
+                                        Artiste : {{$user->username}}
                                         @endif
                                     @endforeach
                                 </p>
+                                <p>Date commande : {{ Carbon::parse($purchase->purchase_creation)->format('Y-m-d')}}</p>
                             </div>
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                                 <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
