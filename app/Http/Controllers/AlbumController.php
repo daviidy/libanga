@@ -91,7 +91,7 @@ class AlbumController extends Controller
     {
         $albums = Album::find($id);
         $albums->update($request->all());
-        return redirect()->back()->with('status', 'Album modifié avec success');
+        return redirect()->back()->with('status', 'Album modifié avec succès');
     }
 
     /**

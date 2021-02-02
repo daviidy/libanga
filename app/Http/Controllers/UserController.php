@@ -111,13 +111,16 @@ class UserController extends Controller
 
                 Address::updateOrCreate(
                             [
+                                'user_id'=>$id
+                            ],
+                            [
                                 'pays'                  =>$request->pays,
                                 'city'                  =>$request->city,
                                 'description'             =>$request->description,
                                 'user_id'                  =>$id
                             ]);
 
-            return redirect()->back()->with('status', 'Profil modifié avec success');
+            return redirect()->back()->with('status', 'Profil modifié avec succès');
 
         } catch (\Throwable $th) {
 
@@ -143,7 +146,7 @@ class UserController extends Controller
                 'image'                  =>$final_path,
                 'type'                   =>$request->type
             ]);
-            return redirect()->back()->with('status', 'Utilisateur modifié avec success');
+            return redirect()->back()->with('status', 'Utilisateur modifié avec succès');
 
 
         } catch (\Throwable $th) {

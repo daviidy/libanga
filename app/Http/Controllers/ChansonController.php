@@ -87,7 +87,7 @@ class ChansonController extends Controller
 
             $chansons = Chanson::find($id);
             $chansons->update($request->all());
-            return redirect()->back()->with('status', 'Chanson modifié avec success');
+            return redirect()->back()->with('status', 'Chanson modifié avec succès');
 
         } catch (\Throwable $th) {
 

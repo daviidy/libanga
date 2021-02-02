@@ -39,7 +39,7 @@
 
             <div class="form-row">
               <div class="form-group col-md-6">
-                <select name="pays" class="form-control" id="country" placeholder="Pays" required="required">
+                <select name="pays" class="form-control" id="country" placeholder="Pays">
                   <option value="Afghanistan">Afghanistan </option>
 									<option value="Afrique_Centrale">Afrique_Centrale </option>
 									<option value="Afrique_du_sud">Afrique_du_Sud </option>
@@ -295,12 +295,12 @@
                 </select>
               </div>
               <div class="form-group col-md-6">
-                <input type="text" name="city" class="form-control" id="inputPassword4" placeholder="Ville" required="required">
+                <input type="text" name="city" class="form-control" id="inputPassword4" placeholder="Ville">
               </div>
             </div>
             <div class="form-group">
               <label for="Description">Adresse</label>
-              <textarea class="form-control" name="description" id="description" rows="3" required="required"></textarea>
+              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
             </div>
           </div>
 
