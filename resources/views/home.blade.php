@@ -19,7 +19,7 @@
                 @endif
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="wave d-md-block d-none">
@@ -43,8 +43,8 @@
                                 href="#" data-toggle="modal" data-target="#modalLogin"
                             @endif class="text-decoration-none" >
                             <div class="p-3 box-shadow rounded ">
-                                <div class="">
-                                <img src="{{ ($artiste->image) ? asset($artiste->image) : asset("/assets/images/users/avatar_default.png")}}" alt="" class="img-fluid" style="width: 150px">
+                                <div class="text-center">
+                                <img src="{{ ($artiste->image) ? asset($artiste->image) : asset("/assets/images/users/avatar_default.png")}}" alt="" class="img-fluid" style="width: 150px; height:150px">
                                 </div>
                                 <div class="pt-2">
                                 <h6 class="text-white font-weight-bold">{{$artiste->username}}</h6>

@@ -85,7 +85,7 @@ class PurchaseController extends Controller
             $commande = Purchase::where('id',$request->purchase_id)->first();
             $commande->update(['purchase_state'=>$request->purchase_state]);
 
-            return redirect()->back()->with('status', 'Commande modifié avec success');
+            return redirect()->back()->with('status', 'Commande modifié avec succès');
 
         } catch (\Throwable $th) {
 
