@@ -19,30 +19,34 @@
             <h5 class="card-title font-weight-bold">Confirm Password</h5>
             <p class="card-text">SVP confirmer le mot de passe avant de continuer.</p>
             <form method="POST" action="{{ route('password.confirm') }}">
-              @csrf
-            <div class="form-group">
-              <label for="Password">Mot de passe</label>
-              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-              @error('password')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary ">Confirmer Mot de passe</button>
-              @if (Route::has('password.request'))
-                  <a class="btn btn-link" href="{{ route('password.request') }}">
-                      {{ __('Mot de passe oublié?') }}
-                  </a>
-              @endif
-            </div>
-          </form>
+                @csrf
+
+                <div class="form-group">
+                    <label for="password">{{ __('Password') }}</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    {{ __('Confirmer Mot de passe') }}
+                </button>
+
+                @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Mot de passe oublié?') }}
+                    </a>
+                @endif
+
+            </form>
           </div>
         </div>
       </div>
     </div>
     </div>
   </div>
-</div>
-@endsection
