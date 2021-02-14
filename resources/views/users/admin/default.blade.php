@@ -11,7 +11,7 @@
         <div class="col-md-9 main-content p-3">
             <div class="row">
               <div class="col-md-12 py-4 pr-b">
-                <p class="h4"><span class="bg-primary p-2 shadow rounded-lg"><i class="fas fa-house-user text-white"></i></span> Administrateur / Liste des admins </p>              </div>
+                <p class="h4"><span class="bg-primary p-2 shadow rounded-lg"><i class="fas fa-house-user text-white"></i></span> Administrateur / Liste des clients </p>              </div>
             </div>
 
             <div class="row mt-3">
@@ -42,8 +42,8 @@
                         </tr>
                       </thead>
                       <tbody id="contentUsers">
-                          @isset($users_admin)
-                              @foreach ($users_admin as $user)
+                          @isset($users_default)
+                              @foreach ($users_default as $user)
                                 <tr class="filter">
                                     <th scope="row">{{$user->id}}</th>
                                     <td>{{$user->username}}</td>

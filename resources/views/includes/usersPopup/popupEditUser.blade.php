@@ -35,6 +35,10 @@
                   <option value="default">Default</option>
                 </select>
               </div>
+              <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control" name="user_description" id="user_description" rows="3"></textarea>
+              </div>
 
             </div>
             <input type="hidden" name="user_id">
