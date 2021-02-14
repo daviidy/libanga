@@ -13,12 +13,22 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexAdmin()
     {
-        $users = User::all();
-        return view('users.admin.index',['users' =>$users]);
+        $users_admin = User::where('type','admin')->get();
+        return view('users.admin.index',['users_admin' =>$users_admin]);
     }
 
+    public function indexArtiste()
+    {
+        $users_artistes = User::where('type','artiste')->get();
+        return view('users.admin.artistes',['users_artistes' =>$users_artistes]);
+    }
+    public function indexDefault()
+    {
+        $users_default = User::where('type','default')->get();
+        return view('users.admin.default',['users_default' =>$users_default]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -144,7 +154,8 @@ class UserController extends Controller
             }
             $users->update([
                 'image'                  =>$final_path,
-                'type'                   =>$request->type
+                'type'                   =>$request->type,
+                'user_description'       =>$request->user_description,
             ]);
             return redirect()->back()->with('status', 'Utilisateur modifié avec succès');
 

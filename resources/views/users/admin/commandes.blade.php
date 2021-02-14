@@ -1,3 +1,7 @@
+
+@php
+    use Carbon\Carbon;
+@endphp
 @extends('layouts.menuAdmin')
 @section('content')
 
@@ -51,6 +55,7 @@
                         <th scope="col">Artistes concernés</th>
                         <th scope="col">Montant de l'achat</th>
                         <th scope="col">Etat de la commande</th>
+                        <th scope="col">Date de création</th>
                         <th scope="col">Modifier l'état de la commande</th>
                       </tr>
                     </thead>
@@ -69,6 +74,8 @@
                                     </td>
                                     <td>{{number_format($purchase->price,0,'.',' ').' €'}}</td>
                                     <td>{{$purchase->status}}</td>
+                                    {{-- <td>{{Carbon::parse($purchase->created_at)->format('Y-m-d')}}</td> --}}
+                                    <td>{{$purchase->created_at}}</td>
                                     <td>
                                     <form class="" action="{{route('updateCommande')}}" method="post">
                                         @csrf

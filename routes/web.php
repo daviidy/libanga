@@ -55,8 +55,14 @@ Route::get('/users/edit/{id}', 'UserController@edit')
     ->name('edit.users');
 Route::get('/users/editByAdmin/{id}', 'UserController@editByAdmin')
     ->name('editByAdmin.users');
-Route::get('/users', 'UserController@index')
+Route::get('/users_admin', 'UserController@indexAdmin')
     ->name('users.index');
+
+Route::get('/users_artistes', 'UserController@indexArtiste')
+    ->name('users.index_artistes');
+
+Route::get('/users_default', 'UserController@indexDefault')
+    ->name('users.index_default');
 
 Route::delete('/users/{id}', 'UserController@destroy')
     ->name('destroy.users');

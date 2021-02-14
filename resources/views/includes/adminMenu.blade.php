@@ -35,7 +35,13 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
           <div class="card-body list-group pcard-boxm rounded-0">
-            <a href="{{route('users.index')}}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Liste des utilisateurs</a>
+            <a href="{{route('users.index')}}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Admin</a>
+          </div>
+          <div class="card-body list-group pcard-boxm rounded-0">
+            <a href="{{route('users.index_artistes')}}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Artistes</a>
+          </div>
+          <div class="card-body list-group pcard-boxm rounded-0">
+            <a href="{{route('users.index_default')}}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Default</a>
           </div>
         </div>
       </div>
