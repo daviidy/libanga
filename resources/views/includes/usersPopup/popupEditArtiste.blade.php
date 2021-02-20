@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Téléphone</label>
-              <input type="tel" name="telephone" class="form-control" placeholder="+225 8905050500">
+              <input type="tel" name="telephone" class="form-control" placeholder="Numéro de télephone"  @if (auth()->user()->telephone) value="{{auth()->user()->telephone}}"  @endif>
             </div>
             <label class="py-3" for="adress">Adresse</label>
 
