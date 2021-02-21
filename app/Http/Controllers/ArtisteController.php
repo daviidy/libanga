@@ -91,11 +91,13 @@ class ArtisteController extends Controller
         $username=auth()->user()->username;
         $purchases = Purchase::join('services','services.id','purchases.service_id')
         ->leftJoin('medias','medias.purchase_id','purchases.id')
-        ->select('purchases.*','services.price','services.name','services.user_id','medias.id as media_id','medias.name as media_name','medias.media')
+        ->select('purchases.*','services.price','services.name','services.user_id as service_user_id','medias.id as media_id','medias.name as media_name','medias.media')
         ->where('status','validé')
         ->where('services.user_id',$id)
         ->get();
 
+        $all_users = User::all();
+        // dd($purchases);
         // $medias = Purchase::join('services','services.id','purchases.service_id')
         // ->leftJoin('medias','medias.purchase_id','purchases.id')
         // ->select('medias.*','services.price','services.name as service_name','services.user_id')
@@ -103,7 +105,7 @@ class ArtisteController extends Controller
         // ->where('services.user_id',$id)
         // ->first();
         // dd($medias);
-        return view('users.artistes.showCommande',compact('purchases','username'));
+        return view('users.artistes.showCommande',compact('purchases','username','all_users'));
 
     }
 
