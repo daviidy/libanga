@@ -24,9 +24,9 @@
                     @method('put')
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1" name="purchase_state">
-                            <option value="en cours">En cours de traitement</option>
-                            <option value="annuler">Annuler</option>
-                            <option value="valider">Valider</option>
+                            <option value="En cours d'appréciation">En cours d'appréciation</option>
+                            <option value="A refaire">A refaire</option>
+                            <option value="C'est parfait!">C'est parfait!</option>
                         </select>
                     </div>
                     <input type="hidden" name="purchase_id">

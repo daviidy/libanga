@@ -44,9 +44,9 @@
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold">{{$purchase->name}}
                                     @if ($purchase->media_id != null)
-                                        @if ($purchase->purchase_state == "valider")
+                                        @if ($purchase->purchase_state == "C'est parfait!")
                                         <span class="badge badge-success">Validé par le client</span>
-                                        @elseif($purchase->purchase_state == "annuler")
+                                        @elseif($purchase->purchase_state == "A refaire")
                                             <span class="badge badge-danger">A refaire</span>
                                         @else
                                             <span class="badge badge-warning">En attente d'appréciation</span>
@@ -87,7 +87,7 @@
 
                             </div>
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                                <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
+                                <p>Commande payée <span class="font-weight-bold">({{$purchase->status}})</span></p>
                                 <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} €</p>
                                 @if (is_null($purchase->media_id) )
                                     <p class="text-muted btn" onclick="getPurchase({{$purchase->id}})">Ajouter un extrait </p>

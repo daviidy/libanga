@@ -70,9 +70,9 @@
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold"> {{$purchase->name}}
                                     @if ($purchase->media_id != null)
-                                        @if ($purchase->purchase_state == "valider")
+                                        @if ($purchase->purchase_state == "C'est parfait!")
                                         <span class="badge badge-success">Validé par le client</span>
-                                        @elseif($purchase->purchase_state == "annuler")
+                                        @elseif($purchase->purchase_state == "A refaire")
                                             <span class="badge badge-danger">A refaire</span>
                                         @else
                                             <span class="badge badge-warning">En attente d'appréciation</span>
@@ -91,10 +91,10 @@
                                 <p>Date commande : {{ Carbon::parse($purchase->purchase_creation)->format('Y-m-d')}}</p>
                             </div>
                             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                                <p>Statut : <span class="font-weight-bold">{{$purchase->status}}</span></p>
+                                <p>Commande payée <span class="font-weight-bold">({{$purchase->status}})</span></p>
                                 <p class="text-muted" style="font-weight:bold">{{number_format($purchase->price, 0, '.', ' ')}} €</p>
                                 @if ($purchase->media_id != null)
-                                    <p class="text-muted btn" onclick="getMedia({{$purchase->media_id}},{{$purchase->purchase_id}})">Voir l'extrait</p>
+                                    <p class="btn font-weight-bold text-danger" onclick="getMedia({{$purchase->media_id}},{{$purchase->purchase_id}})">Voir l'extrait</p>
                                 @endif
                             </div>
                             {{-- </a> --}}
