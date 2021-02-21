@@ -68,7 +68,19 @@
                                 <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
                             </div> --}}
                             <div class="card-body">
-                                <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
+                                <h5 class="card-title font-weight-bold"> {{$purchase->name}}
+                                    @if ($purchase->media_id != null)
+                                        @if ($purchase->purchase_state == "valider")
+                                        <span class="badge badge-success">Validé par le client</span>
+                                        @elseif($purchase->purchase_state == "annuler")
+                                            <span class="badge badge-danger">A refaire</span>
+                                        @else
+                                            <span class="badge badge-warning">En attente d'appréciation</span>
+                                        @endif
+                                    @endif
+
+
+                                </h5>
                                 <p class="card-text">
                                     @foreach ($users as $user)
                                         @if ($user->id == $purchase->user_id)

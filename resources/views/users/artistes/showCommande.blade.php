@@ -42,9 +42,33 @@
                                 <img src="https://togotribune.com/wp-content/uploads/2019/08/apres_la_mort_darafat_dj_un_autre_malheur_frappe_sa_famille.jpg" class="card-img-top" alt="...">
                             </div> --}}
                             <div class="card-body">
-                                <h5 class="card-title font-weight-bold">{{$purchase->name}}</h5>
+                                <h5 class="card-title font-weight-bold">{{$purchase->name}}
+                                    @if ($purchase->media_id != null)
+                                        @if ($purchase->purchase_state == "valider")
+                                        <span class="badge badge-success">Validé par le client</span>
+                                        @elseif($purchase->purchase_state == "annuler")
+                                            <span class="badge badge-danger">A refaire</span>
+                                        @else
+                                            <span class="badge badge-warning">En attente d'appréciation</span>
+                                        @endif
+                                    @endif
+                                </h5>
                                 <div>
-                                    <p class="card-text">{{$purchase->media_name}}</p>
+                                   <p class="card-text"><span  style="font-weight: bold">Client : </span>
+
+                                        @foreach ($all_users as $users)
+                                            @if ($purchase->user_id == $users->id)
+                                             {{$users->username}}
+                                            @endif
+                                        @endforeach
+
+
+                                   </p>
+                                   <p class="card-text"><span  style="font-weight: bold">Date Commande : </span>{{$purchase->created_at}}</p>
+                                </div>
+                                <div>
+                                    <p class="card-text"><span  style="font-weight: bold"> Fichier : </span>{{$purchase->media_name}}</p>
+
                                     @if (!is_null($purchase->media_id))
 
                                         <form action="{{route('medias.destroy',$purchase->media_id)}}" method="post" style="display: inline-block">
