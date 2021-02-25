@@ -29,10 +29,9 @@ Route::get('/adminusers', function () {
 Route::get('/commande', function () {
     return view('commandes');
 });
-/*
-Route::get('/nosartistes', function () {
-    return view('showAllArtiste');
-});*/
+Route::get('/email', function () {
+    return view('mails.confirmation');
+});
 /*END Route text*/
 
 Route::get('/qui-sommes-nous', function () {
