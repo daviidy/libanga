@@ -65,6 +65,7 @@
 
                                    </p>
                                    <p class="card-text"><span  style="font-weight: bold">Date Commande : </span>{{$purchase->created_at}}</p>
+                                   <p class="card-text"><span  style="font-weight: bold">Nom(s) à dédicacer : </span>{{$purchase->names}}</p>
                                 </div>
                                 <div>
                                     <p class="card-text"><span  style="font-weight: bold"> Fichier : </span>{{$purchase->media_name}}</p>

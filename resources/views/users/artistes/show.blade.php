@@ -126,7 +126,10 @@
                 <div class="text-left mt-md-5 my-4 text-center">
                     <form action="{{route('paypal')}}" method="post">
                             @csrf
-                             <button type="submit" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mt-3 mb-5 text-white btn-h btn-shadow">Commander maintenant</button>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="names" value="" placeholder="Renseignez le(s) nom(s) que vous souhaitez faire dédicacer">
+                            </div>
+                            <button type="submit" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mt-3 mb-5 text-white btn-h btn-shadow">Commander maintenant</button>
                             <input type="hidden" name="user_id">
                             <input type="hidden" name="id">
                             <input type="hidden" name="price">
