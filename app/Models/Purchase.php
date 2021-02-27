@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\User;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,11 +18,11 @@ class Purchase extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
     public function serives()
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(Service::class, 'service_id');
     }
     public function medias()
     {

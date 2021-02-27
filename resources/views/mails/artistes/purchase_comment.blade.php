@@ -9,8 +9,8 @@
         </div>
         <div class="p-3">
           <h5 class="card-title">Bonjour {{ $detailCommande['artiste'] }}</h5>
-          <p class="card-text">Un client vient de payer une commande pour
-             une de vos prestations sur Libanga. Voici les détails de la commande.</p>
+          <p class="card-text">Un client vient de noter un de vos extratis pour sa commande sur Libanga.
+             Pour rappel, voici les détails de la commande.</p>
              <p>
               <ul>
                   <li>Service : {{ $detailCommande['service'] }}</li>

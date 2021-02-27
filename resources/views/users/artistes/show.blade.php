@@ -62,6 +62,20 @@
             <div class="bg-white p-md-4 p-3 mb-3 card-shadow cusor">
               <h3 class="h3 font-weight-bold">Mes services</h3>
             </div>
+            @if(Auth::user()->email_verified_at == null)
+            <div class="card-body">
+                <div class="alert alert-danger" role="alert">
+                    <p class="text-black">Veuillez Confirmez votre email pour bénéficier des fonctionnalités de cette page. </p>
+                    <p class="text-black">Si vous n'avez pas reçu le mail veuillez cliquez ci-dessous <br>
+                      <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('cliquez ici') }}</button>.
+                    </form>
+                    </p>
+                </div>
+            </div>
+            <?php Session::forget('success');?>
+           @endif
             @if($message = Session::get('error'))
                 <div class="card-body">
                     <div class="alert alert-danger" role="alert">
@@ -91,7 +105,9 @@
                         <p class="card-text">{{$service->service_description}}</p>
                       </div>
                       <div class="card-footer bg-white d-flex justify-content-between align-items-center p-2">
+                        @if(!Auth::user()->email_verified_at == null)
                         <a  onclick="commandeModalShow({{$service->id}})"> <i class="fas fa-heart"></i> Commander</a>
+                        @endif
                         <p class="text-muted" style="font-weight:bold">{{number_format($service->price,0,'.',' ')}} €</p>
                       </div>
                     </div>

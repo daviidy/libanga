@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Media;
 use App\Models\Purchase;
+use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -37,7 +39,7 @@ class MediaController extends Controller
      */
     public function store(Request $request)
     {
-
+        $datas = $request->all();
         try
         {
             $filename=$request->media;
@@ -65,6 +67,7 @@ class MediaController extends Controller
             // $purchase->update([
             //     "medias_id" => $medias->id
             // ]);
+            $this->extraitNotificationToClient($datas);
             return redirect()->back()->with('status','Media ajouté avec succés');
 
 
@@ -143,5 +146,20 @@ class MediaController extends Controller
         }
 
 
+    }
+    public function extraitNotificationToClient($datas)
+    {
+        $mailController = new MailController();
+        try{
+            $service = Service::where('id', $datas['service_id'])->with('users')->first();
+            $purchase = Purchase::where('id', $datas['purchase_id'])->with('users')->first();
+            $date = Carbon::parse($purchase->created_at)->format('d/m/Y');
+            $detailCommandeClient = ['service'=>$service->name,'artiste'=>$service->users->username,
+            'email'=>$purchase->users->email,'client'=>$purchase->users->username,
+             'price'=>$service->price,'date'=>$date];
+            $mailController->extraitNotification($detailCommandeClient);
+        }catch(\Exception $ex){
+            return redirect()->back()->with('erreur',"Une erreur est survenue veuillez bien remplir le formulaire");
+        }  
     }
 }

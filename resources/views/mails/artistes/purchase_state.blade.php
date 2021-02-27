@@ -5,7 +5,7 @@
     <div class="card w-76 mx-auto">
       <div class="card-body">
         <div class="image-logo text-center p-3">
-          <img src="/assets/images/logo_libanga.png" width="150" alt="logo" class="img-fluid">
+          <img src="https://libanga.rikudo.ci/assets/images/logo_libanga.png" width="150" alt="logo" class="img-fluid">
         </div>
         <div class="p-3">
           <h5 class="card-title">Bonjour </h5>
