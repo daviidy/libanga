@@ -53,6 +53,7 @@ class PayPalPaymentController extends Controller
             "user_id"   =>auth()->user()->id,
             "status"    =>"en attente",
             "purchase_state"    =>"en cours",
+            "names" => $request->names
         ]);
         $request['amount'] = $request->price;
         $payer = new Payer();

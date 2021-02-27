@@ -13,7 +13,8 @@ class Purchase extends Model
                 'user_id',
                 'status',
                 'purchase_state',
-                'medias_id'
+                'medias_id',
+                'names'
     ];
 
     public function users()
