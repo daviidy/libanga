@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CommandeMail;
 use App\Models\Address;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 class UserController extends Controller
 {
@@ -192,5 +194,18 @@ class UserController extends Controller
         $filename=$filename.'.'.$request->image->extension();
         $path=$request->image->move(storage_path('app/public/assets/images/users/'),$filename);
         return 'storage/uploads/logos/png/'.$filename;
+    }
+
+    public function testMail()
+    {
+        $details = [
+            'title' => 'Mail from ItSolutionStuff.com',
+            'body' => 'This is for testing email using smtp'
+        ];
+       // dd(Auth::user()->email);
+       
+        \Mail::send(new CommandeMail($details));
+       
+        dd("Email is Sent.");
     }
 }

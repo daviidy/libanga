@@ -1,0 +1,19 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+.bg-btn {
+  background-color: #2EBD50 !important;
+  font-size: 18px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 2px 15px 0 rgb(0 0 0 / 19%);
+}
+
+.w-76 {
+  width: 75%;
+}
+
+@media only screen and (max-width: 600px) {
+  .w-76 {
+    width: 100%;
+    border: 0px solid #fff!important;
+  }
+}

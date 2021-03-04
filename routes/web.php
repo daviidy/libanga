@@ -29,10 +29,9 @@ Route::get('/adminusers', function () {
 Route::get('/commande', function () {
     return view('commandes');
 });
-/*
-Route::get('/nosartistes', function () {
-    return view('showAllArtiste');
-});*/
+Route::get('/email', function () {
+    return view('mails.confirmation');
+});
 /*END Route text*/
 
 Route::get('/qui-sommes-nous', function () {
@@ -91,7 +90,7 @@ Route::get('paywithpaypal', array('as' => 'paywithpaypal','uses' => 'PayPalPayme
 Route::post('paypal', array('as' => 'paypal','uses' => 'PayPalPaymentController@postPaymentWithpaypal',));
 Route::get('paypal', array('as' => 'status','uses' => 'PayPalPaymentController@getPaymentStatus',));
 /*end route text*/
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 Route::get('/home', 'HomeController@index')->middleware('auth')->name('dashboard');
@@ -100,3 +99,4 @@ Route::get('/getArtiste/{nb_page}', 'ArtisteController@getArtiste')->name('getAr
 
 Route::get('/redirect', 'Auth\LoginController@redirect');
 Route::get('/callback', 'Auth\LoginController@callback');
+

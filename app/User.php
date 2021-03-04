@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Address;
+use App\Notifications\VerifyEmail;
 use App\Models\Album;
 use App\Models\Chanson;
 use App\Models\Purchase;
@@ -11,7 +12,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     const ADMIN_TYPE = 'admin';
@@ -23,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password','type','provider','provider_id','image','user_description'
+        'username', 'email', 'password','type','provider','provider_id','image','user_description','email_verified_at'
     ];
 
     /**
@@ -43,6 +44,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Send the email verification notification.
+     *
+     * @return void
+     */
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmail($this->username)); // my notification
+    }
 
 
     public function isAdmin()    {
