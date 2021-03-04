@@ -15,6 +15,20 @@
             </div>
           </div>
         </div>
+        @if(Auth::user()->email_verified_at == null)
+        <div class="card-body">
+          <div class="alert alert-danger" role="alert">
+              <p class="text-black">Veuillez Confirmez votre email pour bénéficier des fonctionnalités de cette page. </p>
+              <p class="text-black">Si vous n'avez pas reçu le mail veuillez cliquez ci-dessous <br>
+                <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                  @csrf
+                  <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('cliquez ici') }}</button>.
+              </form>
+              </p>
+          </div>
+      </div>
+        <?php Session::forget('success');?>
+       @endif
         @if($message = Session::get('error'))
             <div class="card-body">
                 <div class="alert alert-danger" role="alert">
@@ -83,6 +97,7 @@
 
             @isset($purchases)
                 @foreach ($purchases as $purchase)
+                tttttt
                     <div class="col-md-6 mt-3">
                         <div class="card card-shadow wprock-img-zoom-hover" data-toggle="modal" data-target="#modalLogin">
 

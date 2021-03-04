@@ -62,6 +62,20 @@
             <div class="bg-white p-md-4 p-3 mb-3 card-shadow cusor">
               <h3 class="h3 font-weight-bold">Mes services</h3>
             </div>
+            @if(Auth::user()->email_verified_at == null)
+            <div class="card-body">
+                <div class="alert alert-danger" role="alert">
+                    <p class="text-black">Veuillez Confirmez votre email pour bénéficier des fonctionnalités de cette page. </p>
+                    <p class="text-black">Si vous n'avez pas reçu le mail veuillez cliquez ci-dessous <br>
+                      <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('cliquez ici') }}</button>.
+                    </form>
+                    </p>
+                </div>
+            </div>
+            <?php Session::forget('success');?>
+           @endif
             @if($message = Session::get('error'))
                 <div class="card-body">
                     <div class="alert alert-danger" role="alert">
@@ -91,7 +105,9 @@
                         <p class="card-text">{{$service->service_description}}</p>
                       </div>
                       <div class="card-footer bg-white d-flex justify-content-between align-items-center p-2">
+                        @if(!Auth::user()->email_verified_at == null)
                         <a  onclick="commandeModalShow({{$service->id}})"> <i class="fas fa-heart"></i> Commander</a>
+                        @endif
                         <p class="text-muted" style="font-weight:bold">{{number_format($service->price,0,'.',' ')}} €</p>
                       </div>
                     </div>
@@ -126,7 +142,10 @@
                 <div class="text-left mt-md-5 my-4 text-center">
                     <form action="{{route('paypal')}}" method="post">
                             @csrf
-                             <button type="submit" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mt-3 mb-5 text-white btn-h btn-shadow">Commander maintenant</button>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="names" value="" placeholder="Renseignez le(s) nom(s) que vous souhaitez faire dédicacer">
+                            </div>
+                            <button type="submit" class="text-decoration-none box-hover h-auto rounded-pill py-3 px-md-5 px-4 mt-3 mb-5 text-white btn-h btn-shadow">Commander maintenant</button>
                             <input type="hidden" name="user_id">
                             <input type="hidden" name="id">
                             <input type="hidden" name="price">

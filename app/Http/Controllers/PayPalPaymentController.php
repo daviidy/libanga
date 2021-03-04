@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Models\Purchase;
+use App\Models\Service;
+use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use URL;
 use Session;
@@ -26,13 +30,15 @@ use PayPal\Api\Transaction;
 class PayPalPaymentController extends Controller
 {
     private $_api_context;
+    private $mailController;
 
-    public function __construct()
+    public function __construct(MailController $mailController)
     {
 
         $paypal_configuration = \Config::get('paypal');
         $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_configuration['client_id'], $paypal_configuration['secret']));
         $this->_api_context->setConfig($paypal_configuration['settings']);
+        $this->mailController = $mailController;
     }
 
     public function payWithPaypal()
@@ -47,8 +53,8 @@ class PayPalPaymentController extends Controller
             "user_id"   =>auth()->user()->id,
             "status"    =>"en attente",
             "purchase_state"    =>"en cours",
+            "names" => $request->names
         ]);
-
         $request['amount'] = $request->price;
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
@@ -103,11 +109,42 @@ class PayPalPaymentController extends Controller
         Session::put('paypal_payment_id', $payment->getId());
 
         if(isset($redirect_url)) {
+            try{
+                $service = Service::where('id', $request->id)->with('users')->first();
+                $date = Carbon::now()->format('d/m/Y');
+                $detailCommandeClient = ['service'=>$service->name,'artiste'=>$service->users->username,'email'=>$service->users->email,'client'=>Auth::user()->username,
+                 'price'=>$request->price,'date'=>$date];
+                $detailCommandeArtist = ['service'=>$service->name,'artiste'=>$service->users->username,'client'=>Auth::user()->username,
+                'email'=>$service->users->email,
+                 'price'=>$request->price,'date'=>$date];
+                 $this->sendNotificationToArtist($detailCommandeArtist);
+                 $this->sendNotificationToClient($detailCommandeClient);
+            }catch(\Exception $ex){
+                throw new Exception($ex);
+            }           
+            
             return Redirect::away($redirect_url);
         }
 
         \Session::put('error','Unknown error occurred');
     	return Redirect::route('artistes.show',auth()->user()->id);
+    }
+
+    public function sendNotificationToArtist($detailCommande)
+    {
+        try{
+            $this->mailController->ArtistPurshaseSuccess($detailCommande);
+        }catch(\Exception $ex){
+            throw new Exception($ex);
+        }  
+    }
+    public function sendNotificationToClient($detailCommande)
+    {
+        try{
+            $this->mailController->ClientPurshaseSuccess($detailCommande);
+        }catch(\Exception $ex){
+            throw new Exception($ex);
+        }  
     }
 
     public function getPaymentStatus(Request $request)

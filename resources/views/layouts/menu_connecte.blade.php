@@ -26,6 +26,13 @@
   <link rel="stylesheet" href="/assets/plugins/intlTelInput/build/css/countrySelect.css">
   <link rel="stylesheet" href="/assets/plugins/intlTelInput/build/css/demo.css">
 
+  <style media="screen">
+      .alert {
+          font-family: 'Montserrat' !important;
+          font-weight: bold !important;
+      }
+  </style>
+
 </head>
 
 <body class="bg-main">
